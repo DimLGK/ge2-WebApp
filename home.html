@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tour Explorations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5LkpbrBebUMIxDsheKApRb6gI7ts91Lg&callback=initMap&libraries=&v=weekly"
+        defer></script>
+
+    <!-- Style region -->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            const uluru = { lat: -25.344, lng: 131.036 };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 90rem;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+            top: 2rem;
+        }
+    </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">Tour Explorations</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="home.html">ΑΡΧΙΚΗ</a></li>
+                    <li><a href="manage-employees.html">ΔΙΑΧΕΙΡΙΣΗ ΞΕΝΑΓΩΝ</a></li>
+                    <li><a href="recommended.html">ΠΡΟΤΕΙΝΟΜΕΝΕΣ ΔΙΑΔΡΟΜΕΣ</a></li>
+                    <li><a href="requests.html">ΑΙΤΗΜΑΤΑ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    function manageEmployees() {
+    location.replace("./manage-employees.html")
+    }
+
+    <div class="col-md-2">
+        <div class="sidenav">
+            <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
+                onclick="openForm()">
+                <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                    src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
+                Χριστίνα Βασιλειάδη</a>
+            <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#tony"
+                onclick="openForm()">
+                <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                    src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
+                Tony Chan</a>
+            <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#hasan"
+                onclick="openForm()">
+                <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                    src="https://biographicsworld.com/wp-content/uploads/2020/07/Hasan-Piker.png" />
+                Hasan Abdul</a>
+        </div>
+    </div>
+
+
+    <div id="map"></div>
+
+
+    <!-- Chat -->
+    <div class="chat-popup" id="christina">
+        <form action="/action_page.php" class="form-container">
+
+            <label for="christinamsg"><b>Μήνυμα</b></label>
+            <textarea placeholder="Type message.." name="christinamsg" required></textarea>
+
+            <button type="submit" class="btn">Αποστολή</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
+        </form>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById("christina").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("christina").style.display = "none";
+        }
+    </script>
+
+
+
+</body>
+
+</html>
