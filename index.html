@@ -11,6 +11,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+
+    <!-- Firebase JS SDK region -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+
+    <!-- Google maps region  from Maria-->
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5LkpbrBebUMIxDsheKApRb6gI7ts91Lg&callback=initMap&libraries=&v=weekly"
         defer></script>
@@ -79,12 +87,43 @@
             /* The height is 400 pixels */
             width: 100%;
             /* The width is the width of the web page */
-            top: 2rem;
+            top: -1rem;
+            right: -3rem;
         }
     </style>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <!-- Configuration Firebase -->
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
+          authDomain: "tourexploration.firebaseapp.com",
+          databaseURL: "https://tourexploration.firebaseio.com",
+          projectId: "tourexploration",
+          storageBucket: "tourexploration.appspot.com",
+          messagingSenderId: "115899410318",
+          appId: "1:115899410318:web:49b5df20824212d6d6a6df",
+          measurementId: "G-EMZ6NWJ72Y"
+        };
+  
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+  
+        // var markersRef = firebase.database().ref('markers'); 
+        // markersRef.on('value', snapshot => {
+        //   snapshot.forEach(function(childSnapshot) {
+        //     var childData = childSnapshot.val();
+            
+        //   });     
+        });
+      </script>
+
+
+
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -107,29 +146,34 @@
         </div>
     </nav>
 
-    <div class="col-md-2">
-        <div class="sidenav">
-            <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
-                onclick="openForm()">
-                <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
-                    src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
-                Χριστίνα Βασιλειάδη</a>
-            <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#tony"
-                onclick="openForm()">
-                <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
-                    src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
-                Tony Chan</a>
-            <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#hasan"
-                onclick="openForm()">
-                <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
-                    src="https://biographicsworld.com/wp-content/uploads/2020/07/Hasan-Piker.png" />
-                Hasan Abdul</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-lg-3">
+            <div class="sidenav">
+                <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
+                    onclick="openForm()">
+                    <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                        src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
+                    Χριστίνα Βασιλειάδη</a>
+                <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#tony"
+                    onclick="openForm()">
+                    <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                        src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
+                    Tony Chan</a>
+                <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#hasan"
+                    onclick="openForm()">
+                    <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                        src="https://biographicsworld.com/wp-content/uploads/2020/07/Hasan-Piker.png" />
+                    Hasan Abdul</a>
+            </div>
         </div>
-    </div>
 
 
-    <div id="map"></div>
+        <!-- <div id="map" class="col-sm-9"></div> -->
+        <div class="col-sm-9 col-lg-9" style="border: 0em; background-color: aquamarine;">ssdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgdsfgsdfgds</div>
+    </div>  <!-- End of Row -->
 
+</div> <!-- End of Container-fluid -->
 
     <!-- Chat -->
     <div class="chat-popup" id="christina">
