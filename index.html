@@ -1,60 +1,204 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
+    <title>Tour Explorations</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tour Exploration</title>
-
-    <!-- Firebase JS SDK region -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
-
-    <!-- Google maps region -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5LkpbrBebUMIxDsheKApRb6gI7ts91Lg&callback=initMap&libraries=&v=weekly"
-      defer></script>
-
-
-    <!-- Bootstrap region -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+
+    <!-- Firebase JS SDK region -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+
+    <!-- Google maps region  from Maria-->
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5LkpbrBebUMIxDsheKApRb6gI7ts91Lg&callback=initMap&libraries=&v=weekly"
+        defer></script>
+
     <!-- Style region -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
 
-    <!-- JavaScript region -->
-    <script src="./index.js"></script>
-  </head>
-  <body>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            const uluru = { lat: 40.627470, lng: 22.948031 };
+            // Θεσσαλονίκη 40.62747036455369, 22.948031967600077
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
 
+
+        // Markers:
+        // Καμάρα                       40.63241, 22.95171
+        // Λευκός Πύργος                40.62679, 22.94845
+        // Πύργος Τριγωνίου             40.64083, 22.96018
+        // Αγιος Δημήτριος              40.63901, 22.94786
+        // Ρωμαϊκής Αγοράς              40.63758, 22.94646
+        // Αγια Σοφία                   40.63302, 22.94702
+        // Ναός Αγιου Παντελεημονα      40.63335, 22.95121
+        // Ναός 12 Αποστόλων            40.64297, 22.93753
+        // Δυτικά Τείχη                 40.64401, 22.93735
+        // Πλανητάριο                   40.56725, 22.98239
+        // Μονή Βλατάδων                40.64196, 22.95450
+        // ΔΕΘ                          40.62807, 22.95476
+        // Ιερά Μονή Σουρωτής (Παισίου) 40.47511, 23.07132
+        // Κυβερνείο (Παλατάκι)         40.58371, 22.93637
+        // Μουσείο Σιδηροδρόμου         40.66704, 22.89186
+        // Μουσείο Υδρευσης             40.64595, 22.91404
+        // Μεγαρο Μουσικής              40.59846, 22.94857
+        // Βασιλικό Θέατρο              40.62564, 22.94955
+        // Βυζαντινό Μουσείο            40.62395, 22.95505
+        // Πύργος Αναγλύφου             40.63935, 22.93376
+        // Δοικητήριο                   40.64090, 22.94424
+        // Πολεμικό Μουσείο             40.62443, 22.95954
+        // Βεργίνα                      40.48818, 22.31589
+        // Ιαματικά Λουτρά Λαγκαδά      40.73454, 23.08479
+        // Μουσείο Φωτογραφίας          40.63305, 22.93545
+        // Ιερά Μονη Αγιας Θεοδώρας     40.63454, 22.94358
+        // Εβραικό Μουσείο              40.63563, 22.93922
+        // Αρχαιολογικό Μουσείο         40.62584, 22.95403
+        // Τουρκικο Προξενειο           40.63580, 22.95399
+        // Παναγια Χαλκέων              40.63718, 22.94371
+        // Αγια Αικατερίνη              40.64332, 22.94429
+        // Μητρόπολη Θεσσαλονίκης       40.63478, 22.94529 
+    </script>
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 90rem;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+            top: -1rem;
+            right: -3rem;
+        }
+    </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <!-- Configuration Firebase -->
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
+          authDomain: "tourexploration.firebaseapp.com",
+          databaseURL: "https://tourexploration.firebaseio.com",
+          projectId: "tourexploration",
+          storageBucket: "tourexploration.appspot.com",
+          messagingSenderId: "115899410318",
+          appId: "1:115899410318:web:49b5df20824212d6d6a6df",
+          measurementId: "G-EMZ6NWJ72Y"
+        };
+  
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+  
+        // var markersRef = firebase.database().ref('markers'); 
+        // markersRef.on('value', snapshot => {
+        //   snapshot.forEach(function(childSnapshot) {
+        //     var childData = childSnapshot.val();
+            
+        //   });     
+        });
+      </script>
+
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">Tour Explorations</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">ΑΡΧΙΚΗ</a></li>
+                    <li><a href="manage-employees.html">ΔΙΑΧΕΙΡΙΣΗ ΞΕΝΑΓΩΝ</a></li>
+                    <li><a href="recommended.html">ΠΡΟΤΕΙΝΟΜΕΝΕΣ ΔΙΑΔΡΟΜΕΣ</a></li>
+                    <li><a href="requests.html">ΑΙΤΗΜΑΤΑ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-lg-3">
+            <div class="sidenav">
+                <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
+                    onclick="openForm()">
+                    <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                        src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
+                    Χριστίνα Βασιλειάδη</a>
+                <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#tony"
+                    onclick="openForm()">
+                    <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                        src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
+                    Tony Chan</a>
+                <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#hasan"
+                    onclick="openForm()">
+                    <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+                        src="https://biographicsworld.com/wp-content/uploads/2020/07/Hasan-Piker.png" />
+                    Hasan Abdul</a>
+            </div>
+        </div>
+
+
+        <!-- <div id="map" class="col-sm-9"></div> -->
+        <div class="col-sm-9 col-lg-9" style="border: 0em; background-color: aquamarine;">ssdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgdsfgsdfgds</div>
+    </div>  <!-- End of Row -->
+
+</div> <!-- End of Container-fluid -->
+
+    <!-- Chat -->
+    <div class="chat-popup" id="christina">
+        <form action="/action_page.php" class="form-container">
+
+            <label for="christinamsg"><b>Μήνυμα</b></label>
+            <textarea placeholder="Type message.." name="christinamsg" required></textarea>
+
+            <button type="submit" class="btn">Αποστολή</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
+        </form>
+    </div>
 
     <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
-        authDomain: "tourexploration.firebaseapp.com",
-        databaseURL: "https://tourexploration.firebaseio.com",
-        projectId: "tourexploration",
-        storageBucket: "tourexploration.appspot.com",
-        messagingSenderId: "115899410318",
-        appId: "1:115899410318:web:49b5df20824212d6d6a6df",
-        measurementId: "G-EMZ6NWJ72Y"
-      };
+        function openForm() {
+            document.getElementById("christina").style.display = "block";
+        }
 
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-
-      // var markersRef = firebase.database().ref('markers'); 
-      // markersRef.on('value', snapshot => {
-      //   snapshot.forEach(function(childSnapshot) {
-      //     var childData = childSnapshot.val();
-          
-      //   });     
-      });
+        function closeForm() {
+            document.getElementById("christina").style.display = "none";
+        }
     </script>
-  </body>
+
+
+
+</body>
+
 </html>
