@@ -28,6 +28,14 @@ body {
       height: 50%;
     }
 
+    #map {
+      height: 90rem;
+      width: 161rem;
+      top: -1rem;
+      right: -26rem;
+      position: relative;
+    }
+
     .container-fluid {
       padding: 60px 50px;
     }
@@ -160,7 +168,7 @@ body {
 
     .sidenav {
       height: 100%;
-      width: 17.5%;
+      width: 30rem;
       position: fixed;
       z-index: 1;
       top: 3rem;

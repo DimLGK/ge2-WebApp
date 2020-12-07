@@ -11,9 +11,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- Firebase JS SDK region -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+  <!-- Firebase JS SDK region -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 
   <!-- Style region -->
   <link rel="stylesheet" type="text/css" href="./style.css" />
@@ -21,34 +21,81 @@
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-    <!-- Configuration Firebase -->
-    <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
-        authDomain: "tourexploration.firebaseapp.com",
-        databaseURL: "https://tourexploration.firebaseio.com",
-        projectId: "tourexploration",
-        storageBucket: "tourexploration.appspot.com",
-        messagingSenderId: "115899410318",
-        appId: "1:115899410318:web:49b5df20824212d6d6a6df",
-        measurementId: "G-EMZ6NWJ72Y"
-      };
+  <!-- Configuration Firebase -->
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
+      authDomain: "tourexploration.firebaseapp.com",
+      databaseURL: "https://tourexploration.firebaseio.com",
+      projectId: "tourexploration",
+      storageBucket: "tourexploration.appspot.com",
+      messagingSenderId: "115899410318",
+      appId: "1:115899410318:web:49b5df20824212d6d6a6df",
+      measurementId: "G-EMZ6NWJ72Y"
+    };
 
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-      // var markersRef = firebase.database().ref('markers'); 
-      // markersRef.on('value', snapshot => {
-      //   snapshot.forEach(function(childSnapshot) {
-      //     var childData = childSnapshot.val();
-          
-      //   });     
-      // });
-    </script>
+    // var markersRef = firebase.database().ref('markers'); 
+    // markersRef.on('value', snapshot => {
+    //   snapshot.forEach(function(childSnapshot) {
+    //     var childData = childSnapshot.val();
 
-  
+    //   });     
+    // });
+
+    $(document).ready(function () {
+      var guidesData = [
+        {
+          "name": "Χριστίνα Βασιλειάδη",
+          "specialization": "Πινακοθήκες, Αρχαιολογικοί χώροι",
+          "languages": "Ελληνικά, Αγγλικά, Γερμανικά",
+          "occupation": "Κοινωνιολόγος",
+          "payment": "15 ευρώ/ώρα"
+        },
+        {
+          "name": "Hasan Abdul",
+          "specialization": "Θρησκευτικά μνημεία, Αρχαιολογικοί χώροι",
+          "languages": "Αραβικά, Αγγλικά",
+          "occupation": "Ιστορικός",
+          "payment": "15 ευρώ/ώρα"
+        },
+        {
+          "name": "Tony Chan",
+          "specialization": "Τεχνολογικά μουσεία, Πινακοθήκες",
+          "languages": "Αγγλικά, Κινέζικα",
+          "occupation": "Προγραμματιστής",
+          "payment": "75 ευρώ/ώρα"
+        }
+      ];
+
+      var tr;
+      for (var i = 0; i < guidesData.length; i++) {
+        tr = $('<tr id="i"/>');
+        tr.append("<td>" + guidesData[i].name + "</td>");
+        tr.append("<td>" + guidesData[i].specialization + "</td>");
+        tr.append("<td>" + guidesData[i].languages + "</td>");
+        tr.append("<td>" + guidesData[i].occupation + "</td>");
+        tr.append("<td>" + guidesData[i].payment + "</td>");
+        tr.append("<td>" + "<button " + "type=" + "button " + "class=" + "btn btn-danger" + " onclick=" + "deleteRow(" + i + ")" + ">X</button>" + "</td>");
+        $('table').append(tr);
+      }
+    });
+
+
+    var pmData = [
+      {
+        "name": "Χριστίνα Βασιλειάδη",
+        "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
+      }
+    ];
+
+  </script>
+
+
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -90,7 +137,7 @@
 
   <div class="col-md-10" style="top: 7rem;">
     <div class="">
-      <table class="table table-striped table-hover">
+      <table id="guidesTable" class="table table-striped table-hover">
         <thead>
           <tr>
             <th>Ονοματεπώνυμο</th>
@@ -102,15 +149,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Χριστίνα Βασιλειάδη</td>
-            <td>Πινακοθήκες, Αρχαιολογικοί χώροι</td>
-            <td>Ελληνικά, Αγγλικά, Γερμανικά</td>
-            <td>Κοινωνιολόγος</td>
-            <td>15 ευρώ/ώρα</td>
-            <td><button type="button" class="btn btn-danger" onclick="closeForm()">X</button></td>
-          </tr>
-          <tr>
+          <!-- <tr>
             <td>Hasan Abdul</td>
             <td>Θρησκευτικά μνημεία, Αρχαιολογικοί χώροι</td>
             <td>Αραβικά, Αγγλικά</td>
@@ -125,7 +164,7 @@
             <td>Προγραμματιστής</td>
             <td>75 ευρώ/ώρα</td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRow()">X</button></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
@@ -182,7 +221,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Προσθήκη</button>
+      <button id="but1" type="button" class="btn btn-primary" onclick="newEmployee()">Προσθήκη</button>
       <button type="button" class="btn cancel" onclick="closeNewEmployee()">Κλείσιμο</button>
     </form>
   </div>
@@ -196,17 +235,41 @@
       document.getElementById("chat").style.display = "none";
     }
 
-    function deleteRow() {
-      document.getElementById("christina").style.clear = "row";
+    function deleteRow(i) {
+      document.querySelector('table').deleteRow(i + 1);
     }
 
     function newEmployee() {
       document.getElementById("employeeForm").style.display = "block";
+      var name = (document.getElementById('name')).value;
+      var specialization = (document.getElementById('specialization')).value;
+      var languages = (document.getElementById('languages')).value;
+      var occupation = (document.getElementById('occupation')).value;
+      var payment = (document.getElementById('payment')).value;
+      console.log(name);
     }
 
     function closeNewEmployee() {
       document.getElementById("employeeForm").style.display = "none";
     }
+
+    var name = (document.getElementById('name')).value;
+    var specialization = (document.getElementById('specialization')).value;
+    var languages = (document.getElementById('languages')).value;
+    var occupation = (document.getElementById('occupation')).value;
+    var payment = (document.getElementById('payment')).value;
+
+    document.getElementById('but1').onclick = function () {
+      console.log((document.getElementById('specialization')).value);
+      guidesData.push(name, specialization, languages, occupation, payment);
+      $(document).ready(function () {
+
+        tr.append("<td>" + guidesData.name + "</td>");
+        $('table').append(tr);
+
+      });
+
+    };
   </script>
 
 
