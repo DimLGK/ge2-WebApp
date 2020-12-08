@@ -25,6 +25,5 @@ function deleteGuideFromDb(guideId) {
 function updateDb(uid, guide) {
   var updates = {};
   updates['/guides/' + uid] = guide;
-  //console.log(updates);
   return firebase.database().ref().update(updates);
 }
