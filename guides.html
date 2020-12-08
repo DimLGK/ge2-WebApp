@@ -54,13 +54,20 @@
           tr.append("<td>" + childData.occupation + "</td>");
           tr.append("<td>" + childData.payment + "</td>");
           tr.append('<td><button type="button" class="btn btn-danger" onclick="deleteGuideFromDb(\'' + childData.uid + '\')">X</button></td>');
-          $('table').html(tr);
+          $('table').append(tr);
        });     
      });
     });
     
     function clearTableContents() {
-      $("table").children().remove()
+      //$("table").children().remove()
+      var elmtTable = document.getElementById('table');
+      var tableRows = elmtTable.getElementsByTagName('tr');
+      var rowCount = tableRows.length;
+
+      for (var x=rowCount-1; x>0; x--) {
+        elmtTable.removeChild(tableRows[x]);
+      }
     }
 
     // Reminder for chat Popup
