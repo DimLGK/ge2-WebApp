@@ -221,11 +221,11 @@
     function addGuide() {
       var name = (document.getElementById('name')).value;
       //var specialization = (document.getElementById('specialization')).value;
-      //var languages = (document.getElementById('languages')).value;
-      //var occupation = (document.getElementById('occupation')).value;
-      //var payment = (document.getElementById('payment')).value;
-      //console.log(name + " " + specialization + " " + languages + " " + occupation + " " + payment + "\n");
-      console.log(name);
+      var languages = (document.getElementById('languages')).value;
+      var occupation = (document.getElementById('occupation')).value;
+      var payment = (document.getElementById('payment')).value;
+      console.log(name + " " + specialization + " " + languages + " " + occupation + " " + payment + "\n");
+      console.log(name + " " + languages + " " + occupation + " " + payment + "\n");
       closeAddGuideForm();
     }
 
