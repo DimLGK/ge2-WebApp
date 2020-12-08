@@ -43,7 +43,7 @@
     $(document).ready(function () {
       var markersRef = firebase.database().ref('guides'); 
       markersRef.on('value', snapshot => {
-        //$("#table").remove();
+        clearTableContents();
         snapshot.forEach(function(childSnapshot) {
           var childData = childSnapshot.val();
 
@@ -58,6 +58,16 @@
        });     
      });
     });
+    
+    function clearTableContents() {
+      var table = document.getElementById('table');
+      var tableRows = table.getElementsByTagName('tr');
+      var rowCount = tableRows.length;
+
+      for (var x=rowCount-1; x>0; x--) {
+        table.removeChild(tableRows[x]);  
+      }
+    }
 
     // Reminder for chat Popup
     var pmData = [
