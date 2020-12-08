@@ -44,7 +44,7 @@
     $(document).ready(function () {
       var markersRef = firebase.database().ref('guides'); 
       markersRef.on('value', snapshot => {
-        $('table').remove();
+        $('table').empty();
         snapshot.forEach(function(childSnapshot) {
           var childData = childSnapshot.val();
 
