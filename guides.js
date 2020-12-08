@@ -1,5 +1,5 @@
 // Configuration Firebase
-    var firebaseConfig = {
+var firebaseConfig = {
       apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
       authDomain: "tourexploration.firebaseapp.com",
       databaseURL: "https://tourexploration.firebaseio.com",
@@ -8,13 +8,13 @@
       messagingSenderId: "115899410318",
       appId: "1:115899410318:web:49b5df20824212d6d6a6df",
       measurementId: "G-EMZ6NWJ72Y"
-    };
+};
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
    
-    // Populate table body with guides
-    $(document).ready(function () {
+// Populate table body with guides
+$(document).ready(function () {
       var markersRef = firebase.database().ref('guides'); 
       markersRef.on('value', snapshot => {
         clearTableContents();
@@ -31,40 +31,32 @@
           $('table').append(tr);
        });     
      });
-    });
+});
     
-    function clearTableContents() {
+function clearTableContents() {
       var node = document.getElementById("tablebody");
       while (node.hasChildNodes()) {
         node.removeChild(node.lastChild);
       }
-    }
-
-    // Reminder for chat Popup
-    var pmData = [
-      {
-        "name": "Χριστίνα Βασιλειάδη",
-        "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
-      }
-    ];
+}
     
-        // Open Chat Popup
-    function showChat() {
+// Open Chat Popup
+function showChat() {
       document.getElementById("chat").style.display = "block";
-    }
+}
 
-    // Close Chat Popup
-    function closeChat() {
+// Close Chat Popup
+function closeChat() {
       document.getElementById("chat").style.display = "none";
-    }
+}
 
-    // Open Add Guide Form
-    function showAddGuideForm() {
+// Open Add Guide Form
+function showAddGuideForm() {
       document.getElementById("employeeForm").style.display = "block";
-    }
+}
     
-    // Add the Guide to Db
-    function addGuide() {
+// Add the Guide to Db
+function addGuide() {
       var name = (document.getElementById('name')).value;
       var specialization = (document.getElementById('specialization')).value;
       var languages = (document.getElementById('languages')).value;
@@ -73,9 +65,17 @@
       console.log(name + " " + specialization + " " + languages + " " + occupation + " " + payment + "\n");
       saveGuideToDb(name, payment, 10, occupation, languages, specialization);
       closeAddGuideForm();
-    }
+}
 
-    // Close the Popup Add Guide Form
-    function closeAddGuideForm() {
+// Close the Popup Add Guide Form
+function closeAddGuideForm() {
       document.getElementById("employeeForm").style.display = "none";
-    }
+}
+
+// Reminder for chat Popup - NOT WORKING YET
+var pmData = [
+      {
+        "name": "Χριστίνα Βασιλειάδη",
+        "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
+      }
+];
