@@ -60,9 +60,9 @@
     });
     
     function clearTableContents() {
-      var tableBody = document.getElementById("tablebody");
-      while (tableBody.hasChildNodes()) {
-        tableBody.removeChild(node.lastChild);
+      var node = document.getElementById("tablebody");
+      while (node.hasChildNodes()) {
+        node.removeChild(node.lastChild);
       }
     }
 
