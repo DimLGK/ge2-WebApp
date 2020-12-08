@@ -40,7 +40,7 @@
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
+    
     // var markersRef = firebase.database().ref('markers'); 
     // markersRef.on('value', snapshot => {
     //   snapshot.forEach(function(childSnapshot) {
@@ -76,6 +76,16 @@
 
       var tr;
       for (var i = 0; i < guidesData.length; i++) {
+        
+       saveGuideToDb(
+         guidesData[i].name, 
+         guidesData[i].payment, 
+         10, 
+         guidesData[i].occupation
+         guidesData[i].languages, 
+         guidesData[i].specialization
+       );
+        
         tr = $('<tr id="i"/>');
         tr.append("<td>" + guidesData[i].name + "</td>");
         tr.append("<td>" + guidesData[i].specialization + "</td>");
