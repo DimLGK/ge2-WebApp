@@ -61,13 +61,14 @@
     
     function clearTableContents() {
       //$("table").children().remove()
-      var elmtTable = document.getElementById('table');
-      var tableRows = elmtTable.getElementsByTagName('tr');
-      var rowCount = tableRows.length;
-
-      for (var x=rowCount-1; x>0; x--) {
-        elmtTable.removeChild(tableRows[x]);
-      }
+      $("tablebody").children().remove()
+//       var tableBody = document.getElementById('tablebody');
+//       var tableRows = tableBody.getElementsByTagName('tr');
+//       var rowCount = tableRows.length;
+// tableBody.delete
+//       for (var x=rowCount-1; x>0; x--) {
+//         elmtTable.removeChild(tableRows[x]);
+//       }
     }
 
     // Reminder for chat Popup
@@ -136,7 +137,7 @@
             <th></th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="tablebody"></tbody>
       </table>
     </div>
 
