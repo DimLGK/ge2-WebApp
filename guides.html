@@ -47,7 +47,7 @@
         snapshot.forEach(function(childSnapshot) {
           var childData = childSnapshot.val();
 
-          tr = $('<tr id="i"/>');
+          tr = $('<tr id=childData.uid/>');
           tr.append("<td>" + childData.name + "</td>");
           tr.append("<td>" + childData.specialization + "</td>");
           tr.append("<td>" + childData.languages + "</td>");
