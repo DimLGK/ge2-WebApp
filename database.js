@@ -1,17 +1,17 @@
 // Firebase region
 
-function saveGuideToDb(first, last, payrate, rating, languages, specialization) {
+function saveGuideToDb(name, payrate, rating, occupation, languages, specialization) {
   var guideId = firebase.database().ref().child('guides').push().key;
-  updateGuide(guideId, first, last, payrate, rating, languages, specialization);
+  updateGuide(guideId, name, payrate, rating, occupation, languages, specialization);
 }
 
-function updateGuide(guideId, first, last, payrate, rating, languages, specialization) {
+function updateGuide(guideId, name, payrate, rating, occupation, languages, specialization) {
   var guide = {
     uid: guideId,
-    first_name: first,
-    last_name: last,
+    name: name,
     payrate: payrate,
     rating: rating,
+    occupation: occupation,
     languages: languages,
     specialization: specialization
   };
