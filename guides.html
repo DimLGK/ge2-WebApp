@@ -60,13 +60,10 @@
     });
     
     function clearTableContents() {
-      var table = document.getElementById('table');
-      var tableRows = table.getElementsByTagName('tr');
+      var myTable = document.getElementById('table');
+      var tableRows = myTable.getElementsByTagName('tr');
       var rowCount = tableRows.length;
-
-      for (var x=rowCount-1; x==0; x--) {
-        table.removeChild(tableRows[x]);  
-      }
+      myTable.deleteRow(rowCount);
     }
 
     // Reminder for chat Popup
