@@ -19,6 +19,7 @@ function updateGuide(guideId, name, payrate, rating, occupation, languages, spec
 }
 
 function deleteGuideFromDb(guideId) {
+  console.log("inside deleteGuide");
   updateDb(guideId, null);
 }
 
