@@ -19,14 +19,12 @@ function updateGuide(guideId, name, payrate, rating, occupation, languages, spec
 }
 
 function deleteGuideFromDb(guideId) {
-  console.log("inside deleteGuideFromDb");
   updateDb(guideId, null);
 }
 
 function updateDb(uid, guide) {
-  console.log("inside updateDb");
   var updates = {};
   updates['/guides/' + uid] = guide;
-  console.log(updates);
-  //return firebase.database().ref().update(updates);
+  //console.log(updates);
+  return firebase.database().ref().update(updates);
 }
