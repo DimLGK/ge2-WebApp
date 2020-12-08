@@ -40,63 +40,24 @@
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    
-    // var markersRef = firebase.database().ref('markers'); 
-    // markersRef.on('value', snapshot => {
-    //   snapshot.forEach(function(childSnapshot) {
-    //     var childData = childSnapshot.val();
-
-    //   });     
-    // });
-
+   
     $(document).ready(function () {
-      var guidesData = [
-        {
-          "name": "Χριστίνα Βασιλειάδη",
-          "specialization": "Πινακοθήκες, Αρχαιολογικοί χώροι",
-          "languages": "Ελληνικά, Αγγλικά, Γερμανικά",
-          "occupation": "Κοινωνιολόγος",
-          "payment": "15 ευρώ/ώρα"
-        },
-        {
-          "name": "Hasan Abdul",
-          "specialization": "Θρησκευτικά μνημεία, Αρχαιολογικοί χώροι",
-          "languages": "Αραβικά, Αγγλικά",
-          "occupation": "Ιστορικός",
-          "payment": "15 ευρώ/ώρα"
-        },
-        {
-          "name": "Tony Chan",
-          "specialization": "Τεχνολογικά μουσεία, Πινακοθήκες",
-          "languages": "Αγγλικά, Κινέζικα",
-          "occupation": "Προγραμματιστής",
-          "payment": "75 ευρώ/ώρα"
-        }
-      ];
+      var markersRef = firebase.database().ref('guides'); 
+      markersRef.on('value', snapshot => {
+        snapshot.forEach(function(childSnapshot) {
+          var childData = childSnapshot.val();
 
-      var tr;
-      for (var i = 0; i < guidesData.length; i++) {
-        
-       saveGuideToDb(
-         guidesData[i].name, 
-         guidesData[i].payment, 
-         10, 
-         guidesData[i].occupation,
-         guidesData[i].languages, 
-         guidesData[i].specialization
-       );
-        
-        tr = $('<tr id="i"/>');
-        tr.append("<td>" + guidesData[i].name + "</td>");
-        tr.append("<td>" + guidesData[i].specialization + "</td>");
-        tr.append("<td>" + guidesData[i].languages + "</td>");
-        tr.append("<td>" + guidesData[i].occupation + "</td>");
-        tr.append("<td>" + guidesData[i].payment + "</td>");
-        tr.append("<td>" + "<button " + "type=" + "button " + "class=" + "btn btn-danger" + " onclick=" + "deleteRow(" + i + ")" + ">X</button>" + "</td>");
-        $('table').append(tr);
-      }
+          tr = $('<tr id="i"/>');
+          tr.append("<td>" + childData.name + "</td>");
+          tr.append("<td>" + childData.specialization + "</td>");
+          tr.append("<td>" + childData.languages + "</td>");
+          tr.append("<td>" + childData.occupation + "</td>");
+          tr.append("<td>" + childData.payment + "</td>");
+          tr.append("<td>" + "<button " + "type=" + "button " + "class=" + "btn btn-danger" + " onclick=" + "deleteRow(" + i + ")" + ">X</button>" + "</td>");
+          $('table').append(tr);
+       });     
+     });
     });
-
 
     var pmData = [
       {
