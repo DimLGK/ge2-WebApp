@@ -144,7 +144,7 @@
       </table>
     </div>
 
-    <button class="open-button" style="position: fixed; bottom: 23px; right: 28px;" onclick="newEmployee()">Προσθήκη
+    <button class="open-button" style="position: fixed; bottom: 23px; right: 28px;" onclick="showAddGuideForm()">Προσθήκη
       νέου ξεναγού</button>
 
   </div>
@@ -153,7 +153,7 @@
   <div class="modal"
     style="display: none; position: absolute; width: 40rem; bottom: 0; left: 0; border: 3px solid #f1f1f1; z-index: 9;"
     id="employeeForm">
-    <form action="/action_page.php" class="form-container">
+    <form class="form-container">
 
       <label for="employeeForm"><b>Προσθήκη νέου ξεναγού</b></label>
 
@@ -184,8 +184,8 @@
         </div>
       </div>
 
-      <button id="but1" type="button" class="btn btn-primary" onclick="newEmployee()">Προσθήκη</button>
-      <button type="button" class="btn cancel" onclick="closeNewEmployee()">Κλείσιμο</button>
+      <button id="but1" type="button" class="btn btn-primary" onclick="addGuide()">Προσθήκη</button>
+      <button type="button" class="btn cancel" onclick="closeAddGuideForm()">Κλείσιμο</button>
     </form>
   </div>
 
@@ -202,26 +202,35 @@
   </div>
   
   <script>
+    // Open Chat Popup
     function openForm() {
       document.getElementById("chat").style.display = "block";
     }
 
+    // Close Chat Popup
     function closeForm() {
       document.getElementById("chat").style.display = "none";
     }
 
-    function newEmployee() {
+    // Open Add Guide Form
+    function showAddGuideForm() {
       document.getElementById("employeeForm").style.display = "block";
+    }
+    
+    // Add the Guide to Db
+    function addGuide() {
       //document.getElementById("employeeForm").style.display = "block";
-      //var name = (document.getElementById('name')).value;
-      //var specialization = (document.getElementById('specialization')).value;
-      //var languages = (document.getElementById('languages')).value;
-      //var occupation = (document.getElementById('occupation')).value;
-      //var payment = (document.getElementById('payment')).value;
-      //console.log(name);
+      var name = (document.getElementById('name')).value;
+      var specialization = (document.getElementById('specialization')).value;
+      var languages = (document.getElementById('languages')).value;
+      var occupation = (document.getElementById('occupation')).value;
+      var payment = (document.getElementById('payment')).value;
+      console.log(name + " " + specialization + " " + languages + " " + occupation + " " + payment + "\n");
+      closeAddGuideForm();
     }
 
-    function closeNewEmployee() {
+    // Close the Popup Add Guide Form
+    function closeAddGuideForm() {
       document.getElementById("employeeForm").style.display = "none";
     }
 
