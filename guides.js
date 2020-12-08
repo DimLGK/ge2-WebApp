@@ -72,6 +72,39 @@ function closeAddGuideForm() {
       document.getElementById("employeeForm").style.display = "none";
 }
 
+// Save a new Guide to DB
+function saveGuideToDb(name, payrate, rating, occupation, languages, specialization) {
+  var guideId = firebase.database().ref().child('guides').push().key;
+  updateGuide(guideId, name, payrate, rating, occupation, languages, specialization);
+}
+
+// Update the Database View
+function updateGuide(guideId, name, payrate, rating, occupation, languages, specialization) {
+  var guide = {
+    uid: guideId,
+    name: name,
+    payrate: payrate,
+    rating: rating,
+    occupation: occupation,
+    languages: languages,
+    specialization: specialization
+  };
+  updateDb(guideId, guide);
+}
+
+// Delete a Guide from DB and update
+function deleteGuideFromDb(guideId) {
+  updateDb(guideId, null);
+}
+
+// Live Update of Database
+function updateDb(uid, guide) {
+  var updates = {};
+  updates['/guides/' + uid] = guide;
+  return firebase.database().ref().update(updates);
+}
+
+
 // Reminder for chat Popup - NOT WORKING YET
 var pmData = [
       {
