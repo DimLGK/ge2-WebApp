@@ -149,17 +149,7 @@
 
   </div>
 
-  <!-- Chat -->
-  <div class="chat-popup" id="chat">
-    <form action="/action_page.php" class="form-container">
 
-      <label for="msg"><b>Μήνυμα</b></label>
-      <textarea placeholder="Type message.." name="msg" required></textarea>
-
-      <button type="submit" class="btn">Αποστολή</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
-    </form>
-  </div>
 
   <!-- Employee Form -->
   <div class="modal"
@@ -201,6 +191,18 @@
     </form>
   </div>
 
+    <!-- Chat -->
+  <div class="chat-popup" id="chat">
+    <form action="/action_page.php" class="form-container">
+
+      <label for="msg"><b>Μήνυμα</b></label>
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+
+      <button type="submit" class="btn">Αποστολή</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
+    </form>
+  </div>
+  
   <script>
     function openForm() {
       document.getElementById("chat").style.display = "block";
