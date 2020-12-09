@@ -127,7 +127,7 @@
             </div>
 
             <div class="col-md-10">
-                <div id="map" style="height: 48rem;"></div>
+                <div id="map" style="height: 42rem;"></div>
 
 
                 <script>
@@ -165,43 +165,46 @@
 
 
                 <!-- Tour Section -->
-                <div class="container-fluid" style="right: 0rem; position: relative;">
+                <div style="left: 5rem; position: relative;">
                     <div id="tours" class="row text-center">
                         <div class="col-md-4">
-                            <div id="tour1" class="thumbnail" >
-                                <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100">
+                            <div id="tour1" class="thumbnail">
+                                <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100"
+                                    onclick="showSites(arxGroup)">
 
                                 <div class="hilight">
                                     <p><strong>Αρχαιολογικοί χώροι</strong></p>
                                 </div>
-
-                                <button class="btn btn-default" data-toggle="modal" data-target="#myModal"
-                                    onclick="showSites(arxGroup)">Προβολή στο χάρτη</button>
+                                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                                    onclick="deleteRoute1()">Διαγραφή διαδρομής</button>
                             </div>
+
                         </div>
                         <div class="col-md-4">
-                            <div id="tour2" class="thumbnail" >
-                                <img src="./pic/adDim.jpg" alt="New York" width="200" height="100">
+                            <div id="tour2" class="thumbnail">
+                                <img src="./pic/adDim.jpg" alt="New York" width="200" height="100"
+                                    onclick="showSites(byzGroup)">
 
                                 <div class="hilight">
                                     <p><strong>Βυζαντινά μημεία</strong></p>
                                 </div>
-
-                                <button class="btn btn-default" data-toggle="modal" data-target="#myModal"
-                                    onclick="showSites(byzGroup)">Προβολή στο χάρτη</button>
+                                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                                    onclick="deleteRoute2()">Διαγραφή διαδρομής</button>
                             </div>
+
                         </div>
                         <div class="col-md-4">
-                            <div id="tour3" class="thumbnail" >
-                                <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100">
+                            <div id="tour3" class="thumbnail">
+                                <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100"
+                                    onclick="showSites(texGroup)">
 
                                 <div class="hilight">
                                     <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
                                 </div>
-
-                                <button class="btn btn-default" data-toggle="modal" data-target="#myModal"
-                                    onclick="showSites(texGroup)">Προβολή στο χάρτη</button>
+                                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                                    onclick="deleteRoute3()">Διαγραφή διαδρομής</button>
                             </div>
+
                         </div>
                     </div>
                 </div>

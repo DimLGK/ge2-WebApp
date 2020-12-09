@@ -103,6 +103,20 @@ var technologicalSitesData = [
     }
 ];
 
+
+function deleteRoute1() {
+    document.getElementById("tour1").style.display = "none";
+}
+
+function deleteRoute2() {
+    document.getElementById("tour2").style.display = "none";
+}
+
+function deleteRoute3() {
+    document.getElementById("tour3").style.display = "none";
+}
+
+
 //         var pmData = [
 //             {
 //                 "name": "Χριστίνα Βασιλειάδη",

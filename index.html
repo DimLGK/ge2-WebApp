@@ -21,16 +21,16 @@
     <!-- Load Leaflet from CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
+        crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
 
-  <!-- Load Esri Leaflet from CDN -->
+    <!-- Load Esri Leaflet from CDN -->
     <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
         integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
         crossorigin=""></script>
-    
+
     <!-- Style region -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
 
@@ -48,22 +48,22 @@
                 "guide": "Hasan Adbul"
             },
             {
-                
-                "lat": "40.6421290045795", 
+
+                "lat": "40.6421290045795",
                 "long": "22.95440936389948",
                 "guide": "Χριστινα Βασιλειάδη"
-                
+
             }
         ];
-        
-          var guideIcon = L.icon({
-               iconUrl: './pic/marker_car.png',
-               iconSize:     [38, 38], // size of the icon
-               iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-               popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-          });
+
+        var guideIcon = L.icon({
+            iconUrl: './pic/marker_car.png',
+            iconSize: [38, 38], // size of the icon
+            iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+            popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+        });
     </script>
-    
+
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -90,7 +90,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-md-2">
                 <div class="sidenav">
                     <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
                         onclick="openForm()">
@@ -110,24 +110,25 @@
                 </div>
             </div>
 
+            <div class="col-md-10">
+                <div id="map">
 
-                     <div id="map" class="col-sm-8">
+                    <script>
+                        // Load the map with Esri Leaflet
+                        var map = L.map('map').setView([40.63, 22.94], 12);
 
-                         <script>
-                                    // Load the map with Esri Leaflet
-                                    var map = L.map('map').setView([40.63, 22.94], 12);
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
 
-                                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-                                    }).addTo(map);
-                             
-                             for (var data of archeologicalSitesData) {
-                                    L.marker([data.lat, data.long], {icon: guideIcon}).addTo(map)
-                                    .bindPopup(data.guide)
-                                    .openPopup();
-                             }
-                         </script>
-                         
+                        for (var data of archeologicalSitesData) {
+                            L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
+                                .bindPopup(data.guide)
+                                .openPopup();
+                        }
+                    </script>
+
+                </div>
             </div>
             <!-- <div class="col-sm-9 col-lg-9" style="border: 0em; background-color: aquamarine;">ssdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgdsfgsdfgds</div> -->
         </div>
