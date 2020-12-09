@@ -40,14 +40,27 @@
             {
                 "lat": "40.63241",
                 "long": "22.95171",
-                "label": "Καμάρα"
+                "guide": "Tony Chan"
             },
             {
-                "lat": "40.62679",
-                "long": "22.94845",
-                "label": "Λευκός Πύργος"
+                "lat": "40.59811291217696",
+                "long": "22.948684904167063",
+                "guide": "Hasan Adbul"
+            },
+            {
+                "lat": "40.6421290045795", 
+                "long": "22.95440936389948",
+                "guide": "Χριστινα Βασιλειάδη"
+                
             }
         ];
+        
+          var guideIcon = L.icon({
+               iconUrl: './pic/marker-car.png',
+               iconSize:     [38, 95], // size of the icon
+               iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+               popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+          });
     </script>
     
 </head>
@@ -108,8 +121,8 @@
                                     }).addTo(map);
                              
                              for (var data of archeologicalSitesData) {
-                                    L.marker([data.lat, data.long]).addTo(map)
-                                    .bindPopup(data.label)
+                                    L.marker([data.lat, data.long, {icon: guideIcon}]).addTo(map)
+                                    .bindPopup(data.guide)
                                     .openPopup();
                              }
                          </script>
