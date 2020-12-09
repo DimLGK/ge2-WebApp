@@ -52,10 +52,12 @@
       <div class="col-md-2">
         <div class="sidenav">
           <a class="sidebar-link" href="#christina" onclick="showChat()">
-            <img class="sidebar-img" src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
+            <img class="sidebar-img"
+              src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
             Χριστίνα Βασιλειάδη</a>
           <a class="sidebar-link" href="#tony" onclick="showChat()">
-            <img class="sidebar-img" src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
+            <img class="sidebar-img"
+              src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
             Tony Chan</a>
           <a class="sidebar-link" href="#hasan" onclick="showChat()">
             <img class="sidebar-img" src="https://biographicsworld.com/wp-content/uploads/2020/07/Hasan-Piker.png" />
@@ -90,7 +92,7 @@
   </div>
 
   <!-- Φόρμα προσθήκης ξεναγού -->
-  <div class="modal"
+  <!-- <div class="modal"
     style="display: none; position: fixed; width: 40rem; bottom: 0; right: 0; border: 3px solid #f1f1f1; z-index: 9;"
     id="employeeForm">
     <form class="form-container">
@@ -124,7 +126,56 @@
       <button id="but1" type="button" class="btn btn-primary" onclick="addGuide()">Προσθήκη</button>
       <button type="button" class="btn cancel" onclick="closeAddGuideForm()">Κλείσιμο</button>
     </form>
+  </div> -->
+
+
+  <div id="employeeForm" class="modal modal-dialog-centered" styles="display: table-cell; vertical-align: middle; z-index: 100000;" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><b>Προσθήκη νέου ξεναγού</b></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form-container-fluid">
+            <!-- <div class="col"> -->
+            <div class="form-group">
+              <label for="name">Ονοματεπώνυμο</label>
+              <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Ονοματεπώνυμο">
+            </div>
+            <div class="form-group">
+              <label for="specialization">Ειδίκευση</label>
+              <input type="text" class="form-control" id="specialization" placeholder="Ειδίκευση">
+            </div>
+            <!-- </div> -->
+            <!-- <div class="col"> -->
+            <div class="form-group">
+              <label for="languages">Γλώσσες</label>
+              <input type="text" class="form-control" id="languages" placeholder="Γλώσσες">
+            </div>
+            <div class="form-group">
+              <label for="occupation">Επάγγελμα</label>
+              <input type="text" class="form-control" id="occupation" placeholder="Επάγγελμα">
+            </div>
+            <!-- </div> -->
+            <!-- <div class="col"> -->
+            <div class="form-group">
+              <label for="payment">Χρέωση</label>
+              <input type="text" class="form-control" id="payment" placeholder="Χρέωση">
+            </div>
+            <!-- </div> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeAddGuideForm()">Κλείσιμο</button>
+          <button type="button" class="btn btn-primary" onclick="addGuide()">Προσθήκη</button>
+        </div>
+      </div>
+    </div>
   </div>
+
 
   <!-- Φόρμα συνομιλίας με ξεναγό -->
   <div class="chat-popup" id="chat">
