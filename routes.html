@@ -69,20 +69,6 @@
                 "label": "Βεργίνα"
             }
         ];
-         
-         
-        // Load the map with Esri Leaflet
-        var map = L.map('map').setView([40.63, 22.94], 12);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-         for (var data of archeologicalSitesData) {
-            L.marker([data.lat, data.long], {draggable:'true'}).addTo(map)
-            .bindPopup(data.guide)
-            .openPopup();
-         }
     </script>
 
 
@@ -129,10 +115,21 @@
                 </div>
             </div>
 
-            <div id="map" class="col-sm-8" style="height: 48rem;">
+            <div id="map" class="col-sm-8" style="height: 48rem;"></div>
+  <script>
+            // Load the map with Esri Leaflet
+        var map = L.map('map').setView([40.63, 22.94], 12);
 
-            </div>
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
+         for (var data of archeologicalSitesData) {
+            L.marker([data.lat, data.long], {draggable:'true'}).addTo(map)
+            .bindPopup(data.guide)
+            .openPopup();
+         }
+  </script>
         </div>
 
         <!-- Tour Section -->
