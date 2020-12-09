@@ -150,24 +150,6 @@
             texGroup.addLayer(marker); 
         }
       
-        function showArxSites() {
-            map.addLayer(arxGroup);
-            map.removeLayer(byzGroup);
-            map.removeLayer(texGroup);
-        }
-
-        function showByzSites() {
-            map.addLayer(byzGroup);
-            map.removeLayer(arxGroup);
-            map.removeLayer(texGroup);
-        }
-      
-        function showTexSites() {
-            map.addLayer(texGroup);
-            map.removeLayer(arxGroup);
-            map.removeLayer(byzGroup);
-        }
-      
         function showSites(type) {
             map.removeLayer(arxGroup);
             map.removeLayer(byzGroup);
@@ -185,7 +167,7 @@
                         <img src="./pic/KAMARA.jpg" alt="Paris" width="200"
                             height="100">
                         <p><strong>Αρχαιολογικοί χώροι</strong></p>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showArxSites()">Προβολή στο χάρτη</button>
+                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showSites(arxGroup)">Προβολή στο χάρτη</button>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -193,7 +175,7 @@
                         <img src="./pic/adDim.jpg"
                             alt="New York" width="200" height="100">
                         <p><strong>Βυζαντινά μημεία</strong></p>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal"onclick="showByzSites()">Προβολή στο χάρτη</button>
+                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showSites(byzGroup)">Προβολή στο χάρτη</button>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -201,7 +183,6 @@
                         <img src="./pic/astro.jpg"
                             alt="San Francisco" width="200" height="100">
                         <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
-<!--                         <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showTexSites()">Προβολή στο χάρτη</button> -->
                         <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showSites(texGroup)">Προβολή στο χάρτη</button>
                     </div>
                 </div>
