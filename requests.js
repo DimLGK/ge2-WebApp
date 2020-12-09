@@ -15,6 +15,7 @@ firebase.initializeApp(firebaseConfig);
    
 // Populate table body with requests
 $(document).ready(function () {
+  updateRequest(requestId, 'name', 'tourType', 'date', 'payment', 'meetingPlace');
       var markersRef = firebase.database().ref('requests'); 
       markersRef.on('value', snapshot => {
         clearTableContents();
@@ -31,6 +32,7 @@ $(document).ready(function () {
           $('table').append(tr);
        });     
      });
+     
 });
     
 function clearTableContents() {

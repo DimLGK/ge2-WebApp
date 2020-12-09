@@ -33,7 +33,7 @@ function saveRouteToDb(title, tourType, imageUrl) {
 
 // Update the Database View
 function updateRoute(routeId, title, tourType, imageUrl) {
-    var request = {
+    var route = {
         uid: routeId,
         title: title,
         tourType: tourType,

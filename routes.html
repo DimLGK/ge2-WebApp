@@ -15,7 +15,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 
-<!--     <script
+    <!--     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5LkpbrBebUMIxDsheKApRb6gI7ts91Lg&callback=initMap&libraries=&v=weekly"
         defer></script> -->
 
@@ -27,11 +27,11 @@
     <!-- Load Leaflet from CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
+        crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-  <!-- Load Esri Leaflet from CDN -->
+    <!-- Load Esri Leaflet from CDN -->
     <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
         integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
         crossorigin=""></script>
@@ -39,15 +39,15 @@
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-    
- <script>
-         
+
+    <script>
+
         var arxData = [
-//             {
-//                 "lat": "40.63241",
-//                 "long": "22.95171",
-//                 "label": "Καμάρα"
-//             },
+            //             {
+            //                 "lat": "40.63241",
+            //                 "long": "22.95171",
+            //                 "label": "Καμάρα"
+            //             },
             {
                 "lat": "40.62656842223241",
                 "long": "22.948425697935058",
@@ -56,11 +56,11 @@
         ];
 
         var byzData = [
-//             {
-//                 "lat": "40.62395",
-//                 "long": "22.95505",
-//                 "label": "Βυζαντινό Μουσείο"
-//             },
+            //             {
+            //                 "lat": "40.62395",
+            //                 "long": "22.95505",
+            //                 "label": "Βυζαντινό Μουσείο"
+            //             },
             {
                 "lat": "40.488218574004556",
                 "long": "22.31585398381218",
@@ -74,11 +74,11 @@
                 "long": "22.996265882033438",
                 "label": "NOESIS"
             }
-//             ,{
-//                 "lat": "40.62807",
-//                 "long": "22.95476",
-//                 "label": "ΔΕΘ"
-//             }
+            //             ,{
+            //                 "lat": "40.62807",
+            //                 "long": "22.95476",
+            //                 "label": "ΔΕΘ"
+            //             }
         ];
     </script>
 
@@ -106,7 +106,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-md-2">
                 <div class="sidenav">
                     <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
                         onclick="openForm()">
@@ -126,66 +126,83 @@
                 </div>
             </div>
 
-            <div id="map" class="col-sm-8" style="height: 48rem;"></div>
-  <script>
-         // Load the map with Esri Leaflet
-         var map = L.map('map').setView([40.63, 22.94], 12);
+            <div class="col-md-10">
+                <div id="map" style="height: 48rem;"></div>
 
-         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-         }).addTo(map);
 
-         var arxGroup = L.layerGroup().addTo(map);
-         var byzGroup = L.layerGroup().addTo(map);
-         var texGroup = L.layerGroup().addTo(map);
-      
-         for (var data of arxData) {
-            marker = L.marker([data.lat, data.long], {draggable:'true'}).bindPopup(data.label).openPopup();
-            arxGroup.addLayer(marker); 
-         }
-        for (var data of byzData) {
-            marker = L.marker([data.lat, data.long], {draggable:'true'}).bindPopup(data.label).openPopup();
-            byzGroup.addLayer(marker); 
-         }
-        for (var data of texData) {
-            marker = L.marker([data.lat, data.long], {draggable:'true'}).bindPopup(data.label).openPopup();
-            texGroup.addLayer(marker); 
-        }
-      
-        function showSites(type) {
-            map.removeLayer(arxGroup);
-            map.removeLayer(byzGroup);
-            map.removeLayer(texGroup);
-            map.addLayer(type);
-        }
-  </script>
-        </div>
+                <script>
+                    // Load the map with Esri Leaflet
+                    var map = L.map('map').setView([40.63, 22.94], 12);
 
-        <!-- Tour Section -->
-        <div class="container-fluid" style="right: -23rem; position: relative;">
-            <div id="tours" class="row text-center">
-                <div class="col-md-3">
-                    <div id="tour1" class="thumbnail card" style="background-color: #D1D9FF; width: 40rem;">
-                        <img src="./pic/KAMARA.jpg" alt="Paris" width="200"
-                            height="100">
-                        <p><strong>Αρχαιολογικοί χώροι</strong></p>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showSites(arxGroup)">Προβολή στο χάρτη</button>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="tour2" class="thumbnail card" style="background-color: #D1D9FF; width: 40rem;">
-                        <img src="./pic/adDim.jpg"
-                            alt="New York" width="200" height="100">
-                        <p><strong>Βυζαντινά μημεία</strong></p>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showSites(byzGroup)">Προβολή στο χάρτη</button>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="tour3" class="thumbnail card" style="background-color: #D1D9FF; width: 40rem;">
-                        <img src="./pic/astro.jpg"
-                            alt="San Francisco" width="200" height="100">
-                        <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showSites(texGroup)">Προβολή στο χάρτη</button>
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+
+                    var arxGroup = L.layerGroup().addTo(map);
+                    var byzGroup = L.layerGroup().addTo(map);
+                    var texGroup = L.layerGroup().addTo(map);
+
+                    for (var data of arxData) {
+                        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
+                        arxGroup.addLayer(marker);
+                    }
+                    for (var data of byzData) {
+                        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
+                        byzGroup.addLayer(marker);
+                    }
+                    for (var data of texData) {
+                        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
+                        texGroup.addLayer(marker);
+                    }
+
+                    function showSites(type) {
+                        map.removeLayer(arxGroup);
+                        map.removeLayer(byzGroup);
+                        map.removeLayer(texGroup);
+                        map.addLayer(type);
+                    }
+                </script>
+
+
+                <!-- Tour Section -->
+                <div class="container-fluid" style="right: 0rem; position: relative;">
+                    <div id="tours" class="row text-center">
+                        <div class="col-md-4">
+                            <div id="tour1" class="thumbnail" >
+                                <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100">
+
+                                <div class="hilight">
+                                    <p><strong>Αρχαιολογικοί χώροι</strong></p>
+                                </div>
+
+                                <button class="btn btn-default" data-toggle="modal" data-target="#myModal"
+                                    onclick="showSites(arxGroup)">Προβολή στο χάρτη</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="tour2" class="thumbnail" >
+                                <img src="./pic/adDim.jpg" alt="New York" width="200" height="100">
+
+                                <div class="hilight">
+                                    <p><strong>Βυζαντινά μημεία</strong></p>
+                                </div>
+
+                                <button class="btn btn-default" data-toggle="modal" data-target="#myModal"
+                                    onclick="showSites(byzGroup)">Προβολή στο χάρτη</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="tour3" class="thumbnail" >
+                                <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100">
+
+                                <div class="hilight">
+                                    <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
+                                </div>
+
+                                <button class="btn btn-default" data-toggle="modal" data-target="#myModal"
+                                    onclick="showSites(texGroup)">Προβολή στο χάρτη</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -220,4 +237,5 @@
 //         }
     </script>
 </body>
+
 </html>
