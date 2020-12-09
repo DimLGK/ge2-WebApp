@@ -23,10 +23,10 @@ $(document).ready(function () {
 
           tr = $('<tr id=childData.uid/>');
           tr.append("<td>" + childData.name + "</td>");
-          tr.append("<td>" + childData.specialization + "</td>");
-          tr.append("<td>" + childData.languages + "</td>");
-          tr.append("<td>" + childData.occupation + "</td>");
+          tr.append("<td>" + childData.tourType + "</td>");
+          tr.append("<td>" + childData.date + "</td>");
           tr.append("<td>" + childData.payment + "</td>");
+          tr.append("<td>" + childData.meetingPlace + "</td>");
           tr.append('<td><button type="button" class="btn btn-danger" onclick="deleteGuideFromDb(\'' + childData.uid + '\')">X</button></td>');
           $('table').append(tr);
        });     
@@ -50,20 +50,21 @@ function closeChat() {
       document.getElementById("chat").style.display = "none";
 }
 
-
 // Save a new Request to DB
-function saveRequestToDb(title, tourType, imageUrl) {
+function saveRequestToDb(name, tourType, date, payment, meetingPlace) {
   var requestId = firebase.database().ref().child('requests').push().key;
-  updateRequest(requestId, title, tourType, imageUrl);
+  updateRequest(requestId, name, tourType, date, payment, meetingPlace);
 }
 
 // Update the Database View
-function updateRequest(requestId, title, tourType, imageUrl) {
+function updateRequest(requestId, name, tourType, date, payment, meetingPlace) {
   var request = {
     uid: requestId,
-    title: title,
+    name: name,
     tourType: tourType,
-    imageUrl: imageUrl
+    date: date,
+    payment: payment,
+    meetingPlace: meetingPlace
   };
   updateDb(requestId, request);
 }
