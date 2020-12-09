@@ -22,22 +22,20 @@
     <!-- Style region -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
 
+    <!-- Load Leaflet from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+        integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+        crossorigin=""></script>
+    
     <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            const uluru = { lat: 40.627470, lng: 22.948031 };
-            // The map, centered at Uluru
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12,
-                center: uluru,
-            });
-            // The marker, positioned at Uluru
-            const marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-            });
-        }
     </script>
 </head>
 
@@ -47,19 +45,19 @@
     <script>
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        var firebaseConfig = {
-            apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
-            authDomain: "tourexploration.firebaseapp.com",
-            databaseURL: "https://tourexploration.firebaseio.com",
-            projectId: "tourexploration",
-            storageBucket: "tourexploration.appspot.com",
-            messagingSenderId: "115899410318",
-            appId: "1:115899410318:web:49b5df20824212d6d6a6df",
-            measurementId: "G-EMZ6NWJ72Y"
-        };
+//         var firebaseConfig = {
+//             apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
+//             authDomain: "tourexploration.firebaseapp.com",
+//             databaseURL: "https://tourexploration.firebaseio.com",
+//             projectId: "tourexploration",
+//             storageBucket: "tourexploration.appspot.com",
+//             messagingSenderId: "115899410318",
+//             appId: "1:115899410318:web:49b5df20824212d6d6a6df",
+//             measurementId: "G-EMZ6NWJ72Y"
+//         };
 
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+//         firebase.initializeApp(firebaseConfig);
 
         // var markersRef = firebase.database().ref('markers'); 
         // markersRef.on('value', snapshot => {
@@ -108,18 +106,33 @@
             }
         ];
 
-        var pmData = [
-            {
-                "name": "Χριστίνα Βασιλειάδη",
-                "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
-            }
-        ];
+//         var pmData = [
+//             {
+//                 "name": "Χριστίνα Βασιλειάδη",
+//                 "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
+//             }
+//         ];
 
         $(document).ready(function () {
             for (var i = 0; i < archeologicalSitesData.length; i++) {
                 L.marker([archeologicalSitesData[i].lat, archeologicalSitesData[i].long]).addTo(map);
             }
         });
+        
+     <script>
+            // Load the map with Esri Leaflet
+            var map = L.map('map').setView([40.63, 22.94], 12);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+         for (var data of archeologicalSitesData) {
+            L.marker([data.lat, data.long], {draggable:'true'}).addTo(map)
+            .bindPopup(data.guide)
+            .openPopup();
+         }
+         </script>
 
     </script>
 
