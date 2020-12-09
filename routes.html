@@ -40,7 +40,7 @@
     
  <script>
          
-        var archeologicalSitesData = [
+        var arxData = [
             {
                 "lat": "40.63241",
                 "long": "22.95171",
@@ -53,7 +53,7 @@
             }
         ];
 
-        var byzantineMonumentsData = [
+        var byzData = [
             {
                 "lat": "40.62395",
                 "long": "22.95505",
@@ -63,6 +63,19 @@
                 "lat": "40.48818",
                 "long": "22.31589",
                 "label": "Βεργίνα"
+            }
+        ];
+
+        var texData = [
+            {
+                "lat": "40.56725",
+                "long": "22.98239",
+                "label": "Πλανητάριο"
+            },
+            {
+                "lat": "40.62807",
+                "long": "22.95476",
+                "label": "ΔΕΘ"
             }
         ];
     </script>
@@ -113,18 +126,47 @@
 
             <div id="map" class="col-sm-8" style="height: 48rem;"></div>
   <script>
-            // Load the map with Esri Leaflet
-        var map = L.map('map').setView([40.63, 22.94], 12);
+         // Load the map with Esri Leaflet
+         var map = L.map('map').setView([40.63, 22.94], 12);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+         }).addTo(map);
 
-         for (var data of archeologicalSitesData) {
-            L.marker([data.lat, data.long], {draggable:'true'}).addTo(map)
-            .bindPopup(data.guide)
-            .openPopup();
+         var arxGroup = L.layerGroup().addTo(map);
+         var byzGroup = L.layerGroup().addTo(map);
+         var texGroup = L.layerGroup().addTo(map);
+      
+         for (var data of arxData) {
+            marker = L.marker([data.lat, data.long], {draggable:'true'});
+            arxGroup.addLayer(marker); 
          }
+        for (var data of byzData) {
+            marker = L.marker([data.lat, data.long], {draggable:'true'});
+            byzGroup.addLayer(marker); 
+         }
+        for (var data of texData) {
+            marker = L.marker([data.lat, data.long], {draggable:'true'});
+            texGroup.addLayer(marker); 
+        }
+      
+        function showArcheologicalSites() {
+            map.addLayer(arxGroup);
+            map.removeLayer(byzGroup);
+            map.removeLayer(texGroup);
+        }
+
+        function showByzantineMonuments() {
+            map.addLayer(byzGroup);
+            map.removeLayer(arxGroup);
+            map.removeLayer(texGroup);
+        }
+      
+        function techByzantineMonuments() {
+            map.addLayer(texGroup);
+            map.removeLayer(arxGroup);
+            map.removeLayer(byzGroup);
+        }
   </script>
         </div>
 
