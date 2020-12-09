@@ -150,19 +150,19 @@
             texGroup.addLayer(marker); 
         }
       
-        function showArcheologicalSites() {
+        function showArxSites() {
             map.addLayer(arxGroup);
             map.removeLayer(byzGroup);
             map.removeLayer(texGroup);
         }
 
-        function showByzantineMonuments() {
+        function showByzSites() {
             map.addLayer(byzGroup);
             map.removeLayer(arxGroup);
             map.removeLayer(texGroup);
         }
       
-        function techByzantineMonuments() {
+        function showTexSites() {
             map.addLayer(texGroup);
             map.removeLayer(arxGroup);
             map.removeLayer(byzGroup);
@@ -178,16 +178,16 @@
                         <img src="./pic/KAMARA.jpg" alt="Paris" width="200"
                             height="100">
                         <p><strong>Αρχαιολογικοί χώροι</strong></p>
-                        <button id="btn1" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showOnMap(btn1)">Προβολή στο
+                        <button id="btn1" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showArxSites()">Προβολή στο
                             χάρτη</button>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div id="tour2" class="thumbnail card" style="background-color: #D1D9FF; width: 40rem;">
+                    <div id="tour2" class="thumbnail card" style="background-color: #D1D9FF; width: 40rem;" onclick="showByzSites();">
                         <img src="./pic/adDim.jpg"
                             alt="New York" width="200" height="100">
                         <p><strong>Βυζαντινά μημεία</strong></p>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal">Προβολή στο
+                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showTexSites()">Προβολή στο
                             χάρτη</button>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
                         <img src="./pic/astro.jpg"
                             alt="San Francisco" width="200" height="100">
                         <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal">Προβολή στο
+                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="myFunction()">Προβολή στο
                             χάρτη</button>
                     </div>
                 </div>
