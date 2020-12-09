@@ -38,7 +38,7 @@
     <!-- Style region -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
 
-    <script src="./index.js"></script>
+    <!-- <script src="./index.js"></script>. -->
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -88,6 +88,15 @@
 
                      <div id="map" class="col-sm-8">
 
+                         <script>
+                                    // Load the map with Esri Leaflet
+                                    var map = L.map('map').setView([40.63, 22.94], 12);
+
+                                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                                    }).addTo(map);
+                         </script>
+                         
             </div>
             <!-- <div class="col-sm-9 col-lg-9" style="border: 0em; background-color: aquamarine;">ssdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgdsfgsdfgds</div> -->
         </div>
