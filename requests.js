@@ -13,9 +13,9 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
    
-// Populate table body with guides
+// Populate table body with requests
 $(document).ready(function () {
-      var markersRef = firebase.database().ref('guides'); 
+      var markersRef = firebase.database().ref('requests'); 
       markersRef.on('value', snapshot => {
         clearTableContents();
         snapshot.forEach(function(childSnapshot) {
@@ -50,57 +50,33 @@ function closeChat() {
       document.getElementById("chat").style.display = "none";
 }
 
-// Open Add Guide Form
-function showAddGuideForm() {
-      document.getElementById("employeeForm").style.display = "block";
-}
-    
-// Add the Guide to Db
-function addGuide() {
-      var name = (document.getElementById('name')).value;
-      var specialization = (document.getElementById('specialization')).value;
-      var languages = (document.getElementById('languages')).value;
-      var occupation = (document.getElementById('occupation')).value;
-      var payment = (document.getElementById('payment')).value;
-      console.log(name + " " + specialization + " " + languages + " " + occupation + " " + payment + "\n");
-      saveGuideToDb(name, payment, 10, occupation, languages, specialization);
-      closeAddGuideForm();
-}
 
-// Close the Popup Add Guide Form
-function closeAddGuideForm() {
-      document.getElementById("employeeForm").style.display = "none";
-}
-
-// Save a new Guide to DB
-function saveGuideToDb(name, payrate, rating, occupation, languages, specialization) {
-  var guideId = firebase.database().ref().child('guides').push().key;
-  updateGuide(guideId, name, payrate, rating, occupation, languages, specialization);
+// Save a new Request to DB
+function saveRequestToDb(title, tourType, imageUrl) {
+  var requestId = firebase.database().ref().child('requests').push().key;
+  updateRequest(requestId, title, tourType, imageUrl);
 }
 
 // Update the Database View
-function updateGuide(guideId, name, payrate, rating, occupation, languages, specialization) {
-  var guide = {
-    uid: guideId,
-    name: name,
-    payrate: payrate,
-    rating: rating,
-    occupation: occupation,
-    languages: languages,
-    specialization: specialization
+function updateRequest(requestId, title, tourType, imageUrl) {
+  var request = {
+    uid: requestId,
+    title: title,
+    tourType: tourType,
+    imageUrl: imageUrl
   };
-  updateDb(guideId, guide);
+  updateDb(requestId, request);
 }
 
-// Delete a Guide from DB and update
-function deleteGuideFromDb(guideId) {
-  updateDb(guideId, null);
+// Delete a Request from DB and update
+function deleteRequestFromDb(requestId) {
+  updateDb(requestId, null);
 }
 
 // Live Update of Database
-function updateDb(uid, guide) {
+function updateDb(uid, request) {
   var updates = {};
-  updates['/guides/' + uid] = guide;
+  updates['/requests/' + uid] = request;
   return firebase.database().ref().update(updates);
 }
 

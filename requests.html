@@ -17,36 +17,15 @@
 
   <!-- Style region -->
   <link rel="stylesheet" type="text/css" href="./style.css" />
+
+  <script src="./requests.js"></script>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
   <!-- Configuration Firebase -->
   <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
-      authDomain: "tourexploration.firebaseapp.com",
-      databaseURL: "https://tourexploration.firebaseio.com",
-      projectId: "tourexploration",
-      storageBucket: "tourexploration.appspot.com",
-      messagingSenderId: "115899410318",
-      appId: "1:115899410318:web:49b5df20824212d6d6a6df",
-      measurementId: "G-EMZ6NWJ72Y"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    // var markersRef = firebase.database().ref('markers'); 
-    // markersRef.on('value', snapshot => {
-    //   snapshot.forEach(function(childSnapshot) {
-    //     var childData = childSnapshot.val();
-
-    //   });     
-    // });
-
+    
     $(document).ready(function () {
       var requestData = [
         {
