@@ -167,6 +167,13 @@
             map.removeLayer(arxGroup);
             map.removeLayer(byzGroup);
         }
+      
+        function showSites(type) {
+            map.removeLayer(arxGroup);
+            map.removeLayer(byzGroup);
+            map.removeLayer(texGroup);
+            map.addLayer(type);
+        }
   </script>
         </div>
 
@@ -194,7 +201,8 @@
                         <img src="./pic/astro.jpg"
                             alt="San Francisco" width="200" height="100">
                         <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showTexSites()">Προβολή στο χάρτη</button>
+<!--                         <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showTexSites()">Προβολή στο χάρτη</button> -->
+                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showSites(texGroup)">Προβολή στο χάρτη</button>
                     </div>
                 </div>
             </div>
