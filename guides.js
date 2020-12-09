@@ -26,7 +26,7 @@ $(document).ready(function () {
           tr.append("<td>" + childData.specialization + "</td>");
           tr.append("<td>" + childData.languages + "</td>");
           tr.append("<td>" + childData.occupation + "</td>");
-          tr.append("<td>" + childData.payment + "</td>");
+          tr.append("<td>" + childData.payrate + "</td>");
           tr.append('<td><button type="button" class="btn btn-danger" onclick="deleteGuideFromDb(\'' + childData.uid + '\')">X</button></td>');
           $('table').append(tr);
        });     
