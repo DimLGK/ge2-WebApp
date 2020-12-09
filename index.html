@@ -35,6 +35,21 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
 
     <!-- <script src="./index.js"></script>. -->
+    <script>
+        var archeologicalSitesData = [
+            {
+                "lat": "40.63241",
+                "long": "22.95171",
+                "label": "Καμάρα"
+            },
+            {
+                "lat": "40.62679",
+                "long": "22.94845",
+                "label": "Λευκός Πύργος"
+            }
+        ];
+    </script>
+    
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -92,19 +107,11 @@
                                             attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
                                     }).addTo(map);
                              
-                                    L.marker([40.63, 22.94]).addTo(map)
-                                    .bindPopup('Hasan Adbul.')
+                             for (var data of archeologicalSitesData) {
+                                    L.marker([data.lat, data.long]).addTo(map)
+                                    .bindPopup(data.label)
                                     .openPopup();
-                             
-                                    L.marker([40.68, 22.93]).addTo(map)
-                                    .bindPopup('Χριστινα Βασιλειάδη.')
-                                    .openPopup();
-                             
-                                    L.marker([40.71, 22.91]).addTo(map)
-                                    .bindPopup('Tony Chan')
-                                    .openPopup();
-                             
-                                    
+                             }
                          </script>
                          
             </div>
