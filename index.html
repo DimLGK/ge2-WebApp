@@ -121,7 +121,7 @@
                                     }).addTo(map);
                              
                              for (var data of archeologicalSitesData) {
-                                    L.marker([data.lat, data.long, {icon: guideIcon}]).addTo(map)
+                                    L.marker([data.lat, data.long], {icon: guideIcon}).addTo(map)
                                     .bindPopup(data.guide)
                                     .openPopup();
                              }
