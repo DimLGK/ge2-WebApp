@@ -1,112 +1,191 @@
-// Configuration Firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
-    authDomain: "tourexploration.firebaseapp.com",
-    databaseURL: "https://tourexploration.firebaseio.com",
-    projectId: "tourexploration",
-    storageBucket: "tourexploration.appspot.com",
-    messagingSenderId: "115899410318",
-    appId: "1:115899410318:web:49b5df20824212d6d6a6df",
-    measurementId: "G-EMZ6NWJ72Y"
-};
+<!DOCTYPE html>
+<html lang="en">
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+<head>
+    <title>Tour Explorations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-$(document).ready(function () {
-    var markersArxaiolog = firebase.database().ref('routes');
-    markersArxaiolog.orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on('value', snapshot => {
+    <!-- Firebase JS SDK region -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 
-        snapshot.forEach(function (childSnapshot) {
-            var arxaioData = childSnapshot.val();
-            marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true' }).bindPopup(arxaioData.title).openPopup();
-            arxaioGroup.addLayer(marker);
-        });
-    });
+    <!--     <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5LkpbrBebUMIxDsheKApRb6gI7ts91Lg&callback=initMap&libraries=&v=weekly"
+        defer></script> -->
 
-    var markersReleg = firebase.database().ref('routes');
-    markersReleg.orderByChild('tourType').equalTo("Θρησκευτικά μνημεία").on('value', snapshot => {
+    <!-- Style region -->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 
-        snapshot.forEach(function (childSnapshot) {
-            var relegData = childSnapshot.val();
-            marker = L.marker([relegData.latitude, relegData.longitude], { draggable: 'true' }).bindPopup(relegData.title).openPopup();
-            relegGroup.addLayer(marker);
-        });
-    });
+    <script src="./routes.js"></script>
 
-    var markersTechno = firebase.database().ref('routes');
-    markersTechno.orderByChild('tourType').equalTo("Τεχνολογικά αξιοθέατα").on('value', snapshot => {
+    <!-- Load Leaflet from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+        integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+        crossorigin=""></script>
+</head>
 
-        snapshot.forEach(function (childSnapshot) {
-            var technoData = childSnapshot.val();
-            marker = L.marker([technoData.latitude, technoData.longitude], { draggable: 'true' }).bindPopup(technoData.title).openPopup();
-            technoGroup.addLayer(marker);
-        });
-    });
-});
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    
+  <header class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#myPage">Tour Explorations</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">ΑΡΧΙΚΗ</a></li>
+          <li><a href="guides.html">ΞΕΝΑΓΟΙ</a></li>
+          <li><a href="routes.html">ΔΙΑΔΡΟΜΕΣ</a></li>
+          <li><a href="requests.html">ΑΙΤΗΜΑΤΑ</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-// Open Chat Popup
-function showChat() {
-    document.getElementById("chat").style.display = "block";
-}
+   <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        
+      <!--  side navigation bar      -->
+      <div class="col-12 col-md-3 col-xl-2">
+        <div class="sidenav">
+          <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
+            onclick="openForm()">
+            <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+              src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
+            Χριστίνα Βασιλειάδη</a>
+          <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#tony" onclick="openForm()">
+            <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+              src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
+            Tony Chan</a>
+          <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#hasan"
+            onclick="openForm()">
+            <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+              src="https://biographicsworld.com/wp-content/uploads/2020/07/Hasan-Piker.png" />
+            Hasan Abdul</a>
+        </div> <!--End of sidenav -->
+      </div> <!--End of col-md-3 -->
+        
+   <!-- main window -->
+   <main class="col-12 col-md-9 col-xl-8">
+    
+   <!-- Map section -->
+   <div id="map" class="row" style="height: 42rem;"></div>
 
-// Close Chat Popup
-function closeChat() {
-    document.getElementById("chat").style.display = "none";
-}
+    <!-- Tour Section -->
+        <div id="tours" class="row text-center" style="left: 5rem; position: relative;">
 
-// Save a new routes to DB
-function saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl) {
-    var routeId = firebase.database().ref().child('routes').push().key;
-    updateRoute(routeId, latitude, longitude, isSelected, title, description, tourType, imageUrl);
-}
+            <div class="col-md-4">
+                <div id="tour1" class="thumbnail">
+                    <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100" onclick="showSites(arxaioGroup)">
+                    <div class="hilight">
+                        <p><strong>Αρχαιολογικοί χώροι</strong></p>
+                    </div> <!-- End or hilight -->
+                    <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                        onclick="deleteRoute1()">Διαγραφή διαδρομής</button>
+                </div> <!-- End or tour1 -->
+            </div> <!-- End or col-md-4 column1 -->
 
-// Update the Database View
-function updateRoute(routeId, latitude, longitude, isSelected, title, description, tourType, imageUrl) {
-    var route = {
-        uid: routeId,
-        latitude: latitude,
-        longitude: longitude,
-        isSelected: isSelected,
-        title: title,
-        description: description,
-        tourType: tourType,
-        imageUrl: imageUrl
-    };
-    updateDb(routeId, route);
-}
+            <div class="col-md-4">
+                <div id="tour2" class="thumbnail">
+                    <img src="./pic/adDim.jpg" alt="New York" width="200" height="100" onclick="showSites(relegGroup)">
+                    <div class="hilight">
+                        <p><strong>Βυζαντινά μημεία</strong></p>
+                    </div> <!-- End or hilight -->
+                    <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                        onclick="deleteRoute2()">Διαγραφή διαδρομής</button>
+                </div> <!-- End or tour2 -->
+            </div> <!-- End or col-md-4 column2 -->
 
-// Delete a routes from DB and update
-function deleteRouteFromDb(routeId) {
-    updateDb(routeId, null);
-}
+            <div class="col-md-4">
+                <div id="tour3" class="thumbnail">
+                    <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100" onclick="showSites(technoGroup)">
+                    <div class="hilight">
+                        <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
+                    </div> <!-- End of hilight -->
+                    <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                        onclick="deleteRoute3()">Διαγραφή διαδρομής</button>
+                </div> <!-- End or tour3 -->
+            </div> <!-- End or col-md-4 column3 -->
 
-// Live Update of Database
-function updateDb(uid, route) {
-    var updates = {};
-    updates['/routes/' + uid] = route;
-    return firebase.database().ref().update(updates);
-}
+    </div> <!-- End or Tour Section -->
+                
+  </main>
+        
+ </div> <!-- End or row -->
+</div> <!-- End of container -->
 
+    <!-- Chat -->
+    <div class="chat-popup" id="christina">
+        <form class="form-container">
+            <label for="christinamsg"><b>Μήνυμα</b></label>
+            <textarea placeholder="Type message.." name="christinamsg" required></textarea>
+            <button type="submit" class="btn">Αποστολή</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
+        </form>
+    </div>
+    
+<script>
+   
+    // Load the map with Esri Leaflet
+    var map = L.map('map').setView([40.63, 22.94], 12);
 
-function deleteRoute1() {
-    document.getElementById("tour1").style.display = "none";
-}
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-function deleteRoute2() {
-    document.getElementById("tour2").style.display = "none";
-}
+    var arxaioGroup = L.layerGroup().addTo(map);
+    var relegGroup = L.layerGroup().addTo(map);
+    var technoGroup = L.layerGroup().addTo(map);
 
-function deleteRoute3() {
-    document.getElementById("tour3").style.display = "none";
-}
-
-
-// Reminder for chat Popup - NOT WORKING YET
-var pmData = [
-    {
-        "name": "Χριστίνα Βασιλειάδη",
-        "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
+    for (var data of arxaioData) {
+        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+        arxaioGroup.addLayer(marker);
     }
-];
+    for (var data of relegData) {
+        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+        relegGroup.addLayer(marker);
+    }
+    for (var data of technoData) {
+        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+        technoGroup.addLayer(marker);
+    }
 
+    function showSites(type) {
+        map.removeLayer(arxaioGroup);
+        map.removeLayer(relegGroup);
+        map.removeLayer(technoGroup);
+        map.addLayer(type);
+    }
+</script>
+    
+<!-- Script for popup -->
+<script>
+        function openForm() {
+            document.getElementById("christina").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("christina").style.display = "none";
+        }
+</script>
+</body>
+
+</html>
