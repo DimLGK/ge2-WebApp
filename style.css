@@ -215,6 +215,8 @@ body {
 
     .main {
       /*margin-left: 200px;*/
+      margin: 0px;
+      padding: 0px;
       /* Same as the width of the sidenav */
     }
 
