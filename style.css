@@ -31,7 +31,7 @@ body {
     #map {
       height: 90rem;
       width: 161rem;
-      top: -1rem;
+      /* top: -1rem; */
       right: 0rem;
       position: relative;
     }
