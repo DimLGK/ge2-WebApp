@@ -33,6 +33,8 @@ body {
       width: 161rem;
       /* top: -1rem; */
       right: 0rem;
+      margin: 0px;
+      padding: 0px;
       position: relative;
     }
 
