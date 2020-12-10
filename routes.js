@@ -26,16 +26,27 @@ function closeChat() {
 
 
 // Save a new routes to DB
-function saveRouteToDb(title, tourType, imageUrl) {
+$(function saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl) {
+    latitude = 'latitude';
+    longitude = 'longitude';
+    isSelected = 'isSelected';
+    title = 'title';
+    description = 'description';
+    tourType = 'tourType';
+    imageUrl = 'imageUrl';
     var routeId = firebase.database().ref().child('routes').push().key;
-    updateRoute(routeId, title, tourType, imageUrl);
-}
+    updateRoute(routeId, latitude, longitude, isSelected, title, description, tourType, imageUrl);
+});
 
 // Update the Database View
-function updateRoute(routeId, title, tourType, imageUrl) {
+function updateRoute(routeId, latitude, longitude, isSelected, title, description, tourType, imageUrl) {
     var route = {
         uid: routeId,
+        latitude: latitude,
+        longitude: longitude,
+        isSelected: isSelected,
         title: title,
+        description: description,
         tourType: tourType,
         imageUrl: imageUrl
     };
