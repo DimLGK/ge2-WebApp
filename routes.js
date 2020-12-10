@@ -23,12 +23,23 @@ $(document).ready(function () {
         });
     });
     
-    // arxaio.child('routes').orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on("value", function (snapshot) {
-    //     console.log(snapshot.val());
-    //     snapshot.forEach(function (data) {
-    //         console.log(data.key);
-    //     });
-    // });
+    var markersReleg = firebase.database().ref('routes');
+    markersReleg.orderByChild('tourType').equalTo("Θρησκευτικά μνημεία").on('value', snapshot => {
+
+        snapshot.forEach(function (childSnapshot) {
+            var relegData = childSnapshot.val();
+            console.log(relegData.latitude, relegData.longitude, relegData.title);
+        });
+    });
+
+    var markersTechno = firebase.database().ref('routes');
+    markersTechno.orderByChild('tourType').equalTo("Τεχνολογικά αξιοθέατα").on('value', snapshot => {
+
+        snapshot.forEach(function (childSnapshot) {
+            var technoData = childSnapshot.val();
+            console.log(technoData.latitude, technoData.longitude, technoData.title);
+        });
+    });
 });
 
 // Open Chat Popup
