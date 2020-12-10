@@ -27,13 +27,6 @@ function closeChat() {
 
 // Save a new routes to DB
 $(function saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl) {
-    latitude = 'latitude';
-    longitude = 'longitude';
-    isSelected = 'isSelected';
-    title = 'title';
-    description = 'description';
-    tourType = 'tourType';
-    imageUrl = 'imageUrl';
     var routeId = firebase.database().ref().child('routes').push().key;
     updateRoute(routeId, latitude, longitude, isSelected, title, description, tourType, imageUrl);
 });
@@ -50,7 +43,7 @@ function updateRoute(routeId, latitude, longitude, isSelected, title, descriptio
         tourType: tourType,
         imageUrl: imageUrl
     };
-    updateDb(routetId, route);
+    updateDb(routeId, route);
 }
 
 // Delete a routes from DB and update
