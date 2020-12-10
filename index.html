@@ -41,7 +41,8 @@
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     
-  <header class="navbar navbar-default navbar-fixed-top">
+  <header> 
+   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -60,8 +61,11 @@
         </ul>
       </div>
     </div>
+   </nav>
   </header>
     
+   <!-- main window -->
+   <main class="col-12 col-md-9 col-xl-8">
     
    <div class="container-fluid">
     <div class="row flex-xl-nowrap">
@@ -84,15 +88,14 @@
 <!--         </div> <!--End of sidenav --> -->
       </div> <!--End of col-md-3 -->
         
-   <!-- main window -->
-   <main class="col-12 col-md-9 col-xl-8">
      <div id="map"></div>
-   </main>
+
         
   </div> <!-- End of Row -->
 </div> <!-- End of Container-fluid -->
+</main>
 
-<!-- Chat -->
+    <!-- Chat -->
 <div class="chat-popup" id="christina">
     <form action="/action_page.php" class="form-container">
         <label for="christinamsg"><b>Μήνυμα</b></label>
