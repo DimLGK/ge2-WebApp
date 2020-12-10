@@ -94,7 +94,7 @@
 
             <div class="col-md-4">
                 <div id="tour1" class="thumbnail">
-                    <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100" onclick="showSites(arxGroup)">
+                    <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100" onclick="showSites(arxaioGroup)">
                     <div class="hilight">
                         <p><strong>Αρχαιολογικοί χώροι</strong></p>
                     </div> <!-- End or hilight -->
@@ -105,7 +105,7 @@
 
             <div class="col-md-4">
                 <div id="tour2" class="thumbnail">
-                    <img src="./pic/adDim.jpg" alt="New York" width="200" height="100" onclick="showSites(byzGroup)">
+                    <img src="./pic/adDim.jpg" alt="New York" width="200" height="100" onclick="showSites(relegGroup)">
                     <div class="hilight">
                         <p><strong>Βυζαντινά μημεία</strong></p>
                     </div> <!-- End or hilight -->
@@ -116,7 +116,7 @@
 
             <div class="col-md-4">
                 <div id="tour3" class="thumbnail">
-                    <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100" onclick="showSites(texGroup)">
+                    <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100" onclick="showSites(technoGroup)">
                     <div class="hilight">
                         <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
                     </div> <!-- End of hilight -->
@@ -142,48 +142,8 @@
         </form>
     </div>
     
-    <!-- Script for markers -->
 <script>
-    // Spot of markers
-    var arxData = [
-        //             {
-        //                 "lat": "40.63241",
-        //                 "long": "22.95171",
-        //                 "label": "Καμάρα"
-        //             },
-        {
-            "lat": "40.62656842223241",
-            "long": "22.948425697935058",
-            "label": "Λευκός Πύργος"
-        }
-    ];
-
-    var byzData = [
-        //             {
-        //                 "lat": "40.62395",
-        //                 "long": "22.95505",
-        //                 "label": "Βυζαντινό Μουσείο"
-        //             },
-        {
-            "lat": "40.488218574004556",
-            "long": "22.31585398381218",
-            "label": "Βεργίνα"
-        }
-    ];
-
-    var texData = [
-        {
-            "lat": "40.56430644543867",
-            "long": "22.996265882033438",
-            "label": "NOESIS"
-        }
-        //             ,{
-        //                 "lat": "40.62807",
-        //                 "long": "22.95476",
-        //                 "label": "ΔΕΘ"
-        //             }
-    ];
-    
+   
     // Load the map with Esri Leaflet
     var map = L.map('map').setView([40.63, 22.94], 12);
 
@@ -191,27 +151,27 @@
         attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    var arxGroup = L.layerGroup().addTo(map);
-    var byzGroup = L.layerGroup().addTo(map);
-    var texGroup = L.layerGroup().addTo(map);
+    var arxaioGroup = L.layerGroup().addTo(map);
+    var relegGroup = L.layerGroup().addTo(map);
+    var technoGroup = L.layerGroup().addTo(map);
 
-    for (var data of arxData) {
-        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
-        arxGroup.addLayer(marker);
+    for (var data of arxaioData) {
+        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+        arxaioGroup.addLayer(marker);
     }
-    for (var data of byzData) {
-        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
-        byzGroup.addLayer(marker);
+    for (var data of relegData) {
+        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+        relegGroup.addLayer(marker);
     }
-    for (var data of texData) {
-        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
-        texGroup.addLayer(marker);
+    for (var data of technoData) {
+        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+        technoGroup.addLayer(marker);
     }
 
     function showSites(type) {
-        map.removeLayer(arxGroup);
-        map.removeLayer(byzGroup);
-        map.removeLayer(texGroup);
+        map.removeLayer(arxaioGroup);
+        map.removeLayer(relegGroup);
+        map.removeLayer(technoGroup);
         map.addLayer(type);
     }
 </script>
