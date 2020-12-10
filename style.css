@@ -193,7 +193,7 @@ body {
       width: 30rem;
       position: fixed;
       z-index: 1;
-      top: 3rem;
+      top: 5rem;
       left: 0;
       background-color: #D1D9FF;
       overflow-x: hidden;
@@ -215,6 +215,8 @@ body {
 
     .main {
       /*margin-left: 200px;*/
+      top: 5rem;
+      right: -26rem;
       margin: 0px;
       padding: 0px;
       /* Same as the width of the sidenav */
