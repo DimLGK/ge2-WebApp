@@ -19,16 +19,18 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var arxaioData = childSnapshot.val();
-            console.log(arxaioData.latitude, arxaioData.longitude, arxaioData.title);
+            marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true' }).bindPopup(arxaioData.title).openPopup();
+            arxaioGroup.addLayer(marker);
         });
     });
-    
+
     var markersReleg = firebase.database().ref('routes');
     markersReleg.orderByChild('tourType').equalTo("Θρησκευτικά μνημεία").on('value', snapshot => {
 
         snapshot.forEach(function (childSnapshot) {
             var relegData = childSnapshot.val();
-            console.log(relegData.latitude, relegData.longitude, relegData.title);
+            marker = L.marker([relegData.latitude, relegData.longitude], { draggable: 'true' }).bindPopup(relegData.title).openPopup();
+            relegGroup.addLayer(marker);
         });
     });
 
@@ -37,7 +39,8 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var technoData = childSnapshot.val();
-            console.log(technoData.latitude, technoData.longitude, technoData.title);
+            marker = L.marker([technoData.latitude, technoData.longitude], { draggable: 'true' }).bindPopup(technoData.title).openPopup();
+            technoGroup.addLayer(marker);
         });
     });
 });
@@ -86,55 +89,6 @@ function updateDb(uid, route) {
 }
 
 
-// Reminder for chat Popup - NOT WORKING YET
-var pmData = [
-    {
-        "name": "Χριστίνα Βασιλειάδη",
-        "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
-    }
-];
-
-
-var archeologicalSitesData = [
-    {
-        "lat": "40.63241",
-        "long": "22.95171",
-        "label": "Καμάρα"
-    },
-    {
-        "lat": "40.62679",
-        "long": "22.94845",
-        "label": "Λευκός Πύργος"
-    }
-];
-
-var byzantineMonumentsData = [
-    {
-        "lat": "40.62395",
-        "long": "22.95505",
-        "label": "Βυζαντινό Μουσείο"
-    },
-    {
-        "lat": "40.48818",
-        "long": "22.31589",
-        "label": "Βεργίνα"
-    }
-];
-
-var technologicalSitesData = [
-    {
-        "lat": "40.56725",
-        "long": "22.98239",
-        "label": "Πλανητάριο"
-    },
-    {
-        "lat": "40.62807",
-        "long": "22.95476",
-        "label": "ΔΕΘ"
-    }
-];
-
-
 function deleteRoute1() {
     document.getElementById("tour1").style.display = "none";
 }
@@ -148,16 +102,11 @@ function deleteRoute3() {
 }
 
 
-//         var pmData = [
-//             {
-//                 "name": "Χριστίνα Βασιλειάδη",
-//                 "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
-//             }
-//         ];
-
-//         $(document).ready(function () {
-//             for (var i = 0; i < archeologicalSitesData.length; i++) {
-//                 L.marker([archeologicalSitesData[i].lat, archeologicalSitesData[i].long]).addTo(map);
-//             }
-//         });
+// Reminder for chat Popup - NOT WORKING YET
+var pmData = [
+    {
+        "name": "Χριστίνα Βασιλειάδη",
+        "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
+    }
+];
 
