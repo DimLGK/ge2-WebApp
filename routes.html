@@ -83,7 +83,7 @@
     </script>
 
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <header class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -96,17 +96,18 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.html">ΑΡΧΙΚΗ</a></li>
-                    <li><a href="guides.html">ΔΙΑΧΕΙΡΙΣΗ ΞΕΝΑΓΩΝ</a></li>
-                    <li><a href="routes.html">ΠΡΟΤΕΙΝΟΜΕΝΕΣ ΔΙΑΔΡΟΜΕΣ</a></li>
+                    <li><a href="guides.html">ΞΕΝΑΓΟΙ</a></li>
+                    <li><a href="routes.html">ΔΙΑΔΡΟΜΕΣ</a></li>
                     = <li><a href="requests.html">ΑΙΤΗΜΑΤΑ</a></li>
                 </ul>
             </div>
         </div>
-    </nav>
+    </header>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2">
+        <!--  side navigation bar      -->
+            <div class="col-md-3">
                 <div class="sidenav">
                     <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
                         onclick="openForm()">
@@ -125,10 +126,9 @@
                         Hasan Abdul</a>
                 </div>
             </div>
-
-            <div class="col-md-10">
+            <!-- main window -->
+            <main class="col-md-9">
                 <div id="map" style="height: 42rem;"></div>
-
 
                 <script>
                     // Load the map with Esri Leaflet
@@ -163,14 +163,12 @@
                     }
                 </script>
 
-
                 <!-- Tour Section -->
                 <div style="left: 5rem; position: relative;">
                     <div id="tours" class="row text-center">
                         <div class="col-md-4">
                             <div id="tour1" class="thumbnail">
-                                <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100"
-                                    onclick="showSites(arxGroup)">
+                                <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100" onclick="showSites(arxGroup)">
 
                                 <div class="hilight">
                                     <p><strong>Αρχαιολογικοί χώροι</strong></p>
@@ -182,8 +180,7 @@
                         </div>
                         <div class="col-md-4">
                             <div id="tour2" class="thumbnail">
-                                <img src="./pic/adDim.jpg" alt="New York" width="200" height="100"
-                                    onclick="showSites(byzGroup)">
+                                <img src="./pic/adDim.jpg" alt="New York" width="200" height="100" onclick="showSites(byzGroup)">
 
                                 <div class="hilight">
                                     <p><strong>Βυζαντινά μημεία</strong></p>
@@ -195,8 +192,7 @@
                         </div>
                         <div class="col-md-4">
                             <div id="tour3" class="thumbnail">
-                                <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100"
-                                    onclick="showSites(texGroup)">
+                                <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100" onclick="showSites(texGroup)">
 
                                 <div class="hilight">
                                     <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
@@ -208,7 +204,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     </div>
 
