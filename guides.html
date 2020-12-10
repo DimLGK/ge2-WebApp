@@ -23,8 +23,9 @@
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-  <!-- Top Navigation Bar-->
-  <header class="navbar navbar-default navbar-fixed-top">
+     
+  <header> 
+   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -43,13 +44,16 @@
         </ul>
       </div>
     </div>
+   </nav>
   </header>
-
-
-  <div class="container-fluid">
-    <div class="row">
-      
-      <!-- Πλευρική Στήλη με δυνατότητα συνομιλίας με ξαναγούς -->
+    
+   <!-- main window -->
+   <main>
+    
+   <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        
+    <!--  side navigation bar      -->
       <div class="sidenav col-12 col-md-3 col-xl-2">
           <a class="sidebar-link" href="#hasan" onclick="openForm()">
             <img class="sidebar-img" src="./pic/christina.jpg" />
@@ -64,9 +68,9 @@
             Hasan Abdul
           </a>
       </div> <!--End of col-md-3 -->
-
-            <!-- Πίνακας με ξεναγούς -->
-      <main class="col-md-9" style="top: 7rem; margin: 20rem 0rem; padding: 0rem;">
+    
+                 <!-- Πίνακας με ξεναγούς -->
+      <div class="col-md-9" style="top: 7rem; margin: 20rem 0rem; padding: 0rem;">
           <table id="table" class="table table-striped table-hover">
             <thead>
               <tr>
@@ -81,15 +85,17 @@
             <tbody id="tablebody">
             </tbody>
           </table>
-      </main>
+      </div>
 
         <!-- Κουμπί προσθήκης ξεναγού -->
         <button class="open-button" style="position: fixed; bottom: 23px; right: 28px;"
           onclick="showAddGuideForm()">Προσθήκηνέου ξεναγού</button>
 
-      </div>
-    </div>
-  </div>
+        
+  </div> <!-- End of Row -->
+</div> <!-- End of Container-fluid -->
+</main>
+
 
   <!-- Φόρμα προσθήκης ξεναγού -->
   <!-- <div class="modal"
