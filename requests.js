@@ -15,7 +15,6 @@ firebase.initializeApp(firebaseConfig);
    
 // Populate table body with requests
 $(document).ready(function () {
-  updateRequest(requestId, 'name', 'tourType', 'date', 'payment', 'meetingPlace');
       var markersRef = firebase.database().ref('requests'); 
       markersRef.on('value', snapshot => {
         clearTableContents();
@@ -28,7 +27,8 @@ $(document).ready(function () {
           tr.append("<td>" + childData.date + "</td>");
           tr.append("<td>" + childData.payment + "</td>");
           tr.append("<td>" + childData.meetingPlace + "</td>");
-          tr.append('<td><button type="button" class="btn btn-danger" onclick="saveRequestToDb(\'' + childData.uid + '\')">X</button></td>');
+          tr.append('<td><button type="button" class="btn btn-primary" onclick="saveRequestToDb(\'' + childData.uid + '\')">Αποδοχή</button></td>');
+          tr.append('<td><button type="button" class="btn btn-danger" onclick="saveRequestToDb(\'' + childData.uid + '\')">Απόρριψη</button></td>');
           $('table').append(tr);
        });     
      });

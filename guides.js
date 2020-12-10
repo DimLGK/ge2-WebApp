@@ -12,6 +12,8 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+
    
 // Populate table body with guides
 $(document).ready(function () {
