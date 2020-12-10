@@ -34,7 +34,7 @@
     <!-- Style region -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
 
-    <!-- <script src="./index.js"></script>. -->
+    <script src="./index.js"></script>.
 
 
 </head>
@@ -105,66 +105,6 @@
             <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
         </form>
     </div>
-
-    
-<script>
-    // Data for map
-    var archeologicalSitesData = [
-        {
-            "lat": "40.62731322860056",
-            "long": "22.9508688610709",
-            "guide": "Tony Chan"
-        },
-        {
-            "lat": "40.58272482165455",
-            "long": "22.963157448468245",
-            "guide": "Hasan Adbul"
-        },
-        {
-
-            "lat": "40.6421290045795",
-            "long": "22.95440936389948",
-            "guide": "Χριστινα Βασιλειάδη"
-
-        }
-    ];
-
-    var guideIcon = L.icon({
-        iconUrl: './pic/marker_car.png',
-        iconSize: [38, 38], // size of the icon
-        iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
-
-
-    // Load the map with Esri Leaflet
-    var map = L.map('map').setView([40.63, 22.94], 12);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    for (var data of archeologicalSitesData) {
-        L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
-            .bindPopup(data.guide)
-            .openPopup();
-    }
-    
-    // Chat window functions
-    function openForm() {
-        document.getElementById("christina").style.display = "block";
-    }
-
-    function closeForm() {
-        document.getElementById("christina").style.display = "none";
-    }
-
-    var input = document.getElementById('christina');
-    document.getElementById('submit').onclick = function () {
-        pmData.push(input.value);
-        screen.innerHTML = input.value;
-    };
-</script>
 
     </body>
 </html>
