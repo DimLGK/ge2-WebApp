@@ -38,175 +38,101 @@
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
-
-    <script>
-
-        var arxData = [
-            //             {
-            //                 "lat": "40.63241",
-            //                 "long": "22.95171",
-            //                 "label": "Καμάρα"
-            //             },
-            {
-                "lat": "40.62656842223241",
-                "long": "22.948425697935058",
-                "label": "Λευκός Πύργος"
-            }
-        ];
-
-        var byzData = [
-            //             {
-            //                 "lat": "40.62395",
-            //                 "long": "22.95505",
-            //                 "label": "Βυζαντινό Μουσείο"
-            //             },
-            {
-                "lat": "40.488218574004556",
-                "long": "22.31585398381218",
-                "label": "Βεργίνα"
-            }
-        ];
-
-        var texData = [
-            {
-                "lat": "40.56430644543867",
-                "long": "22.996265882033438",
-                "label": "NOESIS"
-            }
-            //             ,{
-            //                 "lat": "40.62807",
-            //                 "long": "22.95476",
-            //                 "label": "ΔΕΘ"
-            //             }
-        ];
-    </script>
-
-
-    <header class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#myPage">Tour Explorations</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">ΑΡΧΙΚΗ</a></li>
-                    <li><a href="guides.html">ΞΕΝΑΓΟΙ</a></li>
-                    <li><a href="routes.html">ΔΙΑΔΡΟΜΕΣ</a></li>
-                    = <li><a href="requests.html">ΑΙΤΗΜΑΤΑ</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <div class="container-fluid">
-        <div class="row">
-        <!--  side navigation bar      -->
-            <div class="col-md-3">
-                <div class="sidenav">
-                    <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
-                        onclick="openForm()">
-                        <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
-                            src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
-                        Χριστίνα Βασιλειάδη</a>
-                    <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#tony"
-                        onclick="openForm()">
-                        <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
-                            src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
-                        Tony Chan</a>
-                    <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#hasan"
-                        onclick="openForm()">
-                        <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
-                            src="https://biographicsworld.com/wp-content/uploads/2020/07/Hasan-Piker.png" />
-                        Hasan Abdul</a>
-                </div>
-            </div>
-            <!-- main window -->
-            <main class="col-md-9">
-                <div id="map" style="height: 42rem;"></div>
-
-                <script>
-                    // Load the map with Esri Leaflet
-                    var map = L.map('map').setView([40.63, 22.94], 12);
-
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-                    }).addTo(map);
-
-                    var arxGroup = L.layerGroup().addTo(map);
-                    var byzGroup = L.layerGroup().addTo(map);
-                    var texGroup = L.layerGroup().addTo(map);
-
-                    for (var data of arxData) {
-                        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
-                        arxGroup.addLayer(marker);
-                    }
-                    for (var data of byzData) {
-                        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
-                        byzGroup.addLayer(marker);
-                    }
-                    for (var data of texData) {
-                        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
-                        texGroup.addLayer(marker);
-                    }
-
-                    function showSites(type) {
-                        map.removeLayer(arxGroup);
-                        map.removeLayer(byzGroup);
-                        map.removeLayer(texGroup);
-                        map.addLayer(type);
-                    }
-                </script>
-
-                <!-- Tour Section -->
-                <div style="left: 5rem; position: relative;">
-                    <div id="tours" class="row text-center">
-                        <div class="col-md-4">
-                            <div id="tour1" class="thumbnail">
-                                <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100" onclick="showSites(arxGroup)">
-
-                                <div class="hilight">
-                                    <p><strong>Αρχαιολογικοί χώροι</strong></p>
-                                </div>
-                                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
-                                    onclick="deleteRoute1()">Διαγραφή διαδρομής</button>
-                            </div>
-
-                        </div>
-                        <div class="col-md-4">
-                            <div id="tour2" class="thumbnail">
-                                <img src="./pic/adDim.jpg" alt="New York" width="200" height="100" onclick="showSites(byzGroup)">
-
-                                <div class="hilight">
-                                    <p><strong>Βυζαντινά μημεία</strong></p>
-                                </div>
-                                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
-                                    onclick="deleteRoute2()">Διαγραφή διαδρομής</button>
-                            </div>
-
-                        </div>
-                        <div class="col-md-4">
-                            <div id="tour3" class="thumbnail">
-                                <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100" onclick="showSites(texGroup)">
-
-                                <div class="hilight">
-                                    <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
-                                </div>
-                                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
-                                    onclick="deleteRoute3()">Διαγραφή διαδρομής</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
+    
+  <header class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#myPage">Tour Explorations</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">ΑΡΧΙΚΗ</a></li>
+          <li><a href="guides.html">ΞΕΝΑΓΟΙ</a></li>
+          <li><a href="routes.html">ΔΙΑΔΡΟΜΕΣ</a></li>
+          <li><a href="requests.html">ΑΙΤΗΜΑΤΑ</a></li>
+        </ul>
+      </div>
     </div>
+  </header>
+
+   <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        
+      <!--  side navigation bar      -->
+      <div class="col-12 col-md-3 col-xl-2">
+        <div class="sidenav">
+          <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#christina"
+            onclick="openForm()">
+            <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+              src="https://i2-prod.mirror.co.uk/incoming/article14334083.ece/ALTERNATES/s615/3_Beautiful-girl-with-a-gentle-smile.jpg" />
+            Χριστίνα Βασιλειάδη</a>
+          <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#tony" onclick="openForm()">
+            <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+              src="https://icdn2.digitaltrends.com/image/digitaltrends/screen-shot-2019-02-15-at-19-16-58.jpg" />
+            Tony Chan</a>
+          <a style="font-family: Montserrat, sans-serif; font-size: 15px !important;" href="#hasan"
+            onclick="openForm()">
+            <img style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
+              src="https://biographicsworld.com/wp-content/uploads/2020/07/Hasan-Piker.png" />
+            Hasan Abdul</a>
+        </div> <!--End of sidenav -->
+      </div> <!--End of col-md-3 -->
+        
+   <!-- main window -->
+   <main class="col-12 col-md-9 col-xl-8">
+    
+   <!-- Map section -->
+   <div id="map" style="height: 42rem;"></div>
+
+        <!-- Tour Section -->
+        <div style="left: 5rem; position: relative;">
+            <div id="tours" class="row text-center">
+                
+                <div class="col-md-4">
+                    <div id="tour1" class="thumbnail">
+                        <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100" onclick="showSites(arxGroup)">
+                        <div class="hilight">
+                            <p><strong>Αρχαιολογικοί χώροι</strong></p>
+                        </div> <!-- End or hilight -->
+                        <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                            onclick="deleteRoute1()">Διαγραφή διαδρομής</button>
+                    </div> <!-- End or tour1 -->
+                </div> <!-- End or col-md-4 column1 -->
+                
+                <div class="col-md-4">
+                    <div id="tour2" class="thumbnail">
+                        <img src="./pic/adDim.jpg" alt="New York" width="200" height="100" onclick="showSites(byzGroup)">
+                        <div class="hilight">
+                            <p><strong>Βυζαντινά μημεία</strong></p>
+                        </div> <!-- End or hilight -->
+                        <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                            onclick="deleteRoute2()">Διαγραφή διαδρομής</button>
+                    </div> <!-- End or tour2 -->
+                </div> <!-- End or col-md-4 column2 -->
+                
+                <div class="col-md-4">
+                    <div id="tour3" class="thumbnail">
+                        <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100" onclick="showSites(texGroup)">
+                        <div class="hilight">
+                            <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
+                        </div> <!-- End of hilight -->
+                        <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                            onclick="deleteRoute3()">Διαγραφή διαδρομής</button>
+                    </div> <!-- End or tour3 -->
+                </div> <!-- End or col-md-4 column3 -->
+                
+            </div> <!-- End or tours -->
+        </div> <!-- End or Tour Section -->
+                
+    </main>
+        
+   </div> <!-- End or row -->
+ </div> <!-- End of container -->
 
     <!-- Chat -->
     <div class="chat-popup" id="christina">
@@ -219,8 +145,83 @@
             <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
         </form>
     </div>
+    
+    <!-- Script for markers -->
+<script>
+    // Spot of markers
+    var arxData = [
+        //             {
+        //                 "lat": "40.63241",
+        //                 "long": "22.95171",
+        //                 "label": "Καμάρα"
+        //             },
+        {
+            "lat": "40.62656842223241",
+            "long": "22.948425697935058",
+            "label": "Λευκός Πύργος"
+        }
+    ];
 
-    <script>
+    var byzData = [
+        //             {
+        //                 "lat": "40.62395",
+        //                 "long": "22.95505",
+        //                 "label": "Βυζαντινό Μουσείο"
+        //             },
+        {
+            "lat": "40.488218574004556",
+            "long": "22.31585398381218",
+            "label": "Βεργίνα"
+        }
+    ];
+
+    var texData = [
+        {
+            "lat": "40.56430644543867",
+            "long": "22.996265882033438",
+            "label": "NOESIS"
+        }
+        //             ,{
+        //                 "lat": "40.62807",
+        //                 "long": "22.95476",
+        //                 "label": "ΔΕΘ"
+        //             }
+    ];
+    
+    // Load the map with Esri Leaflet
+    var map = L.map('map').setView([40.63, 22.94], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var arxGroup = L.layerGroup().addTo(map);
+    var byzGroup = L.layerGroup().addTo(map);
+    var texGroup = L.layerGroup().addTo(map);
+
+    for (var data of arxData) {
+        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
+        arxGroup.addLayer(marker);
+    }
+    for (var data of byzData) {
+        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
+        byzGroup.addLayer(marker);
+    }
+    for (var data of texData) {
+        marker = L.marker([data.lat, data.long], { draggable: 'true' }).bindPopup(data.label).openPopup();
+        texGroup.addLayer(marker);
+    }
+
+    function showSites(type) {
+        map.removeLayer(arxGroup);
+        map.removeLayer(byzGroup);
+        map.removeLayer(texGroup);
+        map.addLayer(type);
+    }
+</script>
+    
+<!-- Script for popup -->
+<script>
         function openForm() {
             document.getElementById("christina").style.display = "block";
         }
@@ -228,13 +229,7 @@
         function closeForm() {
             document.getElementById("christina").style.display = "none";
         }
-
-//         function showOnMap(btn1) {
-//             for (var i = 0; i < archeologicalSitesData.length; i++) {
-//                 L.marker([archeologicalSitesData[i].lat, archeologicalSitesData[i].long]).addTo(map);
-//             }
-//         }
-    </script>
+</script>
 </body>
 
 </html>
