@@ -31,8 +31,8 @@ body {
     #map {
       height: 90rem;
       width: 161rem;
-      /* top: -1rem; */
-      right: 0rem;
+      top: -3.7rem;
+      right: -26rem;
       margin: 0px;
       padding: 0px;
       position: relative;
