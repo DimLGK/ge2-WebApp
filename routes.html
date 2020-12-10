@@ -87,60 +87,56 @@
    <main class="col-12 col-md-9 col-xl-8">
     
    <!-- Map section -->
-   <div id="map" style="height: 42rem;"></div>
+   <div id="map" class="row" style="height: 42rem;"></div>
 
-        <!-- Tour Section -->
-        <div style="left: 5rem; position: relative;">
-            <div id="tours" class="row text-center">
+    <!-- Tour Section -->
+        <div id="tours" class="row text-center" style="left: 5rem; position: relative;">
+
+            <div class="col-md-4">
+                <div id="tour1" class="thumbnail">
+                    <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100" onclick="showSites(arxGroup)">
+                    <div class="hilight">
+                        <p><strong>Αρχαιολογικοί χώροι</strong></p>
+                    </div> <!-- End or hilight -->
+                    <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                        onclick="deleteRoute1()">Διαγραφή διαδρομής</button>
+                </div> <!-- End or tour1 -->
+            </div> <!-- End or col-md-4 column1 -->
+
+            <div class="col-md-4">
+                <div id="tour2" class="thumbnail">
+                    <img src="./pic/adDim.jpg" alt="New York" width="200" height="100" onclick="showSites(byzGroup)">
+                    <div class="hilight">
+                        <p><strong>Βυζαντινά μημεία</strong></p>
+                    </div> <!-- End or hilight -->
+                    <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                        onclick="deleteRoute2()">Διαγραφή διαδρομής</button>
+                </div> <!-- End or tour2 -->
+            </div> <!-- End or col-md-4 column2 -->
+
+            <div class="col-md-4">
+                <div id="tour3" class="thumbnail">
+                    <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100" onclick="showSites(texGroup)">
+                    <div class="hilight">
+                        <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
+                    </div> <!-- End of hilight -->
+                    <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                        onclick="deleteRoute3()">Διαγραφή διαδρομής</button>
+                </div> <!-- End or tour3 -->
+            </div> <!-- End or col-md-4 column3 -->
+
+    </div> <!-- End or Tour Section -->
                 
-                <div class="col-md-4">
-                    <div id="tour1" class="thumbnail">
-                        <img src="./pic/KAMARA.jpg" alt="Paris" width="200" height="100" onclick="showSites(arxGroup)">
-                        <div class="hilight">
-                            <p><strong>Αρχαιολογικοί χώροι</strong></p>
-                        </div> <!-- End or hilight -->
-                        <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
-                            onclick="deleteRoute1()">Διαγραφή διαδρομής</button>
-                    </div> <!-- End or tour1 -->
-                </div> <!-- End or col-md-4 column1 -->
-                
-                <div class="col-md-4">
-                    <div id="tour2" class="thumbnail">
-                        <img src="./pic/adDim.jpg" alt="New York" width="200" height="100" onclick="showSites(byzGroup)">
-                        <div class="hilight">
-                            <p><strong>Βυζαντινά μημεία</strong></p>
-                        </div> <!-- End or hilight -->
-                        <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
-                            onclick="deleteRoute2()">Διαγραφή διαδρομής</button>
-                    </div> <!-- End or tour2 -->
-                </div> <!-- End or col-md-4 column2 -->
-                
-                <div class="col-md-4">
-                    <div id="tour3" class="thumbnail">
-                        <img src="./pic/astro.jpg" alt="San Francisco" width="200" height="100" onclick="showSites(texGroup)">
-                        <div class="hilight">
-                            <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
-                        </div> <!-- End of hilight -->
-                        <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
-                            onclick="deleteRoute3()">Διαγραφή διαδρομής</button>
-                    </div> <!-- End or tour3 -->
-                </div> <!-- End or col-md-4 column3 -->
-                
-            </div> <!-- End or tours -->
-        </div> <!-- End or Tour Section -->
-                
-    </main>
+  </main>
         
-   </div> <!-- End or row -->
- </div> <!-- End of container -->
+ </div> <!-- End or row -->
+</div> <!-- End of container -->
 
     <!-- Chat -->
     <div class="chat-popup" id="christina">
-        <form action="/action_page.php" class="form-container">
-
+        <form class="form-container">
             <label for="christinamsg"><b>Μήνυμα</b></label>
             <textarea placeholder="Type message.." name="christinamsg" required></textarea>
-
             <button type="submit" class="btn">Αποστολή</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
         </form>
