@@ -13,6 +13,23 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+$(document).ready(function () {
+    var markersArxaiolog = firebase.database().ref('routes');
+    markersArxaiolog.orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on('value', snapshot => {
+
+        snapshot.forEach(function (childSnapshot) {
+            var arxaioData = childSnapshot.val();
+            console.log(arxaioData.latitude, arxaioData.longitude, arxaioData.title);
+        });
+    });
+    
+    // arxaio.child('routes').orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on("value", function (snapshot) {
+    //     console.log(snapshot.val());
+    //     snapshot.forEach(function (data) {
+    //         console.log(data.key);
+    //     });
+    // });
+});
 
 // Open Chat Popup
 function showChat() {
@@ -24,12 +41,11 @@ function closeChat() {
     document.getElementById("chat").style.display = "none";
 }
 
-
 // Save a new routes to DB
-$(function saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl) {
+function saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl) {
     var routeId = firebase.database().ref().child('routes').push().key;
     updateRoute(routeId, latitude, longitude, isSelected, title, description, tourType, imageUrl);
-});
+}
 
 // Update the Database View
 function updateRoute(routeId, latitude, longitude, isSelected, title, description, tourType, imageUrl) {
