@@ -14,7 +14,10 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 $(document).ready(function () {
-    
+    var dataReligion =[];
+    var dataArxaio =[];
+    var dataTech = [];
+
     var markersArxaiolog = firebase.database().ref('routes');
     markersArxaiolog.orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on('value', snapshot => {
 
@@ -22,7 +25,10 @@ $(document).ready(function () {
             var arxaioData = childSnapshot.val();
             marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true' }).bindPopup(arxaioData.title).openPopup();
             arxaioGroup.addLayer(marker);
+            dataArxaio.push([arxaioData.latitude, arxaioData.longitude]);
         });
+        var arxaioPolyline = L.polyline(dataArxaio).setStyle({ color: 'green' });
+        arxaioGroup.addLayer(arxaioPolyline); 
     });
 
     var markersReleg = firebase.database().ref('routes');
@@ -32,7 +38,10 @@ $(document).ready(function () {
             var relegData = childSnapshot.val();
             marker = L.marker([relegData.latitude, relegData.longitude], { draggable: 'true' }).bindPopup(relegData.title).openPopup();
             relegGroup.addLayer(marker);
+            dataReligion.push([relegData.latitude, relegData.longitude]);
         });
+        var relegPolyline = L.polyline(dataReligion).setStyle({ color: 'black' });
+        relegGroup.addLayer(relegPolyline); 
     });
 
     var markersTechno = firebase.database().ref('routes');
@@ -42,7 +51,10 @@ $(document).ready(function () {
             var technoData = childSnapshot.val();
             marker = L.marker([technoData.latitude, technoData.longitude], { draggable: 'true' }).bindPopup(technoData.title).openPopup();
             technoGroup.addLayer(marker);
+            dataTech.push([technoData.latitude, technoData.longitude]);
         });
+        var techPolyline = L.polyline(dataTech).setStyle({ color: 'blue' });
+        technoGroup.addLayer(techPolyline);     
     });
 });
 
