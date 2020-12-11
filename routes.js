@@ -13,6 +13,17 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+var arxRoute, texRoute, relRoute = L.polyline([]).addTo(map);
+
+// Notes
+// var polygon = L.polygon([
+//     [51.509, -0.08],
+//     [51.503, -0.06],
+//     [51.51, -0.047]
+// ]).addTo(mymap);
+
+// var polyline = L.polyline([]).addTo(map);
+
 $(document).ready(function () {
     var markersArxaiolog = firebase.database().ref('routes');
     markersArxaiolog.orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on('value', snapshot => {
@@ -20,6 +31,7 @@ $(document).ready(function () {
         snapshot.forEach(function (childSnapshot) {
             var arxaioData = childSnapshot.val();
             marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true' }).bindPopup(arxaioData.title).openPopup();
+            arxRoute.addLatLng(L.latLng(arxaioData.latitude,arxaioData.longitude));
             arxaioGroup.addLayer(marker);
         });
     });
