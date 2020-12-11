@@ -14,7 +14,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 $(document).ready(function () {
-    var arxRoutePoints, texRoutePoints, relRoutePoints = [];
     
     var markersArxaiolog = firebase.database().ref('routes');
     markersArxaiolog.orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on('value', snapshot => {
