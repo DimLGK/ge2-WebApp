@@ -1,4 +1,26 @@
-    // Data for map
+var scriptJQuery = document.createElement('script');
+var scriptFirebaseApp = document.createElement('script');
+var scriptFirebaseDb = document.createElement('script');
+var scriptLeaflet = document.createElement('script');
+var scriptEsriLeaflet = document.createElement('script');
+scriptJQuery.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+scriptFirebaseApp.src = 'https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js';
+scriptFirebaseDb.src = 'https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js';
+scriptLeaflet.src = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js';
+scriptEsriLeaflet.src = 'https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js';
+script.type = 'text/javascript';
+scriptJQuery.type = 'text/javascript';
+scriptFirebaseApp.type = 'text/javascript';
+scriptFirebaseDb.type = 'text/javascript';
+scriptLeaflet.type = 'text/javascript';
+scriptEsriLeaflet.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(scriptJQuery);    
+document.getElementsByTagName('head')[0].appendChild(scriptFirebaseApp);  
+document.getElementsByTagName('head')[0].appendChild(scriptFirebaseDb);  
+document.getElementsByTagName('head')[0].appendChild(scriptLeaflet);  
+document.getElementsByTagName('head')[0].appendChild(scriptEsriLeaflet);  
+
+// Data for map
     var archeologicalSitesData = [
         {
             "lat": "40.62731322860056",
@@ -28,17 +50,17 @@
 
 
 // Load the map with Esri Leaflet
-//     var map = L.map('map').setView([40.63, 22.94], 12);
+    var map = L.map('map').setView([40.63, 22.94], 12);
 
-//     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//         attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-//     }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-//     for (var data of archeologicalSitesData) {
-//         L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
-//             .bindPopup(data.guide)
-//             .openPopup();
-//     }
+    for (var data of archeologicalSitesData) {
+        L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
+            .bindPopup(data.guide)
+            .openPopup();
+    }
     
     // Chat window functions
     function openForm() {
