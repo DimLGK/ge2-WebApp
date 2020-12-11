@@ -22,7 +22,7 @@ $(document).ready(function () {
         snapshot.forEach(function (childSnapshot) {
             var arxaioData = childSnapshot.val();
             marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true' }).bindPopup(arxaioData.title).openPopup();
-            arxRoute.addLatLng(L.latLng(arxaioData.latitude,arxaioData.longitude));
+            //arxRoute.addLatLng(L.latLng(arxaioData.latitude,arxaioData.longitude));
             arxaioGroup.addLayer(marker);
         });
     });
