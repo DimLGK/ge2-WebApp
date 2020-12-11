@@ -8,7 +8,6 @@ scriptFirebaseApp.src = 'https://www.gstatic.com/firebasejs/8.1.1/firebase-app.j
 scriptFirebaseDb.src = 'https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js';
 scriptLeaflet.src = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js';
 scriptEsriLeaflet.src = 'https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js';
-script.type = 'text/javascript';
 scriptJQuery.type = 'text/javascript';
 scriptFirebaseApp.type = 'text/javascript';
 scriptFirebaseDb.type = 'text/javascript';
