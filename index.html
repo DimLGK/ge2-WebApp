@@ -12,8 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- Firebase JS SDK region -->
-<!--     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script> -->
-<!--     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 
     <!-- Google maps region  from Maria-->
     <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5LkpbrBebUMIxDsheKApRb6gI7ts91Lg&callback=initMap&libraries=&v=weekly" defer></script>-->
@@ -107,17 +107,17 @@
     
  <script>
     // Load the map with Esri Leaflet
-//     var map = L.map('map').setView([40.63, 22.94], 12);
+    var map = L.map('map').setView([40.63, 22.94], 12);
 
-//     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//         attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-//     }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-//     for (var data of archeologicalSitesData) {
-//         L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
-//             .bindPopup(data.guide)
-//             .openPopup();
-//     }
+    for (var data of archeologicalSitesData) {
+        L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
+            .bindPopup(data.guide)
+            .openPopup();
+    }
  </script>
     
     </body>
