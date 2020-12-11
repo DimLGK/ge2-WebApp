@@ -27,8 +27,9 @@ $(document).ready(function () {
           tr.append("<td>" + childData.date + "</td>");
           tr.append("<td>" + childData.payment + "</td>");
           tr.append("<td>" + childData.meetingPlace + "</td>");
-          tr.append('<td><button type="button" class="btn btn-primary" onclick="saveRequestToDb(\'' + childData.uid + '\')">Αποδοχή</button></td>');
-          tr.append('<td><button type="button" class="btn btn-danger" onclick="saveRequestToDb(\'' + childData.uid + '\')">Απόρριψη</button></td>');
+          tr.append('<td><button id="acceptButton" type="button" class="btn btn-primary" onclick="saveRequestToDb(\'' + childData.uid + '\')">Αποδοχή</button></td>');
+          tr.append('<td><button id="deleteButton" type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\')">Απόρριψη</button></td>');
+          tr.append('<td style="display: none;"><div id="delFeedback">This is my DIV element.</div></td>');
           $('table').append(tr);
        });     
      });
@@ -76,6 +77,11 @@ function deleteRequestFromDb(requestId) {
   updateDb(requestId, null);
 }
 
+// Delete buttons on request
+function deleteRequestButtons(requestId, approval) {
+  updateDb(requestId, approval);
+}
+
 // Live Update of Database
 function updateDb(uid, request) {
   var updates = {};
@@ -83,6 +89,29 @@ function updateDb(uid, request) {
   return firebase.database().ref().update(updates);
 }
 
+// Open warning Popup
+function showDelWarning(requestId) {
+  document.getElementById("delWarning").style.display = "block";
+  console.log(requestId);
+  localStorage.setItem('requestId', requestId);
+  return requestId;
+}
+
+// Close warning Popup
+function closeDelWarning() {
+  document.getElementById("delWarning").style.display = "none";
+}
+
+
+function delButtons() {
+  document.getElementById("delWarning").style.display = "none"; 
+  document.getElementById("delFeedback").style.display = "block";
+  document.getElementById("acceptButton").style.display = "none";
+  document.getElementById("deleteButton").style.display = "none";
+  requestId = localStorage.getItem('requestId');
+  deleteRequestButtons(requestId, true);
+  localStorage.removeItem('requestId'); 
+}
 
 // Reminder for chat Popup - NOT WORKING YET
 var pmData = [
