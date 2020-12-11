@@ -49,7 +49,7 @@ document.getElementsByTagName('head')[0].appendChild(scriptEsriLeaflet);
 
 
 // Load the map with Esri Leaflet
-    var mapHtml = '$("#map")';
+    var mapHtml = document.getElementById('map');
     var map = L.map(mapHtml).setView([40.63, 22.94], 12);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
