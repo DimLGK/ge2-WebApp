@@ -17,13 +17,12 @@
 
   <!-- Style region -->
   <link rel="stylesheet" type="text/css" href="./style.css" />
-
+  <!-- Javascript fundtions  -->
   <script src="./guides.js"></script>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
-     
+<!--  Πάνω μπάρα πλοήγησης  -->
   <header> 
    <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -88,53 +87,14 @@
       </div>
 
         <!-- Κουμπί προσθήκης ξεναγού -->
-        <button class="open-button" style="position: fixed; bottom: 23px; right: 28px;"
-          onclick="showAddGuideForm()">Προσθήκηνέου ξεναγού</button>
+        <button class="open-button" style="position: fixed; bottom: 23px; right: 28px;" onclick="showAddGuideForm()">Προσθήκηνέου ξεναγού</button>
 
-        
+
   </div> <!-- End of Row -->
 </div> <!-- End of Container-fluid -->
 </main>
 
-
-  <!-- Φόρμα προσθήκης ξεναγού -->
-  <!-- <div class="modal"
-    style="display: none; position: fixed; width: 40rem; bottom: 0; right: 0; border: 3px solid #f1f1f1; z-index: 9;"
-    id="employeeForm">
-    <form class="form-container">
-      <label for="employeeForm"><b>Προσθήκη νέου ξεναγού</b></label>
-      <div class="col">
-        <div class="form-group">
-          <label for="name">Ονοματεπώνυμο</label>
-          <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Ονοματεπώνυμο">
-        </div>
-        <div class="form-group">
-          <label for="specialization">Ειδίκευση</label>
-          <input type="text" class="form-control" id="specialization" placeholder="Ειδίκευση">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="languages">Γλώσσες</label>
-          <input type="text" class="form-control" id="languages" placeholder="Γλώσσες">
-        </div>
-        <div class="form-group">
-          <label for="occupation">Επάγγελμα</label>
-          <input type="text" class="form-control" id="occupation" placeholder="Επάγγελμα">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="payment">Χρέωση</label>
-          <input type="text" class="form-control" id="payment" placeholder="Χρέωση">
-        </div>
-      </div>
-      <button id="but1" type="button" class="btn btn-primary" onclick="addGuide()">Προσθήκη</button>
-      <button type="button" class="btn cancel" onclick="closeAddGuideForm()">Κλείσιμο</button>
-    </form>
-  </div> -->
-
-
+  <!-- Το παράθυρο προσθήκης ξεναγού -->
   <div id="employeeForm" class="modal modal-dialog-centered" styles="display: table-cell; vertical-align: middle; z-index: 200;" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -151,15 +111,12 @@
             </div>
             <div class="form-group">
               <label for="specialization">Ειδίκευση</label>
-              <!-- <input type="text" class="form-control" id="specialization" placeholder="Ειδίκευση"> -->
               <select id="specialization" class="form-control">
                 <option selected>Αρχιτεκτονικά Μνημεία</option>
                 <option>Τεχνολογικά Μουσεία</option>
                 <option>Θρησκευτικά Μνημεία</option>
               </select>
             </div>
-            <!-- </div> -->
-            <!-- <div class="col"> -->
             <div class="form-group">
               <label for="languages">Γλώσσες</label>
               <input type="text" class="form-control" id="languages" placeholder="Γλώσσες">
@@ -168,13 +125,10 @@
               <label for="occupation">Επάγγελμα</label>
               <input type="text" class="form-control" id="occupation" placeholder="Επάγγελμα">
             </div>
-            <!-- </div> -->
-            <!-- <div class="col"> -->
             <div class="form-group">
               <label for="payment">Χρέωση</label>
               <input type="text" class="form-control" id="payment" placeholder="Χρέωση">
             </div>
-            <!-- </div> -->
           </form>
         </div>
         <div class="modal-footer">
@@ -185,8 +139,7 @@
     </div>
   </div>
 
-
-  <!-- Φόρμα συνομιλίας με ξεναγό -->
+<!-- Φόρμα συνομιλίας με ξεναγό -->
   <div class="chat-popup" id="chat">
     <form class="form-container">
       <label for="msg"><b>Μήνυμα</b></label>
@@ -194,8 +147,7 @@
       <button type="submit" class="btn">Αποστολή</button>
       <button type="button" class="btn cancel" onclick="closeChat()">Κλείσιμο</button>
     </form>
-  </div>
-
-</body>
-
+  </div> <!-- Τέλος φόρμα συνομιλίας με ξεναγό -->
+  
+  </body>
 </html>
