@@ -23,7 +23,7 @@ $(document).ready(function () {
             var arxaioData = childSnapshot.val();
             marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true' }).bindPopup(arxaioData.title).openPopup();
             //arxRoute.addLatLng(L.latLng(arxaioData.latitude,arxaioData.longitude));
-            arxRoutePoints.push[arxaioData.latitude, arxaioData.longitude];
+            arxRoutePoints.push(L.marker([arxaioData.latitude, arxaioData.longitude]));
             console.log(arxRoutePoints);
             arxaioGroup.addLayer(marker);
         });
