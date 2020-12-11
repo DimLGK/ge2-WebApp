@@ -108,6 +108,8 @@ function updateDb(uid, guide) {
 // Open warning Popup
 function showDelWarning(guideId) {
   document.getElementById("delWarning").style.display = "block";
+  console.log(guideId);
+  localStorage.setItem('guideId', guideId);
   return guideId;
 }
 
@@ -117,9 +119,11 @@ function closeDelWarning() {
 }
 
 
-function delGuide(guideId) {
-  deleteGuideFromDb(guideId);
+function delGuide() {
   document.getElementById("delWarning").style.display = "none";
+  guideId = localStorage.getItem('guideId');
+  deleteGuideFromDb(guideId);
+  localStorage.removeItem('guideId'); 
 }
 
 
