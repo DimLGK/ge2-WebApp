@@ -178,26 +178,25 @@
     
 
 <!-- delete warning modal -->
-  <div id="delWarning" class="modal modal-dialog-centered" styles="display: table-cell; vertical-align: middle; z-index: 200;" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"><b style="color: red;">Ειδοποίηση</b></h5>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Πρόκειται να αφαιρέσετε αυτόν τον ξεναγό. Η συγκεκριμένη ενέργεια είναι μη αναστρέψιμη και 
-            μπορεί να αναρεθεί μόνο προσθέτοντας τον συγκεκριμένο ξεναγό εκ νέου.</p> <br>
-            <p>Είστε σίγουρος ότι θέλετε να προχωρήσετε σε διαγραφή;</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="closeDelWarning()">Κλείσιμο</button>
-          <button type="button" class="btn btn-danger" onclick="delGuide(guideId)">Διαγραφή</button>
-        </div>
+<div id="delWarning" class="modal modal-dialog-centered" styles="display: table-cell; vertical-align: middle; z-index: 200;" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><b style="color: red;">Ειδοποίηση</b></h5>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Πρόκειται να διαγράψετε αυτή τη διαδρομή. Η συγκεκριμένη ενέργεια είναι μη αναστρέψιμη και 
+          μπορεί να αναρεθεί μόνο προσθέτοντας διαδρομές εκ νέου.</p> <br>
+          <p>Είστε σίγουρος ότι θέλετε να προχωρήσετε σε διαγραφή;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeDelWarning()">Κλείσιμο</button>
+        <button type="button" class="btn btn-danger" onclick="delRoute(routeId)">Διαγραφή</button>
       </div>
     </div>
   </div>
-
+</div>
     
     
 <!-- Script for popup -->
