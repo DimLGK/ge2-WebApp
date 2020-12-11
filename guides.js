@@ -122,23 +122,6 @@ function delGuide(guideId) {
   document.getElementById("delWarning").style.display = "none";
 }
 
-// Open warning Popup
-function showDelWarning(guideId) {
-  document.getElementById("delWarning").style.display = "block";
-  return guideId;
-}
-
-// Close warning Popup
-function closeDelWarning() {
-  document.getElementById("delWarning").style.display = "none";
-}
-
-
-function delGuide(guideId) {
-  deleteGuideFromDb(guideId);
-  document.getElementById("delWarning").style.display = "none";
-}
-
 
 // Reminder for chat Popup - NOT WORKING YET
 var pmData = [
