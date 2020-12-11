@@ -27,7 +27,7 @@ $(document).ready(function () {
           tr.append("<td>" + childData.languages + "</td>");
           tr.append("<td>" + childData.occupation + "</td>");
           tr.append("<td>" + childData.payrate + "</td>");
-          tr.append('<td><button type="button" class="btn btn-danger" onclick="deleteGuideFromDb(\'' + childData.uid + '\')">X</button></td>');
+          tr.append('<td><button type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\')">X</button></td>');
           $('table').append(tr);
        });     
      });
@@ -103,6 +103,42 @@ function updateDb(uid, guide) {
   updates['/guides/' + uid] = guide;
   return firebase.database().ref().update(updates);
 }
+
+
+// Open warning Popup
+function showDelWarning(guideId) {
+  document.getElementById("delWarning").style.display = "block";
+  return guideId;
+}
+
+// Close warning Popup
+function closeDelWarning() {
+  document.getElementById("delWarning").style.display = "none";
+}
+
+
+function delGuide(guideId) {
+  deleteGuideFromDb(guideId);
+  document.getElementById("delWarning").style.display = "none";
+}
+
+// Open warning Popup
+function showDelWarning(guideId) {
+  document.getElementById("delWarning").style.display = "block";
+  return guideId;
+}
+
+// Close warning Popup
+function closeDelWarning() {
+  document.getElementById("delWarning").style.display = "none";
+}
+
+
+function delGuide(guideId) {
+  deleteGuideFromDb(guideId);
+  document.getElementById("delWarning").style.display = "none";
+}
+
 
 // Reminder for chat Popup - NOT WORKING YET
 var pmData = [
