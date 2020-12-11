@@ -104,7 +104,6 @@ function updateDb(uid, guide) {
   return firebase.database().ref().update(updates);
 }
 
-
 // Reminder for chat Popup - NOT WORKING YET
 var pmData = [
       {
