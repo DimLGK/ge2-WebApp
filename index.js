@@ -49,8 +49,8 @@ document.getElementsByTagName('head')[0].appendChild(scriptEsriLeaflet);
 
 
 // Load the map with Esri Leaflet
-    var mapHtml = document.getElementById('map');
-    var map = L.map('mapHtml').setView([40.63, 22.94], 12);
+    //var mapHtml = document.getElementById('map');
+    var map = L.map('document.getElementById('map')').setView([40.63, 22.94], 12);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
