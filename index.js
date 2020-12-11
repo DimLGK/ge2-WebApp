@@ -1,23 +1,4 @@
-var scriptJQuery = document.createElement('script');
-var scriptFirebaseApp = document.createElement('script');
-var scriptFirebaseDb = document.createElement('script');
-var scriptLeaflet = document.createElement('script');
-var scriptEsriLeaflet = document.createElement('script');
-scriptJQuery.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-scriptFirebaseApp.src = 'https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js';
-scriptFirebaseDb.src = 'https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js';
-scriptLeaflet.src = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js';
-scriptEsriLeaflet.src = 'https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js';
-scriptJQuery.type = 'text/javascript';
-scriptFirebaseApp.type = 'text/javascript';
-scriptFirebaseDb.type = 'text/javascript';
-scriptLeaflet.type = 'text/javascript';
-scriptEsriLeaflet.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(scriptJQuery);    
-document.getElementsByTagName('head')[0].appendChild(scriptFirebaseApp);  
-document.getElementsByTagName('head')[0].appendChild(scriptFirebaseDb);  
-document.getElementsByTagName('head')[0].appendChild(scriptLeaflet);  
-document.getElementsByTagName('head')[0].appendChild(scriptEsriLeaflet);  
+
 
 // Data for map
     var archeologicalSitesData = [
@@ -40,27 +21,13 @@ document.getElementsByTagName('head')[0].appendChild(scriptEsriLeaflet);
         }
     ];
 
+    // Change the icon of the marker
     var guideIcon = L.icon({
         iconUrl: './pic/marker_car.png',
         iconSize: [38, 38], // size of the icon
-        iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+        //iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+        //popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-
-
-// Load the map with Esri Leaflet
-    //var mapHtml = document.getElementById('map');
-    var map = L.map('document.getElementById('map')').setView([40.63, 22.94], 12);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    for (var data of archeologicalSitesData) {
-        L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
-            .bindPopup(data.guide)
-            .openPopup();
-    }
     
     // Chat window functions
     function openForm() {
