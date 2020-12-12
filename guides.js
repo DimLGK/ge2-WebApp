@@ -124,8 +124,13 @@ function delGuide() {
   guideId = localStorage.getItem('guideId');
   deleteGuideFromDb(guideId);
   localStorage.removeItem('guideId'); 
+      
+  document.getElementById("delConfirm").style.display = "block";
 }
 
+function closeDelConfirmation() {
+  document.getElementById("delConfirm").style.display = "none";
+}
 
 // Reminder for chat Popup - NOT WORKING YET
 var pmData = [
