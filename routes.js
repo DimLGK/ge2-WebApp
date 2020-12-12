@@ -44,8 +44,8 @@ $(document).ready(function () {
             arxaioGroup.addLayer(marker);
             dataArxaio.push([arxaioData.latitude, arxaioData.longitude]);
         });
-        var arxaioPolyline = L.polyline(dataArxaio).setStyle({ color: 'green' });
-        arxaioGroup.addLayer(arxaioPolyline);
+        //var arxaioPolyline = L.polyline(dataArxaio).setStyle({ color: 'green' });
+        //arxaioGroup.addLayer(arxaioPolyline);
     });
 
     var markersReleg = firebase.database().ref('routes');
@@ -57,8 +57,8 @@ $(document).ready(function () {
             relegGroup.addLayer(marker);
             dataReligion.push([relegData.latitude, relegData.longitude]);
         });
-        var relegPolyline = L.polyline(dataReligion).setStyle({ color: 'black' });
-        relegGroup.addLayer(relegPolyline);
+        //var relegPolyline = L.polyline(dataReligion).setStyle({ color: 'black' });
+        //relegGroup.addLayer(relegPolyline);
     });
 
     var markersTechno = firebase.database().ref('routes');
@@ -70,8 +70,8 @@ $(document).ready(function () {
             technoGroup.addLayer(marker);
             dataTech.push([technoData.latitude, technoData.longitude]);
         });
-        var techPolyline = L.polyline(dataTech).setStyle({ color: 'blue' });
-        technoGroup.addLayer(techPolyline);
+        //var techPolyline = L.polyline(dataTech).setStyle({ color: 'blue' });
+        //technoGroup.addLayer(techPolyline);
     });
 });
 
