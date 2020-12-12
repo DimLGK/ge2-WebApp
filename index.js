@@ -57,7 +57,8 @@ function showChat(id) {
 function sendMsg() {
     var chatId = localStorage.getItem('chatid');
     if (document.getElementById("textMsg").value != '') {
-        var mgsToSend = document.getElementById("textMsg").value;
+        var dateTime = new Date().toLocaleString();
+        var mgsToSend = dateTime + ': ' + document.getElementById("textMsg").value;
         console.log(mgsToSend);
     }
 
