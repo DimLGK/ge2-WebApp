@@ -204,7 +204,7 @@ function closeAddRouteForm() {
 
 
 // Open warning Popup
-function showDelWarning(guideId) {
+function showDelWarning(routeId) {
   document.getElementById("delWarning").style.display = "block";
   console.log(routeId);
   localStorage.setItem('routeId', routeId);
