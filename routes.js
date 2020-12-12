@@ -13,21 +13,6 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-var greenIcon = new L.Icon({
-  iconUrl: './pic/marker_car.png',
-  iconSize: [38, 38]
-});
-
-// Change the icon of the marker
-var guideIcon = L.icon({
-    iconUrl: './pic/marker_car.png',
-    iconSize: [38, 38], // size of the icon
-    //iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-    //popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-
-// L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
-
 $(document).ready(function () {
     var dataReligion = [];
     var dataArxaio = [];
