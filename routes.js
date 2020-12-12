@@ -15,8 +15,8 @@ firebase.initializeApp(firebaseConfig);
 
 var greenIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-  iconSize: [38, 38],
-  iconAnchor: [38, 38],
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
   popupAnchor: [1, -34],
   shadowSize: [41, 41]
 });
