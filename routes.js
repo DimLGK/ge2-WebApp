@@ -150,6 +150,18 @@ function deleteRouteFromDb(routeId) {
     updateDb(routeId, null);
 }
 
+// Delete a pins from DB and update
+function deletePinsFromDb(routeData, uid) {
+    var layer = technoGroup;
+    map.removeLayer(markersTechno);
+    //technoData.refresh();
+    updateDb(uid, null);
+    routeData.splice(uid, 1);
+    //routeData = [];
+
+    //map.addLayer(technoGroup);
+}
+
 // Live Update of Database
 function updateDb(uid, route) {
     var updates = {};
@@ -189,12 +201,4 @@ function addRoute() {
 function closeAddRouteForm() {
     document.getElementById("routeForm").style.display = "none";
 }
-
-// Reminder for chat Popup - NOT WORKING YET
-var pmData = [
-    {
-        "name": "Χριστίνα Βασιλειάδη",
-        "message": "Ο πελάτης θα περιμένει στην Καμάρα στις 10:00."
-    }
-];
 
