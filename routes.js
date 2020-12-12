@@ -14,11 +14,16 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var greenIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
+  iconUrl: './pic/marker_car.png',
+  iconSize: [38, 38]
+});
+
+// Change the icon of the marker
+var guideIcon = L.icon({
+    iconUrl: './pic/marker_car.png',
+    iconSize: [38, 38], // size of the icon
+    //iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    //popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
 // L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
