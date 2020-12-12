@@ -29,13 +29,14 @@
         //popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
     
-    // Chat window functions
-    function openForm() {
-        document.getElementById("christina").style.display = "block";
+    // Open Chat Popup
+    function showChat() {
+          document.getElementById("chat").style.display = "block";
     }
 
-    function closeForm() {
-        document.getElementById("christina").style.display = "none";
+    // Close Chat Popup
+    function closeChat() {
+          document.getElementById("chat").style.display = "none";
     }
 
     var input = document.getElementById('christina');
