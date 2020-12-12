@@ -35,17 +35,19 @@ $(document).ready(function () {
     });
 
 
-    var markersArxaiolog = firebase.database().ref('routes');
+var markersArxaiolog = firebase.database().ref('routes');
     markersArxaiolog.orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on('value', snapshot => {
 
         snapshot.forEach(function (childSnapshot) {
             var arxaioData = childSnapshot.val();
-            marker = L.marker([arxaioData.latitude, arxaioData.longitude], { editable: true, icon: arxeoIcon }).bindPopup(arxaioData.title).openPopup();
+            marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true', icon: arxeoIcon })
+                .bindPopup(arxaioData.title + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + arxaioData + '\', \'' + arxaioData.uid + '\')">Διαγραφή</a>')
+                .openPopup();
             arxaioGroup.addLayer(marker);
             dataArxaio.push([arxaioData.latitude, arxaioData.longitude]);
         });
-        //var arxaioPolyline = L.polyline(dataArxaio).setStyle({ color: 'green' });
-        //arxaioGroup.addLayer(arxaioPolyline);
+        // var arxaioPolyline = L.polyline(dataArxaio).setStyle({ color: 'green' });
+        // arxaioGroup.addLayer(arxaioPolyline);
     });
 
     var markersReleg = firebase.database().ref('routes');
@@ -53,12 +55,14 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var relegData = childSnapshot.val();
-            marker = L.marker([relegData.latitude, relegData.longitude], { editable: true, icon: relegIcon }).bindPopup(relegData.title).openPopup();
+            marker = L.marker([relegData.latitude, relegData.longitude], { draggable: 'true', icon: relegIcon })
+                .bindPopup(relegData.title + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + relegData + '\', \'' + relegData.uid + '\')">Διαγραφή</a>')
+                .openPopup();
             relegGroup.addLayer(marker);
             dataReligion.push([relegData.latitude, relegData.longitude]);
         });
-        //var relegPolyline = L.polyline(dataReligion).setStyle({ color: 'black' });
-        //relegGroup.addLayer(relegPolyline);
+        // var relegPolyline = L.polyline(dataReligion).setStyle({ color: 'black' });
+        // relegGroup.addLayer(relegPolyline);
     });
 
     var markersTechno = firebase.database().ref('routes');
@@ -66,12 +70,14 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var technoData = childSnapshot.val();
-            marker = L.marker([technoData.latitude, technoData.longitude], { editable: true, icon: technoIcon }).bindPopup(technoData.title).openPopup();
+            marker = L.marker([technoData.latitude, technoData.longitude], { draggable: 'true', icon: technoIcon })
+                .bindPopup(technoData.title + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + technoData + '\', \'' + technoData.uid + '\')">Διαγραφή</a>')
+                .openPopup();
             technoGroup.addLayer(marker);
             dataTech.push([technoData.latitude, technoData.longitude]);
         });
-        //var techPolyline = L.polyline(dataTech).setStyle({ color: 'blue' });
-        //technoGroup.addLayer(techPolyline);
+        // var techPolyline = L.polyline(dataTech).setStyle({ color: 'blue' });
+        // technoGroup.addLayer(techPolyline);
     });
 });
 
