@@ -15,15 +15,18 @@ firebase.initializeApp(firebaseConfig);
 
 // Change the icon of the marker
 var arxeoIcon = L.icon({
-    iconUrl: './pic/marker-icon-gold.png'
+    iconUrl: './pic/marker-icon-gold.png',
+    iconSize: [38, 38]
 });
 
 var relegIcon = L.icon({
-    iconUrl: './pic/marker-icon-blue.png'
+    iconUrl: './pic/marker-icon-blue.png',
+    iconSize: [38, 38]
 });
 
 var technoIcon = L.icon({
-    iconUrl: './pic/marker-icon-red.png'
+    iconUrl: './pic/marker-icon-red.png',
+    iconSize: [38, 38]
 });
 
 $(document).ready(function () {
