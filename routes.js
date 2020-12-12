@@ -13,26 +13,27 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Change the icon of the marker
-var arxeoIcon = L.icon({
-    iconUrl: './pic/marker-icon-gold.png',
-    iconSize: [38, 38]
-});
-
-var relegIcon = L.icon({
-    iconUrl: './pic/marker-icon-blue.png',
-    iconSize: [38, 38]
-});
-
-var technoIcon = L.icon({
-    iconUrl: './pic/marker-icon-red.png',
-    iconSize: [38, 38]
-});
-
 $(document).ready(function () {
     var dataReligion = [];
     var dataArxaio = [];
     var dataTech = [];
+    
+     // Change the icon of the marker
+    var arxeoIcon = L.icon({
+        iconUrl: './pic/marker-icon-gold.png',
+        iconSize: [28, 38]
+    });
+
+    var relegIcon = L.icon({
+        iconUrl: './pic/marker-icon-blue.png',
+        iconSize: [28, 38]
+    });
+
+    var technoIcon = L.icon({
+        iconUrl: './pic/marker-icon-red.png',
+        iconSize: [28, 38]
+    });
+
 
     var markersArxaiolog = firebase.database().ref('routes');
     markersArxaiolog.orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on('value', snapshot => {
