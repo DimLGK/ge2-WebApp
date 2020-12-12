@@ -13,6 +13,19 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Change the icon of the marker
+var arxeoIcon = L.icon({
+    iconUrl: './pic/marker-icon-gold.png'
+});
+
+var relegIcon = L.icon({
+    iconUrl: './pic/marker-icon-blue.png'
+});
+
+var technoIcon = L.icon({
+    iconUrl: './pic/marker-icon-red.pngg'
+});
+
 $(document).ready(function () {
     var dataReligion = [];
     var dataArxaio = [];
@@ -23,7 +36,7 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var arxaioData = childSnapshot.val();
-            marker = L.marker([arxaioData.latitude, arxaioData.longitude], { editable: true }).bindPopup(arxaioData.title).openPopup();
+            marker = L.marker([arxaioData.latitude, arxaioData.longitude], { editable: true, icon: arxeoIcon }).bindPopup(arxaioData.title).openPopup();
             arxaioGroup.addLayer(marker);
             dataArxaio.push([arxaioData.latitude, arxaioData.longitude]);
         });
@@ -36,7 +49,7 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var relegData = childSnapshot.val();
-            marker = L.marker([relegData.latitude, relegData.longitude], { editable: true }).bindPopup(relegData.title).openPopup();
+            marker = L.marker([relegData.latitude, relegData.longitude], { editable: true, icon: relegIcon }).bindPopup(relegData.title).openPopup();
             relegGroup.addLayer(marker);
             dataReligion.push([relegData.latitude, relegData.longitude]);
         });
@@ -49,7 +62,7 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var technoData = childSnapshot.val();
-            marker = L.marker([technoData.latitude, technoData.longitude], { editable: true }).bindPopup(technoData.title).openPopup();
+            marker = L.marker([technoData.latitude, technoData.longitude], { editable: true, icon: technoIcon }).bindPopup(technoData.title).openPopup();
             technoGroup.addLayer(marker);
             dataTech.push([technoData.latitude, technoData.longitude]);
         });
