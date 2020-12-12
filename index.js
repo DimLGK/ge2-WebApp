@@ -36,7 +36,7 @@ var archeologicalSitesData = [
 // Change the icon of the marker
 var guideIcon = L.icon({
     iconUrl: './pic/marker_car.png',
-    iconSize: [50, 50], // size of the icon
+    iconSize: [60, 60], // size of the icon
     //iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
     //popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
