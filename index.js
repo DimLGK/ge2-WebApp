@@ -1,4 +1,16 @@
+var firebaseConfig = {
+    apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
+    authDomain: "tourexploration.firebaseapp.com",
+    databaseURL: "https://tourexploration.firebaseio.com",
+    projectId: "tourexploration",
+    storageBucket: "tourexploration.appspot.com",
+    messagingSenderId: "115899410318",
+    appId: "1:115899410318:web:49b5df20824212d6d6a6df",
+    measurementId: "G-EMZ6NWJ72Y"
+};
 
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 // Data for map
 var archeologicalSitesData = [
@@ -32,7 +44,7 @@ var guideIcon = L.icon({
 // Open Chat Popup
 function showChat(id) {
     document.getElementById("chat").style.display = "block";
-
+    localStorage.setItem('chatid', id);
     if (id === 'christina') {
         document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
     } else if (id === 'tony') {
@@ -42,9 +54,32 @@ function showChat(id) {
     }
 }
 
+function sendMsg() {
+    var chatId = localStorage.getItem('chatid');
+    if (document.getElementById("textMsg").value != null) {
+        var mgsToSend = document.getElementById("textMsg").value;
+        console.log(mgsToSend);
+    }
+
+    var msgData = {
+        id: chatId,
+        message: mgsToSend
+    };
+    updateChatInDb(chatId, msgData);
+}
+
+// Live Update of chat
+function updateChatInDb(chatId, msgData) {
+    localStorage.removeItem('chatid');
+    var updates = {};
+    updates['/chat/' + chatId] = msgData;
+    return firebase.database().ref().update(updates);
+}
+
 // Close Chat Popup
 function closeChat() {
     document.getElementById("chat").style.display = "none";
+    localStorage.removeItem('chat');
 }
 
 var input = document.getElementById('christina');

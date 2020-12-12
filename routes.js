@@ -61,19 +61,42 @@ $(document).ready(function () {
 // Open Chat Popup
 function showChat(id) {
     document.getElementById("chat").style.display = "block";
-
+    localStorage.setItem('chatid', id);
     if (id === 'christina') {
-        document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
+      document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
     } else if (id === 'tony') {
-        document.getElementById("chatHeader").innerHTML = "Tony Chan";
+      document.getElementById("chatHeader").innerHTML = "Tony Chan";
     } else if (id === 'hasan') {
-        document.getElementById("chatHeader").innerHTML = "Hasan Abdul";
+      document.getElementById("chatHeader").innerHTML = "Hasan Abdul";
     }
-}
+  }
+  
+  function sendMsg() {
+    var chatId = localStorage.getItem('chatid');
+    if (document.getElementById("textMsg").value != null) {
+      var mgsToSend = document.getElementById("textMsg").value;
+      console.log(mgsToSend);
+    }
+    
+    var msgData = {
+      id: chatId,
+      message: mgsToSend
+    };
+    updateChatInDb(chatId, msgData);
+  }
+  
+  // Live Update of chat
+  function updateChatInDb(chatId, msgData) {
+    localStorage.removeItem('chatid');
+    var updates = {};
+    updates['/chat/' + chatId] = msgData;
+    return firebase.database().ref().update(updates);
+  }
 
 // Close Chat Popup
 function closeChat() {
     document.getElementById("chat").style.display = "none";
+    localStorage.removeItem('chat');
 }
 
 // Save a new routes to DB

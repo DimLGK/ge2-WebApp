@@ -129,9 +129,9 @@
   <div class="chat-popup" id="chat">
     <form class="form-container">
       <label id="chatHeader" for="chat"><b>Μήνυμα</b></label>
-      <textarea placeholder="Type message.." name="chatmsg" required></textarea>
+      <textarea id="textMsg" placeholder="Type message.." name="chatmsg" required></textarea>
       <button type="button" class="btn btn-danger" onclick="closeChat()">Κλείσιμο</button>
-      <button type="submit" class="btn btn-primary">Αποστολή</button>
+      <button type="button" class="btn btn-primary" onclick="sendMsg()">Αποστολή</button>
     </form>
   </div>
 

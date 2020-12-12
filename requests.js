@@ -95,9 +95,7 @@ function clearTableContents() {
 // Open Chat Popup
 function showChat(id) {
   document.getElementById("chat").style.display = "block";
-  localStorage.removeItem('chatState');
-  localStorage.setItem('chatState', '1');
-  console.log(id);
+  localStorage.setItem('chatid', id);
   if (id === 'christina') {
     document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
   } else if (id === 'tony') {
@@ -107,11 +105,34 @@ function showChat(id) {
   }
 }
 
+function sendMsg() {
+  var chatId = localStorage.getItem('chatid');
+  if (document.getElementById("textMsg").value != null) {
+    var mgsToSend = document.getElementById("textMsg").value;
+    console.log(mgsToSend);
+  }
+  
+  var msgData = {
+    id: chatId,
+    message: mgsToSend
+  };
+  updateChatInDb(chatId, msgData);
+}
+
+// Live Update of chat
+function updateChatInDb(chatId, msgData) {
+  localStorage.removeItem('chatid');
+  var updates = {};
+  updates['/chat/' + chatId] = msgData;
+  return firebase.database().ref().update(updates);
+}
+
 // Close Chat Popup
 function closeChat() {
   document.getElementById("chat").style.display = "none";
   localStorage.removeItem('chatState');
   localStorage.setItem('chatState', '0');
+  localStorage.removeItem('chat');
 }
 
 // Save a new Request to DB
