@@ -46,7 +46,7 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var relegData = childSnapshot.val();
-            marker = L.marker([relegData.latitude, relegData.longitude], { draggable: 'true', icon: greenIcon }).bindPopup(relegData.title).openPopup();
+            marker = L.marker([relegData.latitude, relegData.longitude], { icon: greenIcon }).bindPopup(relegData.title).openPopup();
             relegGroup.addLayer(marker);
             dataReligion.push([relegData.latitude, relegData.longitude]);
         });
