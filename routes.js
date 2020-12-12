@@ -208,7 +208,7 @@ function showDelWarning(routeId) {
   document.getElementById("delWarning").style.display = "block";
   console.log(routeId);
   localStorage.setItem('routeId', routeId);
-  return routeId;
+  //return routeId;
 }
 
 // Close warning Popup
@@ -220,6 +220,14 @@ function closeDelWarning() {
 function delRoute() {
   document.getElementById("delWarning").style.display = "none";
   routeId = localStorage.getItem('routeId');
+  console.log(routeId);
+  if (routeId == 'tour1') {
+    deleteRoute1();
+  } else if (routeId == 'tour2') {
+    deleteRoute2();
+  } else if (routeId == 'tour3') {
+    deleteRoute3();
+  }
   //deleteGuideFromDb(routeId);
   localStorage.removeItem('routeId');
 
