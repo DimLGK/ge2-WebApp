@@ -14,8 +14,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 $(document).ready(function () {
-    var dataReligion =[];
-    var dataArxaio =[];
+    var dataReligion = [];
+    var dataArxaio = [];
     var dataTech = [];
 
     var markersArxaiolog = firebase.database().ref('routes');
@@ -28,7 +28,7 @@ $(document).ready(function () {
             dataArxaio.push([arxaioData.latitude, arxaioData.longitude]);
         });
         var arxaioPolyline = L.polyline(dataArxaio).setStyle({ color: 'green' });
-        arxaioGroup.addLayer(arxaioPolyline); 
+        arxaioGroup.addLayer(arxaioPolyline);
     });
 
     var markersReleg = firebase.database().ref('routes');
@@ -41,7 +41,7 @@ $(document).ready(function () {
             dataReligion.push([relegData.latitude, relegData.longitude]);
         });
         var relegPolyline = L.polyline(dataReligion).setStyle({ color: 'black' });
-        relegGroup.addLayer(relegPolyline); 
+        relegGroup.addLayer(relegPolyline);
     });
 
     var markersTechno = firebase.database().ref('routes');
@@ -54,13 +54,21 @@ $(document).ready(function () {
             dataTech.push([technoData.latitude, technoData.longitude]);
         });
         var techPolyline = L.polyline(dataTech).setStyle({ color: 'blue' });
-        technoGroup.addLayer(techPolyline);     
+        technoGroup.addLayer(techPolyline);
     });
 });
 
 // Open Chat Popup
-function showChat() {
+function showChat(id) {
     document.getElementById("chat").style.display = "block";
+
+    if (id === 'christina') {
+        document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
+    } else if (id === 'tony') {
+        document.getElementById("chatHeader").innerHTML = "Tony Chan";
+    } else if (id === 'hasan') {
+        document.getElementById("chatHeader").innerHTML = "Hasan Abdul";
+    }
 }
 
 // Close Chat Popup
@@ -119,12 +127,12 @@ function deleteRoute3() {
 function showAddRouteForm() {
     document.getElementById("routeForm").style.display = "block";
 }
-  
+
 // Add the Route to Db
 function addRoute() {
     var tourType = (document.getElementById('type')).value;
     var imageUrl = (document.getElementById('image')).value;
-    
+
     //saveRouteToDb(name, payment, 10, occupation, languages, specialization);
     closeAddRouteForm();
 }

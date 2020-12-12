@@ -1,49 +1,57 @@
 
 
 // Data for map
-    var archeologicalSitesData = [
-        {
-            "lat": "40.62731322860056",
-            "long": "22.9508688610709",
-            "guide": "Tony Chan"
-        },
-        {
-            "lat": "40.58272482165455",
-            "long": "22.963157448468245",
-            "guide": "Hasan Adbul"
-        },
-        {
+var archeologicalSitesData = [
+    {
+        "lat": "40.62731322860056",
+        "long": "22.9508688610709",
+        "guide": "Tony Chan"
+    },
+    {
+        "lat": "40.58272482165455",
+        "long": "22.963157448468245",
+        "guide": "Hasan Adbul"
+    },
+    {
 
-            "lat": "40.6421290045795",
-            "long": "22.95440936389948",
-            "guide": "Χριστινα Βασιλειάδη"
+        "lat": "40.6421290045795",
+        "long": "22.95440936389948",
+        "guide": "Χριστινα Βασιλειάδη"
 
-        }
-    ];
-
-    // Change the icon of the marker
-    var guideIcon = L.icon({
-        iconUrl: './pic/marker_car.png',
-        iconSize: [38, 38], // size of the icon
-        //iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-        //popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
-    
-    // Open Chat Popup
-    function showChat() {
-          document.getElementById("chat").style.display = "block";
     }
+];
 
-    // Close Chat Popup
-    function closeChat() {
-          document.getElementById("chat").style.display = "none";
+// Change the icon of the marker
+var guideIcon = L.icon({
+    iconUrl: './pic/marker_car.png',
+    iconSize: [38, 38], // size of the icon
+    //iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    //popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+// Open Chat Popup
+function showChat(id) {
+    document.getElementById("chat").style.display = "block";
+
+    if (id === 'christina') {
+        document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
+    } else if (id === 'tony') {
+        document.getElementById("chatHeader").innerHTML = "Tony Chan";
+    } else if (id === 'hasan') {
+        document.getElementById("chatHeader").innerHTML = "Hasan Abdul";
     }
+}
 
-    var input = document.getElementById('christina');
-    document.getElementById('submit').onclick = function () {
-        pmData.push(input.value);
-        screen.innerHTML = input.value;
-    };
+// Close Chat Popup
+function closeChat() {
+    document.getElementById("chat").style.display = "none";
+}
+
+var input = document.getElementById('christina');
+document.getElementById('submit').onclick = function () {
+    pmData.push(input.value);
+    screen.innerHTML = input.value;
+};
 
 // Configuration Firebase
 var firebaseConfig = {

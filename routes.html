@@ -2,43 +2,43 @@
 <html lang="en">
 
 <head>
-    <title>Tour Explorations</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Tour Explorations</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- Firebase JS SDK region -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+  <!-- Firebase JS SDK region -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 
-    <!--     <script
+  <!--     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5LkpbrBebUMIxDsheKApRb6gI7ts91Lg&callback=initMap&libraries=&v=weekly"
         defer></script> -->
 
-    <!-- Style region -->
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+  <!-- Style region -->
+  <link rel="stylesheet" type="text/css" href="./style.css" />
 
-    <script src="./routes.js"></script>
+  <script src="./routes.js"></script>
 
-    <!-- Load Leaflet from CDN -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <!-- Load Esri Leaflet from CDN -->
-    <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
-        integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
-        crossorigin=""></script>
+  <!-- Load Leaflet from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+    integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+    crossorigin=""></script>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-    
+
   <header class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -60,87 +60,91 @@
     </div>
   </header>
 
-   <!-- main window -->
-   <main>
-    
-   <div class="container-fluid">
-    <div class="row flex-xl-nowrap">
-        
-    <!--  side navigation bar      -->
-      <div class="sidenav col-12 col-md-3 col-xl-2">
-          <a class="sidebar-link" href="#hasan" onclick="showChat()">
+  <!-- main window -->
+  <main>
+
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+
+        <!--  side navigation bar      -->
+        <div class="sidenav col-12 col-md-3 col-xl-2">
+          <a id="christina" class="sidebar-link" onclick="showChat(id)">
             <img class="sidebar-img" src="./pic/christina.jpg" />
             Χριστίνα Βασιλειάδη
           </a>
-          <a class="sidebar-link" href="#hasan" onclick="showChat()">
+          <a id="tony" class="sidebar-link" onclick="showChat(id)">
             <img class="sidebar-img" src="./pic/tsan.jpg" />
             Tony Chan
           </a>
-          <a class="sidebar-link" href="#hasan" onclick="showChat()">
+          <a id="hasan" class="sidebar-link" onclick="showChat(id)">
             <img class="sidebar-img" src="./pic/hasan.png" />
             Hasan Abdul
           </a>
-      </div> <!--End of col-md-3 -->
-        
-   <!-- Central Area -->
-   <div class="col-12 col-md-9 col-xl-8">
-   <!-- Map section -->
-   <div class="row" style="margin-right:-55px">
-       <div id="map" style="height: 42rem; top:-1rem;"></div>
-   </div>  <!-- end of row1 -->
-        
-   <!-- Tour Section -->
-   <div class="row" style="margin-right:-55px">
-      <div id="tours" class="row text-center" style="position: relative; left: 26.5rem;">
+        </div>
+        <!--End of col-md-3 -->
 
-        <div class="col-md-4">
-            <div id="tour1" class="thumbnail">
-                <img src="./pic/KAMARA.jpg" alt="Καμάρα" width="200" height="100" onclick="showSites(arxaioGroup)">
-                <div class="hilight">
+        <!-- Central Area -->
+        <div class="col-12 col-md-9 col-xl-8">
+          <!-- Map section -->
+          <div class="row" style="margin-right:-55px">
+            <div id="map" style="height: 42rem; top:-1rem;"></div>
+          </div> <!-- end of row1 -->
+
+          <!-- Tour Section -->
+          <div class="row" style="margin-right:-55px">
+            <div id="tours" class="row text-center" style="position: relative; left: 26.5rem;">
+
+              <div class="col-md-4">
+                <div id="tour1" class="thumbnail">
+                  <img src="./pic/KAMARA.jpg" alt="Καμάρα" width="200" height="100" onclick="showSites(arxaioGroup)">
+                  <div class="hilight">
                     <p><strong>Αρχαιολογικοί χώροι</strong></p>
-                </div> <!-- End or hilight -->
-                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                  </div> <!-- End or hilight -->
+                  <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
                     onclick="deleteRoute1()">Διαγραφή διαδρομής</button>
-            </div> <!-- End or tour1 -->
-        </div> <!-- End or col-md-4 column1 -->
+                </div> <!-- End or tour1 -->
+              </div> <!-- End or col-md-4 column1 -->
 
-        <div class="col-md-4">
-            <div id="tour2" class="thumbnail">
-                <img src="./pic/adDim.jpg" alt="Αγιος Δημήτριος" width="200" height="100" onclick="showSites(relegGroup)">
-                <div class="hilight">
+              <div class="col-md-4">
+                <div id="tour2" class="thumbnail">
+                  <img src="./pic/adDim.jpg" alt="Αγιος Δημήτριος" width="200" height="100"
+                    onclick="showSites(relegGroup)">
+                  <div class="hilight">
                     <p><strong>Βυζαντινά μημεία</strong></p>
-                </div> <!-- End or hilight -->
-                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                  </div> <!-- End or hilight -->
+                  <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
                     onclick="deleteRoute2()">Διαγραφή διαδρομής</button>
-            </div> <!-- End or tour2 -->
-        </div> <!-- End or col-md-4 column2 -->
+                </div> <!-- End or tour2 -->
+              </div> <!-- End or col-md-4 column2 -->
 
-        <div class="col-md-4">
-            <div id="tour3" class="thumbnail">
-                <img src="./pic/astro.jpg" alt="Κέντρο Νόησις" width="200" height="100" onclick="showSites(technoGroup)">
-                <div class="hilight">
+              <div class="col-md-4">
+                <div id="tour3" class="thumbnail">
+                  <img src="./pic/astro.jpg" alt="Κέντρο Νόησις" width="200" height="100"
+                    onclick="showSites(technoGroup)">
+                  <div class="hilight">
                     <p><strong>Τεχνολογικά αξιοθέατα</strong></p>
-                </div> <!-- End of hilight -->
-                <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
+                  </div> <!-- End of hilight -->
+                  <button type="button" class="btn btn-danger" styles="right: 0px; z-index: 1;"
                     onclick="deleteRoute3()">Διαγραφή διαδρομής</button>
-            </div> <!-- End or tour3 -->
-        </div> <!-- End or col-md-4 column3 -->
-       </div>  <!-- End of row2 -->
-    </div> <!-- End or Tour Section -->
-   </div>    
-     <button class="btn btn-primary open-button" style="position: fixed; bottom: 23px; right: 28px;" onclick="showAddRouteForm()">Προσθήκη διαδρομής</button> 
-  </main>      
- </div> <!-- End or row -->
-</div> <!-- End of container -->
+                </div> <!-- End or tour3 -->
+              </div> <!-- End or col-md-4 column3 -->
+            </div> <!-- End of row2 -->
+          </div> <!-- End or Tour Section -->
+        </div>
+        <button class="btn btn-primary open-button" style="position: fixed; bottom: 23px; right: 28px;"
+          onclick="showAddRouteForm()">Προσθήκη διαδρομής</button>
+  </main>
+  </div> <!-- End or row -->
+  </div> <!-- End of container -->
 
-    
-<script>
-   
+
+  <script>
+
     // Load the map with Esri Leaflet
     var map = L.map('map').setView([40.63, 22.94], 12);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     var arxaioGroup = L.layerGroup().addTo(map);
@@ -148,27 +152,27 @@
     var technoGroup = L.layerGroup().addTo(map);
 
     for (var data of arxaioData) {
-        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
-        arxaioGroup.addLayer(marker);
+      marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+      arxaioGroup.addLayer(marker);
     }
     for (var data of relegData) {
-        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
-        relegGroup.addLayer(marker);
+      marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+      relegGroup.addLayer(marker);
     }
     for (var data of technoData) {
-        marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
-        technoGroup.addLayer(marker);
+      marker = L.marker([data.latitude, data.longitude], { draggable: 'true' }).bindPopup(data.title).openPopup();
+      technoGroup.addLayer(marker);
     }
 
     function showSites(type) {
-        map.removeLayer(arxaioGroup);
-        map.removeLayer(relegGroup);
-        map.removeLayer(technoGroup);
-        map.addLayer(type);
+      map.removeLayer(arxaioGroup);
+      map.removeLayer(relegGroup);
+      map.removeLayer(technoGroup);
+      map.addLayer(type);
     }
-</script>
-    
-<!-- Το παράθυρο προσθήκης route -->
+  </script>
+
+  <!-- Το παράθυρο προσθήκης route -->
   <div id="routeForm" class="modal modal-dialog-centered"
     styles="display: table-cell; vertical-align: middle; z-index: 200;" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -202,42 +206,43 @@
         </div>
       </div>
     </div>
-  </div>    
-   
+  </div>
 
-<!-- delete warning modal -->
-<div id="delWarning" class="modal modal-dialog-centered" styles="display: table-cell; vertical-align: middle; z-index: 200;" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"><b style="color: red;">Ειδοποίηση</b></h5>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Πρόκειται να διαγράψετε αυτή τη διαδρομή. Η συγκεκριμένη ενέργεια είναι μη αναστρέψιμη και 
-          μπορεί να αναρεθεί μόνο προσθέτοντας διαδρομές εκ νέου.</p> <br>
+
+  <!-- delete warning modal -->
+  <div id="delWarning" class="modal modal-dialog-centered"
+    styles="display: table-cell; vertical-align: middle; z-index: 200;" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><b style="color: red;">Ειδοποίηση</b></h5>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Πρόκειται να διαγράψετε αυτή τη διαδρομή. Η συγκεκριμένη ενέργεια είναι μη αναστρέψιμη και
+            μπορεί να αναρεθεί μόνο προσθέτοντας διαδρομές εκ νέου.</p> <br>
           <p>Είστε σίγουρος ότι θέλετε να προχωρήσετε σε διαγραφή;</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" onclick="closeDelWarning()">Κλείσιμο</button>
-        <button type="button" class="btn btn-danger" onclick="delRoute(routeId)">Διαγραφή</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeDelWarning()">Κλείσιμο</button>
+          <button type="button" class="btn btn-danger" onclick="delRoute(routeId)">Διαγραφή</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
   <!-- Chat -->
   <div class="chat-popup" id="chat">
     <form class="form-container">
-      <label for="chatmsg"><b>Μήνυμα</b></label>
+      <label id="chatHeader" for="chat"><b>Μήνυμα</b></label>
       <textarea placeholder="Type message.." name="chatmsg" required></textarea>
       <button type="button" class="btn btn-danger" onclick="closeChat()">Κλείσιμο</button>
       <button type="submit" class="btn btn-primary">Αποστολή</button>
     </form>
   </div>
-    
-    
+
+
 </body>
 
 </html>

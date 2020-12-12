@@ -71,15 +71,15 @@
 
       <!--  side navigation bar      -->
       <div class="sidenav col-12 col-md-3 col-xl-2">
-          <a class="sidebar-link" href="#hasan" onclick="showChat()">
+          <a id="christina" class="sidebar-link" onclick="showChat(id)">
             <img class="sidebar-img" src="./pic/christina.jpg" />
             Χριστίνα Βασιλειάδη
           </a>
-          <a class="sidebar-link" href="#hasan" onclick="showChat()">
+          <a id="tony" class="sidebar-link" onclick="showChat(id)">
             <img class="sidebar-img" src="./pic/tsan.jpg" />
             Tony Chan
           </a>
-          <a class="sidebar-link" href="#hasan" onclick="showChat()">
+          <a id="hasan" class="sidebar-link" onclick="showChat(id)">
             <img class="sidebar-img" src="./pic/hasan.png" />
             Hasan Abdul
           </a>
@@ -128,7 +128,7 @@
  <!-- Chat -->
   <div class="chat-popup" id="chat">
     <form class="form-container">
-      <label for="chat"><b>Μήνυμα</b></label>
+      <label id="chatHeader" for="chat"><b>Μήνυμα</b></label>
       <textarea placeholder="Type message.." name="chatmsg" required></textarea>
       <button type="button" class="btn btn-danger" onclick="closeChat()">Κλείσιμο</button>
       <button type="submit" class="btn btn-primary">Αποστολή</button>

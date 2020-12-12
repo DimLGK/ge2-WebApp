@@ -56,6 +56,19 @@ $(document).ready(function () {
         tr.append('<td style="color: red;"><div id="delFeedback' + childData.uid + '">Απορρίφθηκε</div></td>');
         $('table').append(tr);
       }
+
+
+      for (var i = 0; i < localStorage.length; i++) {
+        console.log(localStorage);
+      }
+
+      //Retrieve local storage
+
+      // if (localStorage.chatState = '1') {
+      //   document.getElementById("chat").style.display = "block";
+      // } else if (localStorage.chatState = '0') {
+      //   document.getElementById("chat").style.display = "none";
+      // }
     });
   });
 
@@ -80,13 +93,25 @@ function clearTableContents() {
 }
 
 // Open Chat Popup
-function showChat() {
+function showChat(id) {
   document.getElementById("chat").style.display = "block";
+  localStorage.removeItem('chatState');
+  localStorage.setItem('chatState', '1');
+  console.log(id);
+  if (id === 'christina') {
+    document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
+  } else if (id === 'tony') {
+    document.getElementById("chatHeader").innerHTML = "Tony Chan";
+  } else if (id === 'hasan') {
+    document.getElementById("chatHeader").innerHTML = "Hasan Abdul";
+  }
 }
 
 // Close Chat Popup
 function closeChat() {
   document.getElementById("chat").style.display = "none";
+  localStorage.removeItem('chatState');
+  localStorage.setItem('chatState', '0');
 }
 
 // Save a new Request to DB
@@ -189,7 +214,8 @@ function delButtons() {
   // document.getElementById("delFeedback" + uid).style.display = "block";
 
   updateDb(uid, request);
-  localStorage.clear();
+  //localStorage.clear();
+  localStorage.removeItem('requestData');
 }
 
 
