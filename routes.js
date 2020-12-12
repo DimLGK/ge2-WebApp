@@ -202,3 +202,30 @@ function closeAddRouteForm() {
     document.getElementById("routeForm").style.display = "none";
 }
 
+
+// Open warning Popup
+function showDelWarning(guideId) {
+  document.getElementById("delWarning").style.display = "block";
+  console.log(routeId);
+  localStorage.setItem('routeId', routeId);
+  return routeId;
+}
+
+// Close warning Popup
+function closeDelWarning() {
+  document.getElementById("delWarning").style.display = "none";
+}
+
+
+function delRoute() {
+  document.getElementById("delWarning").style.display = "none";
+  guideId = localStorage.getItem('routeId');
+  deleteGuideFromDb(routeId);
+  localStorage.removeItem('routeId');
+
+  document.getElementById("delConfirm").style.display = "block";
+}
+
+function closeDelConfirmation() {
+  document.getElementById("delConfirm").style.display = "none";
+}
