@@ -283,10 +283,11 @@ body {
     .form-container textarea:focus {
       background-color: #ddd;
       outline: none;
+      border-radius: 10px;
     }
 
     /* Set a style for the submit/send button */
-    .form-container .btn {
+    /* .form-container .btn {
       background-color: #75c077;
       color: white;
       padding: 16px 20px;
@@ -295,12 +296,12 @@ body {
       width: 100%;
       margin-bottom: 10px;
       opacity: 0.8;
-    }
+    } */
 
     /* Add a red background color to the cancel button */
-    .form-container .cancel {
+    /* .form-container .cancel {
       background-color: rgb(255, 100, 100);
-    }
+    } */
 
     /* Add some hover effects to buttons */
     .form-container .btn:hover,
