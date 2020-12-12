@@ -23,7 +23,7 @@ var relegIcon = L.icon({
 });
 
 var technoIcon = L.icon({
-    iconUrl: './pic/marker-icon-red.pngg'
+    iconUrl: './pic/marker-icon-red.png'
 });
 
 $(document).ready(function () {
