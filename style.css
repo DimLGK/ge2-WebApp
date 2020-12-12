@@ -254,16 +254,18 @@ body {
       display: none;
       position: fixed;
       bottom: 0;
-      left: 0.5%;
-      border: 3px solid #f1f1f1;
+      left: 0%;
+      border: 3px solid rgb(172, 194, 224);
       z-index: 9;
+      background-color: rgb(172, 194, 224);
     }
 
     /* Add styles to the form container */
     .form-container {
-      max-width: 300px;
+      max-width: 293px;
       padding: 10px;
-      background-color: white;
+      background-color: rgb(172, 194, 224);
+      border-radius: 10px;
     }
 
     /* Full-width textarea */
