@@ -74,17 +74,18 @@ function showChat(id) {
 function sendMsg() {
     var chatId = localStorage.getItem('chatid');
     if (document.getElementById("textMsg").value != '') {
-        var dateTime = new Date().toLocaleString();
-        var mgsToSend = dateTime + ': ' + document.getElementById("textMsg").value;
-        console.log(mgsToSend);
+      var dateTime = new Date().toLocaleString();
+      var mgsToSend = document.getElementById("textMsg").value;
+      console.log(mgsToSend);
     }
-
+    
     var msgData = {
-        id: chatId,
-        message: mgsToSend
+      id: chatId,
+      date: dateTime,
+      message: mgsToSend
     };
     updateChatInDb(chatId, msgData);
-}
+  }
 
 // Live Update of chat
 function updateChatInDb(chatId, msgData) {
