@@ -133,15 +133,6 @@
  </div> <!-- End or row -->
 </div> <!-- End of container -->
 
-    <!-- Chat -->
-    <div class="chat-popup" id="christina">
-        <form class="form-container">
-            <label for="christinamsg"><b>Μήνυμα</b></label>
-            <textarea placeholder="Type message.." name="christinamsg" required></textarea>
-            <button type="submit" class="btn">Αποστολή</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Κλείσιμο</button>
-        </form>
-    </div>
     
 <script>
    
@@ -234,6 +225,17 @@
     </div>
   </div>
 </div>
+
+
+<!-- Chat -->
+  <div class="chat-popup" id="christina">
+    <form class="form-container">
+      <label for="christinamsg"><b>Μήνυμα</b></label>
+      <textarea placeholder="Type message.." name="christinamsg" required></textarea>
+      <button type="button" class="btn btn-danger" onclick="closeForm()">Κλείσιμο</button>
+      <button type="submit" class="btn btn-primary">Αποστολή</button>
+    </form>
+  </div>
     
     
 <!-- Script for popup -->
