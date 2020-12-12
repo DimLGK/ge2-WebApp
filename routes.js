@@ -23,7 +23,7 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var arxaioData = childSnapshot.val();
-            marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true' }).bindPopup(arxaioData.title).openPopup();
+            marker = L.marker([arxaioData.latitude, arxaioData.longitude], { draggable: 'true', markerColor = 'red' }).bindPopup(arxaioData.title).openPopup();
             arxaioGroup.addLayer(marker);
             dataArxaio.push([arxaioData.latitude, arxaioData.longitude]);
         });
