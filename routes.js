@@ -13,6 +13,16 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+var greenIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+  iconSize: [38, 38],
+  iconAnchor: [38, 38],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+// L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
+
 $(document).ready(function () {
     var dataReligion = [];
     var dataArxaio = [];
@@ -36,7 +46,7 @@ $(document).ready(function () {
 
         snapshot.forEach(function (childSnapshot) {
             var relegData = childSnapshot.val();
-            marker = L.marker([relegData.latitude, relegData.longitude], { draggable: 'true' }).bindPopup(relegData.title).openPopup();
+            marker = L.marker([relegData.latitude, relegData.longitude], { draggable: 'true', icon: greenIcon }).bindPopup(relegData.title).openPopup();
             relegGroup.addLayer(marker);
             dataReligion.push([relegData.latitude, relegData.longitude]);
         });
