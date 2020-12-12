@@ -219,8 +219,8 @@ function closeDelWarning() {
 
 function delRoute() {
   document.getElementById("delWarning").style.display = "none";
-  guideId = localStorage.getItem('routeId');
-  deleteGuideFromDb(routeId);
+  routeId = localStorage.getItem('routeId');
+  //deleteGuideFromDb(routeId);
   localStorage.removeItem('routeId');
 
   document.getElementById("delConfirm").style.display = "block";
