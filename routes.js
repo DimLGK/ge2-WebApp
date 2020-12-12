@@ -115,6 +115,25 @@ function deleteRoute3() {
 }
 
 
+// Open Add Route Form
+function showAddRouteForm() {
+    document.getElementById("routeForm").style.display = "block";
+}
+  
+// Add the Route to Db
+function addRoute() {
+    var tourType = (document.getElementById('type')).value;
+    var imageUrl = (document.getElementById('image')).value;
+    
+    //saveRouteToDb(name, payment, 10, occupation, languages, specialization);
+    closeAddRouteForm();
+}
+
+// Close the Popup Add Route Form
+function closeAddRouteForm() {
+    document.getElementById("routeForm").style.display = "none";
+}
+
 // Reminder for chat Popup - NOT WORKING YET
 var pmData = [
     {
