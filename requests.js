@@ -25,7 +25,7 @@ $(document).ready(function () {
       if (childData.state === '0') {
         tr = $('<tr id=childData.uid/>');
         tr.append("<td>" + childData.name + "</td>");
-        tr.append("<td>" + childData.tourType + "</td>");
+        //tr.append("<td>" + childData.tourType + "</td>");
         tr.append("<td>" + childData.date + "</td>");
         tr.append("<td>" + childData.payment + "</td>");
         tr.append("<td>" + childData.meetingPlace + "</td>");
@@ -38,7 +38,7 @@ $(document).ready(function () {
       } else if (childData.state === '1') {
         tr = $('<tr id=childData.uid/>');
         tr.append("<td>" + childData.name + "</td>");
-        tr.append("<td>" + childData.tourType + "</td>");
+        //tr.append("<td>" + childData.tourType + "</td>");
         tr.append("<td>" + childData.date + "</td>");
         tr.append("<td>" + childData.payment + "</td>");
         tr.append("<td>" + childData.meetingPlace + "</td>");
@@ -48,7 +48,7 @@ $(document).ready(function () {
       } else if (childData.state === '2') {
         tr = $('<tr id=childData.uid/>');
         tr.append("<td>" + childData.name + "</td>");
-        tr.append("<td>" + childData.tourType + "</td>");
+        //tr.append("<td>" + childData.tourType + "</td>");
         tr.append("<td>" + childData.date + "</td>");
         tr.append("<td>" + childData.payment + "</td>");
         tr.append("<td>" + childData.meetingPlace + "</td>");
