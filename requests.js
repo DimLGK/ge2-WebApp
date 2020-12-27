@@ -13,9 +13,13 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Reference to guide on Firebase
+var guidesRef = firebase.database().ref('guides');
+
 // Populate table body with requests
 $(document).ready(function () {
   var markersRef = firebase.database().ref('requests');
+  
   markersRef.on('value', snapshot => {
     clearTableContents();
     localStorage.clear();
@@ -55,6 +59,7 @@ $(document).ready(function () {
         tr.append("<td>" + childData.payment + "</td>");
         tr.append("<td>" + childData.meetingPlace + "</td>");
         tr.append("<td>" + childData.uid + "</td>");
+        findGuide(childData.uid);
         tr.append('<td></td>');
         tr.append('<td style="color: red;"><div id="delFeedback' + childData.uid + '">Απορρίφθηκε</div></td>');
         $('table').append(tr);
@@ -87,6 +92,10 @@ function showButtonStatusOnView(uid, state) {
   }
 }
 
+function findGuide(uid1) {
+  Query query = guidesRef.whereEqualTo("uid", uid1);
+  console.log(query.name);
+}
 
 function clearTableContents() {
   var node = document.getElementById("tablebody");
