@@ -49,7 +49,7 @@ $(document).ready(function () {
         tr.append("<td>" + childData.meetingPlace + "</td>");
         tr.append("<td>" + childData.guide + "</td>");
         tr.append('<td></td>');
-        tr.append('<td style="color: green;"><div id="delFeedback' + childData.uid + '">Εγκρίθηκε</div></td>');
+        tr.append('<td align="center" style="color: green;"><div id="delFeedback' + childData.uid + '">Εγκρίθηκε</div></td>');
         $('table').append(tr);
       } else if (childData.state === '2') {
         tr = $('<tr id=childData.uid/>');
@@ -60,7 +60,7 @@ $(document).ready(function () {
         tr.append("<td>" + childData.meetingPlace + "</td>");
         tr.append("<td>" + childData.guide + "</td>");
         tr.append('<td></td>');
-        tr.append('<td style="color: red;"><div id="delFeedback' + childData.uid + '">Απορρίφθηκε</div></td>');
+        tr.append('<td align="center" style="color: red;"><div id="delFeedback' + childData.uid + '">Απορρίφθηκε</div></td>');
         $('table').append(tr);
       }
 
