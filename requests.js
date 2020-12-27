@@ -93,8 +93,20 @@ function showButtonStatusOnView(uid, state) {
 }
 
 function findGuide(uid1) {
-  guidesRef.whereEqualTo("uid", "-MOQgTsmBybQQqdZGZWg");
-  console.log(snapshot.name);
+  //guidesRef.isEqual("-MOQgTsmBybQQqdZGZWg");
+  //console.log(snapshot.name);
+  
+  guidesRef.where("uid", "==", "-MOQgTsmBybQQqdZGZWg")
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.name, " => ", doc.data());
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
 }
 
 function clearTableContents() {
