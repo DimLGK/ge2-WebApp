@@ -139,7 +139,6 @@ function showSites(type) {
                 imageUrl = '';
                 saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
 
-                alert(curPos.lng + " : " + curPos.lat);
                 dataArxaio.push([curPos.lat, curPos.lng]);
 
                 //console.log(arxaioGroup);
@@ -167,7 +166,6 @@ function showSites(type) {
                 imageUrl = '';
                 saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
 
-                alert(curPos.lng + " : " + curPos.lat);
                 dataReligion.push([curPos.lat, curPos.lng]);
 
                 //dataTech.push([technoData.latitude, technoData.longitude]);
@@ -194,7 +192,6 @@ function showSites(type) {
                 imageUrl = '';
                 saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
 
-                alert(curPos.lng + " : " + curPos.lat);
                 dataTech.push([curPos.lat, curPos.lng]);
 
                 //dataTech.push([technoData.latitude, technoData.longitude]);
