@@ -93,8 +93,8 @@ function showButtonStatusOnView(uid, state) {
 }
 
 function findGuide(uid1) {
-  Query query = guidesRef.whereEqualTo("uid", "-MOQgTsmBybQQqdZGZWg");
-  //console.log(query.name);
+  guidesRef.whereEqualTo("uid", "-MOQgTsmBybQQqdZGZWg");
+  console.log(snapshot.name);
 }
 
 function clearTableContents() {
