@@ -81,6 +81,130 @@ var markersArxaiolog = firebase.database().ref('routes');
     });
 });
 
+
+function showSites(type) {
+    map.removeLayer(arxaioGroup);
+    map.removeLayer(relegGroup);
+    map.removeLayer(technoGroup);
+    map.addLayer(type);
+
+    //localStorage.setItem('routeType', type);
+
+    // Change the icon of the marker
+    var arxeoIcon = L.icon({
+        iconUrl: './pic/marker-icon-gold.png',
+        iconSize: [28, 38]
+    });
+
+    var relegIcon = L.icon({
+        iconUrl: './pic/marker-icon-blue.png',
+        iconSize: [28, 38]
+    });
+
+    var technoIcon = L.icon({
+        iconUrl: './pic/marker-icon-red.png',
+        iconSize: [28, 38]
+    });
+
+
+
+    var geocodeService = L.esri.Geocoding.geocodeService();
+    // $("#One").click(function () {
+    //   var curPos = myMarker.getLatLng();
+    //   alert(curPos.lng + " : " + curPos.lat);
+    // });
+
+    map.on('click', function (e) {
+        geocodeService.reverse().latlng(e.latlng).run(function (error, result) {
+            if (type == arxaioGroup) {
+                console.log('arxaioGroup');
+
+                onarxaioClickMarker = L.marker(result.latlng, { draggable: 'true', icon: arxeoIcon })
+                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" >Διαγραφή</a>', {
+                        removable: true,
+                        editable: true,
+                        clickable: true,
+                        icon: arxeoIcon
+                    }).openPopup();
+                arxaioGroup.addLayer(onarxaioClickMarker);
+
+                var curPos = onarxaioClickMarker.getLatLng();
+
+                latitude = curPos.lat;
+                longitude = curPos.lng;
+                title = result.address.Match_addr;
+                description = result.address.Match_addr;
+                isSelected = 'true';
+                tourType = 'Αρχαιλογικοί χώροι';
+                imageUrl = '';
+                saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
+
+                alert(curPos.lng + " : " + curPos.lat);
+                dataArxaio.push([curPos.lat, curPos.lng]);
+
+                //console.log(arxaioGroup);
+                //dataArxaio.push([technoData.latitude, technoData.longitude]);
+            } else if (type == relegGroup) {
+                console.log('relegGroup');
+
+                onrelegClickMarker = L.marker(result.latlng, { draggable: 'true', icon: relegIcon })
+                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" >Διαγραφή</a>', {
+                        removable: true,
+                        editable: true,
+                        clickable: true,
+                        icon: relegIcon
+                    }).openPopup();
+                relegGroup.addLayer(onrelegClickMarker);
+
+                var curPos = onrelegClickMarker.getLatLng();
+
+                latitude = curPos.lat;
+                longitude = curPos.lng;
+                title = result.address.Match_addr;
+                description = result.address.Match_addr;
+                isSelected = 'true';
+                tourType = 'Θρησκευτικά μνημεία';
+                imageUrl = '';
+                saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
+
+                alert(curPos.lng + " : " + curPos.lat);
+                dataReligion.push([curPos.lat, curPos.lng]);
+
+                //dataTech.push([technoData.latitude, technoData.longitude]);
+            } else if (type == technoGroup) {
+                console.log('technoGroup');
+
+                ontechnoClickMarker = L.marker(result.latlng, { draggable: 'true', icon: technoIcon })
+                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" >Διαγραφή</a>', {
+                        removable: true,
+                        editable: true,
+                        clickable: true,
+                        icon: technoIcon
+                    }).openPopup();
+                technoGroup.addLayer(ontechnoClickMarker);
+
+                var curPos = ontechnoClickMarker.getLatLng();
+
+                latitude = curPos.lat;
+                longitude = curPos.lng;
+                title = result.address.Match_addr;
+                description = result.address.Match_addr;
+                isSelected = 'true';
+                tourType = 'Τεχνολογικά αξιοθέατα';
+                imageUrl = '';
+                saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
+
+                alert(curPos.lng + " : " + curPos.lat);
+                dataTech.push([curPos.lat, curPos.lng]);
+
+                //dataTech.push([technoData.latitude, technoData.longitude]);
+            }
+        });
+    });
+
+}
+
+
 // Open Chat Popup
 function showChat(id) {
     document.getElementById("chat").style.display = "block";
