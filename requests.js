@@ -59,7 +59,6 @@ $(document).ready(function () {
         tr.append("<td>" + childData.payment + "</td>");
         tr.append("<td>" + childData.meetingPlace + "</td>");
         tr.append("<td>" + childData.uid + "</td>");
-        findGuide(childData.uid);
         tr.append('<td></td>');
         tr.append('<td style="color: red;"><div id="delFeedback' + childData.uid + '">Απορρίφθηκε</div></td>');
         $('table').append(tr);
@@ -90,23 +89,6 @@ function showButtonStatusOnView(uid, state) {
     document.getElementById("deleteButton" + uid).style.display = "none";
     document.getElementById("delFeedback" + uid).style.display = "block";
   }
-}
-
-function findGuide(uid1) {
-  //guidesRef.isEqual("-MOQgTsmBybQQqdZGZWg");
-  //console.log(snapshot.name);
-  
-  guidesRef.where("uid", "==", "-MOQgTsmBybQQqdZGZWg")
-    .get()
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.name, " => ", doc.data());
-        });
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
 }
 
 function clearTableContents() {
