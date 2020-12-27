@@ -135,7 +135,7 @@ function showSites(type) {
                 title = result.address.Match_addr;
                 description = result.address.Match_addr;
                 isSelected = 'true';
-                tourType = 'Αρχαιλογικοί χώροι';
+                tourType = 'Αρχαιολογικοί χώροι';
                 imageUrl = '';
                 saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
 
