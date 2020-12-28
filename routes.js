@@ -277,7 +277,7 @@ function deletePinsFromDb(routeData, uid) {
     //map.removeLayer(markersTechno);
     //technoData.refresh();
     updateDb(uid, null);
-    routeData.splice(uid, 1);
+    //routeData.splice(uid, 1);
     //routeData = [];
 
     //map.addLayer(technoGroup);
