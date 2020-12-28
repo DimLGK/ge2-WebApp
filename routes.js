@@ -120,7 +120,7 @@ function showSites(type) {
                 console.log('arxaioGroup');
 
                 onarxaioClickMarker = L.marker(result.latlng, { draggable: 'true', icon: arxeoIcon })
-                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" >Διαγραφή</a>', {
+                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + arxaioData + '\', \'' + arxaioData.uid + '\')">Διαγραφή</a>', {
                         removable: true,
                         editable: true,
                         clickable: true,
@@ -147,7 +147,7 @@ function showSites(type) {
                 console.log('relegGroup');
 
                 onrelegClickMarker = L.marker(result.latlng, { draggable: 'true', icon: relegIcon })
-                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" >Διαγραφή</a>', {
+                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + relegData + '\', \'' + relegData.uid + '\')">Διαγραφή</a>', {
                         removable: true,
                         editable: true,
                         clickable: true,
@@ -173,7 +173,7 @@ function showSites(type) {
                 console.log('technoGroup');
 
                 ontechnoClickMarker = L.marker(result.latlng, { draggable: 'true', icon: technoIcon })
-                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" >Διαγραφή</a>', {
+                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + technoData + '\', \'' + technoData.uid + '\')">Διαγραφή</a>', {
                         removable: true,
                         editable: true,
                         clickable: true,
@@ -273,8 +273,8 @@ function deleteRouteFromDb(routeId) {
 
 // Delete a pins from DB and update
 function deletePinsFromDb(routeData, uid) {
-    var layer = technoGroup;
-    map.removeLayer(markersTechno);
+    //var layer = technoGroup;
+    //map.removeLayer(markersTechno);
     //technoData.refresh();
     updateDb(uid, null);
     routeData.splice(uid, 1);
