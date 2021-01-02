@@ -368,8 +368,8 @@ function showAddRouteForm() {
 // Add the Route to Db
 function addRoute() {
     document.getElementById("tour4").style.display = "block";
-    var name = (document.getElementById('type')).value;
-    document.getElementById("labelType").innerHTML = name;
+    var type = (document.getElementById('type')).value;
+    document.getElementById("labelType").innerHTML = type;
     //saveRouteToDb(name, payment, 10, occupation, languages, specialization);
     closeAddRouteForm();
 }
