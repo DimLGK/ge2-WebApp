@@ -224,7 +224,7 @@ function showSites(type) {
                 console.log('newRouteGroup');
 
                 onnewRouteClickMarker = L.marker(result.latlng, { draggable: 'true', icon: newRouteIcon })
-                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + newRouteData + '\', \'' + newRouteData.uid + '\')">Διαγραφή</a>', {
+                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;">Διαγραφή</a>', {
                         removable: true,
                         editable: true,
                         clickable: true,
@@ -243,7 +243,7 @@ function showSites(type) {
                 imageUrl = '';
                 saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
 
-                alert(curPos.lng + " : " + curPos.lat);
+                //alert(curPos.lng + " : " + curPos.lat);
                 dataNewRoute.push([curPos.lat, curPos.lng]);
 
                 //dataTech.push([technoData.latitude, technoData.longitude]);
