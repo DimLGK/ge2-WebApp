@@ -103,11 +103,11 @@ var markersArxaiolog = firebase.database().ref('routes');
 
 
 function showSites(type) {
-    var newRouteGroup = type;
+    //var newRouteGroup = type;
     map.removeLayer(arxaioGroup);
     map.removeLayer(relegGroup);
     map.removeLayer(technoGroup);
-    map.addLayer(newRouteGroup);
+    map.addLayer(type);
 
     //localStorage.setItem('routeType', type);
 
