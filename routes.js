@@ -356,6 +356,7 @@ function delRoute() {
     deleteRoute3();
   } else if (routeId == 'tour4') {
     deleteRoute4();
+  }
   //deleteGuideFromDb(routeId);
   localStorage.removeItem('routeId');
 
