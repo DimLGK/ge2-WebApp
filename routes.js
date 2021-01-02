@@ -79,6 +79,8 @@ var markersArxaiolog = firebase.database().ref('routes');
         // var techPolyline = L.polyline(dataTech).setStyle({ color: 'blue' });
         // technoGroup.addLayer(techPolyline);
     });
+    
+    document.getElementById("tour4").style.display = "none";
 });
 
 
@@ -303,6 +305,10 @@ function deleteRoute3() {
     document.getElementById("tour3").style.display = "none";
 }
 
+function deleteRoute4() {
+    document.getElementById("tour4").style.display = "none";
+}
+
 
 // Open Add Route Form
 function showAddRouteForm() {
@@ -311,9 +317,9 @@ function showAddRouteForm() {
 
 // Add the Route to Db
 function addRoute() {
-    var tourType = (document.getElementById('type')).value;
-    var imageUrl = (document.getElementById('image')).value;
-
+    document.getElementById("tour4").style.display = "block";
+    var name = (document.getElementById('type')).value;
+    document.getElementById("labelType").innerHTML = name;
     //saveRouteToDb(name, payment, 10, occupation, languages, specialization);
     closeAddRouteForm();
 }
