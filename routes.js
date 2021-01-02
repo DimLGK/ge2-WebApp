@@ -17,6 +17,7 @@ $(document).ready(function () {
     var dataReligion = [];
     var dataArxaio = [];
     var dataTech = [];
+    var dataNewRoute = [];
     
      // Change the icon of the marker
     var arxeoIcon = L.icon({
@@ -34,6 +35,10 @@ $(document).ready(function () {
         iconSize: [28, 38]
     });
 
+    var newRouteIcon = L.icon({
+        iconUrl: './pic/marker-icon-black.png',
+        iconSize: [28, 38]
+    });
 
 var markersArxaiolog = firebase.database().ref('routes');
     markersArxaiolog.orderByChild('tourType').equalTo("Αρχαιολογικοί χώροι").on('value', snapshot => {
@@ -80,15 +85,29 @@ var markersArxaiolog = firebase.database().ref('routes');
         // technoGroup.addLayer(techPolyline);
     });
     
+    var markersNewRoute = firebase.database().ref('routes');
+    markersNewRoute.orderByChild('tourType').equalTo("Περίπατος").on('value', snapshot => {
+
+        snapshot.forEach(function (childSnapshot) {
+            var newRouteData = childSnapshot.val();
+            marker = L.marker([newRouteData.latitude, newRouteData.longitude], { draggable: 'true', icon: newRouteIcon })
+                .bindPopup(newRouteData.title + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + newRouteData + '\', \'' + newRouteData.uid + '\')">Διαγραφή</a>')
+                .openPopup();
+            newRouteGroup.addLayer(marker);
+            dataNewRoute.push([newRouteData.latitude, newRouteData.longitude]);
+        });
+    });
+    
     document.getElementById("tour4").style.display = "none";
 });
 
 
 function showSites(type) {
+    var newRouteGroup = type;
     map.removeLayer(arxaioGroup);
     map.removeLayer(relegGroup);
     map.removeLayer(technoGroup);
-    map.addLayer(type);
+    map.addLayer(newRouteGroup);
 
     //localStorage.setItem('routeType', type);
 
@@ -108,8 +127,12 @@ function showSites(type) {
         iconSize: [28, 38]
     });
 
+    var newRouteIcon = L.icon({
+        iconUrl: './pic/marker-icon-black.png',
+        iconSize: [28, 38]
+    });
 
-
+    
     var geocodeService = L.esri.Geocoding.geocodeService();
     // $("#One").click(function () {
     //   var curPos = myMarker.getLatLng();
@@ -195,6 +218,33 @@ function showSites(type) {
                 saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
 
                 dataTech.push([curPos.lat, curPos.lng]);
+
+                //dataTech.push([technoData.latitude, technoData.longitude]);
+            } else if (type == newRouteGroup) {
+                console.log('newRouteGroup');
+
+                onnewRouteClickMarker = L.marker(result.latlng, { draggable: 'true', icon: newRouteIcon })
+                    .bindPopup(result.address.Match_addr + '<br>' + '<a type="button" style="cursor: pointer;" onclick="deletePinsFromDb(\'' + newRouteData + '\', \'' + newRouteData.uid + '\')">Διαγραφή</a>', {
+                        removable: true,
+                        editable: true,
+                        clickable: true,
+                        icon: newRouteIcon
+                    }).openPopup();
+                newRouteGroup.addLayer(onnewRouteClickMarker);
+
+                var curPos = onnewRouteClickMarker.getLatLng();
+
+                latitude = curPos.lat;
+                longitude = curPos.lng;
+                title = result.address.Match_addr;
+                description = result.address.Match_addr;
+                isSelected = 'true';
+                tourType = type;
+                imageUrl = '';
+                saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
+
+                alert(curPos.lng + " : " + curPos.lat);
+                dataNewRoute.push([curPos.lat, curPos.lng]);
 
                 //dataTech.push([technoData.latitude, technoData.longitude]);
             }
