@@ -240,7 +240,7 @@ function showSites(type) {
                 title = result.address.Match_addr;
                 description = result.address.Match_addr;
                 isSelected = 'true';
-                tourType = type;
+                tourType = 'peripatos'; //type;
                 imageUrl = '';
                 saveRouteToDb(latitude, longitude, isSelected, title, description, tourType, imageUrl);
 
