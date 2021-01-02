@@ -107,6 +107,7 @@ function showSites(type) {
     map.removeLayer(arxaioGroup);
     map.removeLayer(relegGroup);
     map.removeLayer(technoGroup);
+    map.removeLayer(newRouteGroup);
     map.addLayer(type);
 
     //localStorage.setItem('routeType', type);
