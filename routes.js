@@ -1,13 +1,13 @@
 // Configuration Firebase
 var firebaseConfig = {
-    apiKey: "AIzaSyD_xg06CLNiORbmfVO-6vURoADclO1g2eo",
-    authDomain: "tourexploration.firebaseapp.com",
-    databaseURL: "https://tourexploration.firebaseio.com",
-    projectId: "tourexploration",
-    storageBucket: "tourexploration.appspot.com",
-    messagingSenderId: "115899410318",
-    appId: "1:115899410318:web:49b5df20824212d6d6a6df",
-    measurementId: "G-EMZ6NWJ72Y"
+    apiKey: "AIzaSyDm7qL28ccs6HgswcezkNMG3zy8Tk8El5E",
+    authDomain: "tourexploration2.firebaseapp.com",
+    databaseURL: "https://tourexploration2-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "tourexploration2",
+    storageBucket: "tourexploration2.appspot.com",
+    messagingSenderId: "503852972480",
+    appId: "1:503852972480:web:e90e2d169dd7ee7f33b025",
+    measurementId: "G-MF1VLCT6K7"
 };
 
 // Initialize Firebase
