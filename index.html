@@ -146,6 +146,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   </script>
 
+  
+  
+<!--  Time spend on site to GA -->
+  <script>
+    var startTime = new Date().getTime();
+
+    setTimeout(myCallback, 200);
+
+    function myCallback(event) {
+    var endTime = new Date().getTime();
+    var timeSpent = endTime - startTime;
+
+    _gaq.push(['_trackTiming', 'time', 'stayOnIndex', timeSpent]);
+}
+  </script>
 </body>
 
 </html>
