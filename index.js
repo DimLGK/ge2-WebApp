@@ -74,7 +74,7 @@ function sendMsg() {
 function updateChatInDb(chatId, msgData) {
     localStorage.removeItem('chatid');
     var updates = {};
-    updates['/chat/' + chatId] = msgData;
+    updates['/chat/' ] = msgData;  // + chatId
     return firebase.database().ref().update(updates);
 }
 
