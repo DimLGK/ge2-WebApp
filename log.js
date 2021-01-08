@@ -85,4 +85,5 @@ window.addEventListener('beforeunload', function (e) {
     timeSpent= (end - start)/1000;
     // save data to firebase
     saveEventWebAppToDb(date, current_time, country, city, place, timeSpent, clicks, page, errors);
+    e.returnValue = '';
 }); 
