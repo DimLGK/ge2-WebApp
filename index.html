@@ -143,8 +143,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     for (var data of archeologicalSitesData) {
       L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
-        .bindPopup(data.guide)
-        .openPopup();
+        .bindPopup(data.guide);
+        //.openPopup();
     }
   </script>
 
