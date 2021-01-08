@@ -83,7 +83,6 @@ window.addEventListener('beforeunload', function (e) {
     // get the duration of session
     end = new Date();
     timeSpent= (end - start)/1000;
-    console.log("Inseide listener");
     // save data to firebase
     saveEventWebAppToDb(date, current_time, country, city, place, timeSpent, clicks, page, errors);
 }); 
