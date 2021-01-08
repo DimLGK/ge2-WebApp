@@ -1,17 +1,17 @@
 // Configuration Firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyDm7qL28ccs6HgswcezkNMG3zy8Tk8El5E",
-      authDomain: "tourexploration2.firebaseapp.com",
-      databaseURL: "https://tourexploration2-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "tourexploration2",
-      storageBucket: "tourexploration2.appspot.com",
-      messagingSenderId: "503852972480",
-      appId: "1:503852972480:web:e90e2d169dd7ee7f33b025",
-      measurementId: "G-MF1VLCT6K7"
-  };
+// var firebaseConfig = {
+//     apiKey: "AIzaSyDm7qL28ccs6HgswcezkNMG3zy8Tk8El5E",
+//       authDomain: "tourexploration2.firebaseapp.com",
+//       databaseURL: "https://tourexploration2-default-rtdb.europe-west1.firebasedatabase.app",
+//       projectId: "tourexploration2",
+//       storageBucket: "tourexploration2.appspot.com",
+//       messagingSenderId: "503852972480",
+//       appId: "1:503852972480:web:e90e2d169dd7ee7f33b025",
+//       measurementId: "G-MF1VLCT6K7"
+//   };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
 // Reference to web event on Firebase
 var eventWebAppRef = firebase.database().ref('eventWebApp');
