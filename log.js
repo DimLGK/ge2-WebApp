@@ -79,11 +79,21 @@ function saveEventWebAppToDb(date, curr_time, country, city, place, timeSpent, c
 }
 
 // Just before the user leaves the page 
-window.addEventListener('beforeunload', function (e) { 
-    // get the duration of session
+// window.addEventListener('beforeunload', function (e) { 
+//     // get the duration of session
+//     end = new Date();
+//     timeSpent= (end - start)/1000;
+//     // save data to firebase
+//     saveEventWebAppToDb(date, current_time, country, city, place, timeSpent, clicks, page, errors);
+//     e.returnValue = '';
+// }); 
+
+window.addEventListener('beforeunload', (event) => {
+  // get the duration of session
     end = new Date();
     timeSpent= (end - start)/1000;
     // save data to firebase
     saveEventWebAppToDb(date, current_time, country, city, place, timeSpent, clicks, page, errors);
-    e.returnValue = '';
-}); 
+    
+  event.returnValue = '';
+});
