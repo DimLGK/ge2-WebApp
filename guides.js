@@ -103,6 +103,8 @@ function addGuide() {
 // Close the Popup Add Guide Form
 function closeAddGuideForm() {
   document.getElementById("employeeForm").style.display = "none";
+  errors++;
+  console.log("Error No:"+errors+" Click button by mistake");
 }
 
 // Save a new Guide to DB
@@ -164,7 +166,7 @@ function delGuide() {
 function closeDelConfirmation() {
   document.getElementById("delConfirm").style.display = "none";
   errors++;
-  console.log("Error No:"+errors+" By mistake clicking on button!!!");
+  console.log("Error No:"+errors+" Click button by mistake");
 }
 
 // Reminder for chat Popup - NOT WORKING YET
