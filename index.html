@@ -142,10 +142,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }).addTo(map);
 
     for (var data of archeologicalSitesData) {
-      L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
+      L.marker([data.lat, data.long], { icon: guideIcon, id: data.guide }).addTo(map)
         .bindPopup(data.guide);
         //.openPopup();
     }
+    
+    market['Hasan Adbul'].openPopup();
   </script>
 
   
