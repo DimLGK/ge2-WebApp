@@ -27,7 +27,6 @@ var archeologicalSitesData = [
         "gid": "2"
     },
     {
-
         "lat": "40.6421290045795",
         "long": "22.95440936389948",
         "guide": "Χριστινα Βασιλειάδη",
@@ -38,16 +37,16 @@ var archeologicalSitesData = [
 // Change the icon of the marker
 var guideIcon = L.icon({
     iconUrl: './pic/marker_car.png',
-    iconSize: [60, 60], // size of the icon
+    iconSize: [40, 40], // size of the icon
 });
 
 var blackGuideIcon = L.icon({
     iconUrl: './pic/marker_car_black.png',
-    iconSize: [60, 60], // size of the icon
+    iconSize: [40, 40], // size of the icon
 });
 var redGuideIcon = L.icon({
     iconUrl: './pic/marker_car_red.png',
-    iconSize: [60, 60], // size of the icon
+    iconSize: [40, 40], // size of the icon
 });
 
 // Open Chat Popup
