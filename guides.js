@@ -58,7 +58,7 @@ function sendMsg() {
   if (document.getElementById("textMsg").value != '') {
     var dateTime = new Date().toLocaleString();
     var mgsToSend = document.getElementById("textMsg").value;
-    console.log(mgsToSend);
+    // console.log(mgsToSend);
   }
   
   var msgData = {
