@@ -50,7 +50,7 @@ success : callback
 var clicks = 0;
 window.onclick = function() { 
     clicks += 1; 
-    console.log(clicks);
+    console.log("Clicks: "+clicks);
 }
 
 // Name of the page
