@@ -95,7 +95,7 @@ function addGuide() {
   var languages = (document.getElementById('languages')).value;
   var occupation = (document.getElementById('occupation')).value;
   var payment = (document.getElementById('payment')).value;
-  console.log(name + " " + specialization + " " + languages + " " + occupation + " " + payment + "\n");
+  // console.log(name + " " + specialization + " " + languages + " " + occupation + " " + payment + "\n");
   saveGuideToDb(name, payment, 10, occupation, languages, specialization);
   closeAddGuideForm();
 }
@@ -141,7 +141,7 @@ function updateDb(uid, guide) {
 // Open warning Popup
 function showDelWarning(guideId) {
   document.getElementById("delWarning").style.display = "block";
-  console.log(guideId);
+  // console.log(guideId);
   localStorage.setItem('guideId', guideId);
   return guideId;
 }
@@ -164,7 +164,7 @@ function delGuide() {
 function closeDelConfirmation() {
   document.getElementById("delConfirm").style.display = "none";
   errors++;
-  colcole.log("Error No:"+errors+" By mistake clicking on button!!!");
+  console.log("Error No:"+errors+" By mistake clicking on button!!!");
 }
 
 // Reminder for chat Popup - NOT WORKING YET
