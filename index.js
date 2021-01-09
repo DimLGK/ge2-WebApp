@@ -52,8 +52,10 @@ function showChat(id) {
         markers[3].openPopup();
     } else if (id === 'tony') {
         document.getElementById("chatHeader").innerHTML = "Tony Chan";
+        markers[1].openPopup();
     } else if (id === 'hasan') {
         document.getElementById("chatHeader").innerHTML = "Hasan Abdul";
+        markers[2].openPopup();
     }
 }
 
