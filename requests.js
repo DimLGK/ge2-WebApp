@@ -116,7 +116,7 @@ function sendMsg() {
   if (document.getElementById("textMsg").value != '') {
     var dateTime = new Date().toLocaleString();
     var mgsToSend = document.getElementById("textMsg").value;
-    console.log(mgsToSend);
+    // console.log(mgsToSend);
   }
   
   var msgData = {
@@ -197,7 +197,7 @@ function showDelWarning(requestId, name, tourType, date, payment, meetingPlace, 
     state: state
   };
   localStorage.setItem('requestData', JSON.stringify(request));
-  console.log(request);
+  // console.log(request);
   //delButtons();
 }
 
@@ -215,7 +215,7 @@ function acceptButtons(requestId, name, tourType, date, payment, meetingPlace, s
   //console.log(request);
   request.state = '1';
   uid = request.uid;
-  console.log(request, uid);
+  // console.log(request, uid);
 
   // document.getElementById("acceptButton" + uid).style.display = "none";
   // document.getElementById("deleteButton" + uid).style.display = "none";
@@ -252,7 +252,7 @@ function delButtons() {
 function closeDelWarning() {
   document.getElementById("delWarning").style.display = "none";
   errors++;
-  console.log(errors);
+  console.log("Errors:"+errors);
 }
 
 
