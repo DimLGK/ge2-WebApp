@@ -125,7 +125,7 @@
     }).addTo(map);
 
     for (var data of archeologicalSitesData) {
-      markers[data.gid] = L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
+      markers[data.gid] = L.marker([data.lat, data.long], { icon: blackGuideIcon }).addTo(map)
         .bindPopup(data.guide);
     }
  </script>
