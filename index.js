@@ -83,9 +83,3 @@ function closeChat() {
     document.getElementById("chat").style.display = "none";
     localStorage.removeItem('chat');
 }
-
-// var input = document.getElementById('christina');
-// document.getElementById('submit').onclick = function () {
-//     pmData.push(input.value);
-//     screen.innerHTML = input.value;
-// };
