@@ -24,17 +24,14 @@ $(document).ready(function () {
         iconUrl: './pic/marker-icon-gold.png',
         iconSize: [28, 38]
     });
-
     var relegIcon = L.icon({
         iconUrl: './pic/marker-icon-blue.png',
         iconSize: [28, 38]
     });
-
     var technoIcon = L.icon({
         iconUrl: './pic/marker-icon-red.png',
         iconSize: [28, 38]
     });
-
     var newRouteIcon = L.icon({
         iconUrl: './pic/marker-icon-black.png',
         iconSize: [28, 38]
@@ -117,17 +114,14 @@ function showSites(type) {
         iconUrl: './pic/marker-icon-gold.png',
         iconSize: [28, 38]
     });
-
     var relegIcon = L.icon({
         iconUrl: './pic/marker-icon-blue.png',
         iconSize: [28, 38]
     });
-
     var technoIcon = L.icon({
         iconUrl: './pic/marker-icon-red.png',
         iconSize: [28, 38]
     });
-
     var newRouteIcon = L.icon({
         iconUrl: './pic/marker-icon-black.png',
         iconSize: [28, 38]
@@ -378,6 +372,8 @@ function addRoute() {
 // Close the Popup Add Route Form
 function closeAddRouteForm() {
     document.getElementById("routeForm").style.display = "none";
+    errors++;
+    console.log("Error No:"+errors+" Click button by mistake");
 }
 
 
