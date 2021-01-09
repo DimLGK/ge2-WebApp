@@ -64,9 +64,9 @@ $(document).ready(function () {
         $('table').append(tr);
       }
 
-      for (var i = 0; i < localStorage.length; i++) {
-        console.log("localStorage"+localStorage);
-      }
+      //for (var i = 0; i < localStorage.length; i++) {
+      //  console.log("localStorage"+localStorage);
+     // }
       //Retrieve local storage
       // if (localStorage.chatState = '1') {
       //   document.getElementById("chat").style.display = "block";
@@ -79,7 +79,7 @@ $(document).ready(function () {
 });
 
 function showButtonStatusOnView(uid, state) {
-  console.log("State:"+state);
+  // console.log("State:"+state);
   document.getElementById("delFeedback" + uid).style.display = "none";
   if (state === '2') {
     document.getElementById("acceptButton" + uid).style.display = "none";
