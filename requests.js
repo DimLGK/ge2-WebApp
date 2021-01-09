@@ -64,13 +64,10 @@ $(document).ready(function () {
         $('table').append(tr);
       }
 
-
       for (var i = 0; i < localStorage.length; i++) {
-        console.log(localStorage);
+        console.log("localStorage"+localStorage);
       }
-
       //Retrieve local storage
-
       // if (localStorage.chatState = '1') {
       //   document.getElementById("chat").style.display = "block";
       // } else if (localStorage.chatState = '0') {
@@ -82,7 +79,7 @@ $(document).ready(function () {
 });
 
 function showButtonStatusOnView(uid, state) {
-  console.log(state);
+  console.log("State:"+state);
   document.getElementById("delFeedback" + uid).style.display = "none";
   if (state === '2') {
     document.getElementById("acceptButton" + uid).style.display = "none";
@@ -116,7 +113,8 @@ function sendMsg() {
   if (document.getElementById("textMsg").value != '') {
     var dateTime = new Date().toLocaleString();
     var mgsToSend = document.getElementById("textMsg").value;
-    // console.log(mgsToSend);
+    // 
+    (mgsToSend);
   }
   
   var msgData = {
@@ -186,7 +184,7 @@ function updateDb(uid, request) {
 ///////// Open warning Popup
 function showDelWarning(requestId, name, tourType, date, payment, meetingPlace, state) {
   document.getElementById("delWarning").style.display = "block";
-  //console.log(requestId);
+  //console.log("requestId: "+requestId);
   var request = {
     uid: requestId,
     name: name,
@@ -212,15 +210,13 @@ function acceptButtons(requestId, name, tourType, date, payment, meetingPlace, s
     meetingPlace: meetingPlace,
     state: state
   };
-  //console.log(request);
+  //console.log("request: "+request);
   request.state = '1';
   uid = request.uid;
-  // console.log(request, uid);
-
+  // console.log("request, uid: "+request, uid);
   // document.getElementById("acceptButton" + uid).style.display = "none";
   // document.getElementById("deleteButton" + uid).style.display = "none";
   // document.getElementById("delFeedback" + uid).style.display = "block";
-
   updateDb(uid, request);
 }
 
@@ -233,11 +229,10 @@ function delButtons() {
   var requestData = JSON.parse(localStorage.getItem('requestData'));
 
   request = requestData;
-  //console.log(request);
+  //console.log("request: "+request);
   request.state = '2';
   uid = request.uid;
-  console.log(request, uid);
-
+  //console.log(request, uid);
   // document.getElementById("acceptButton" + uid).style.display = "none";
   // document.getElementById("deleteButton" + uid).style.display = "none";
   // document.getElementById("delFeedback" + uid).style.display = "block";
@@ -247,14 +242,12 @@ function delButtons() {
   localStorage.removeItem('requestData');
 }
 
-
 // Close warning Popup
 function closeDelWarning() {
   document.getElementById("delWarning").style.display = "none";
   errors++;
-  console.log("Errors:"+errors);
+  console.log("Errors: "+errors);
 }
-
 
 // Reminder for chat Popup - NOT WORKING YET
 var pmData = [
