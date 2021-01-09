@@ -151,6 +151,8 @@ function showDelWarning(guideId) {
 // Close warning Popup
 function closeDelWarning() {
   document.getElementById("delWarning").style.display = "none";
+  errors++;
+  console.log("Error No:"+errors+" Click button by mistake");
 }
 
 
@@ -165,8 +167,6 @@ function delGuide() {
 
 function closeDelConfirmation() {
   document.getElementById("delConfirm").style.display = "none";
-  errors++;
-  console.log("Error No:"+errors+" Click button by mistake");
 }
 
 // Reminder for chat Popup - NOT WORKING YET
