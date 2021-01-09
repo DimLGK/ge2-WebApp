@@ -197,7 +197,6 @@ function showDelWarning(requestId, name, tourType, date, payment, meetingPlace, 
     state: state
   };
   localStorage.setItem('requestData', JSON.stringify(request));
-  errors++;
   console.log(request);
   //delButtons();
 }
@@ -252,6 +251,8 @@ function delButtons() {
 // Close warning Popup
 function closeDelWarning() {
   document.getElementById("delWarning").style.display = "none";
+  errors++;
+  console.log(errors);
 }
 
 
