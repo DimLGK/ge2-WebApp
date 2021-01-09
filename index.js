@@ -39,8 +39,15 @@ var archeologicalSitesData = [
 var guideIcon = L.icon({
     iconUrl: './pic/marker_car.png',
     iconSize: [60, 60], // size of the icon
-    //iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-    //popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var blackGuideIcon = L.icon({
+    iconUrl: './pic/marker_car_black.png',
+    iconSize: [60, 60], // size of the icon
+});
+var redGuideIcon = L.icon({
+    iconUrl: './pic/marker_car_red.png',
+    iconSize: [60, 60], // size of the icon
 });
 
 // Open Chat Popup
@@ -50,6 +57,7 @@ function showChat(id) {
     if (id === 'christina') {
         document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
         markers[3].openPopup();
+        markers[3].setIcon(redGuideIcon);
     } else if (id === 'tony') {
         document.getElementById("chatHeader").innerHTML = "Tony Chan";
         markers[1].openPopup();
