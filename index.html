@@ -136,13 +136,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script>
     // Load the map with Esri Leaflet
     var map = L.map('map').setView([40.63, 22.94], 12);
+    var markers;
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     for (var data of archeologicalSitesData) {
-      marker[data.gid] = L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
+      markers[data.gid] = L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
         .bindPopup(data.guide);
         //.openPopup();
     }
