@@ -142,15 +142,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }).addTo(map);
 
     for (var data of archeologicalSitesData) {
-      L.marker([data.lat, data.long], { icon: guideIcon, id: data.gid }).addTo(map)
+      marker[data.gid] = L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
         .bindPopup(data.guide);
         //.openPopup();
     }
     
     market['hasan'].openPopup();
   </script>
-
-  
   
 <!--  Time spend on site to GA -->
   <script>
@@ -166,5 +164,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
   </script>
 </body>
-
 </html>
