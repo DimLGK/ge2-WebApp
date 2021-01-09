@@ -55,6 +55,7 @@ window.onclick = function() {
 
 // Name of the page
 var page = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+if(page === "") {page = "index.html3"}
 
 // Number of Errors
 var errors = 0;
