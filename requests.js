@@ -197,6 +197,7 @@ function showDelWarning(requestId, name, tourType, date, payment, meetingPlace, 
     state: state
   };
   localStorage.setItem('requestData', JSON.stringify(request));
+  errors++;
   console.log(request);
   //delButtons();
 }
