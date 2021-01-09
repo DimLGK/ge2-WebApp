@@ -13,14 +13,6 @@
     gtag('config', 'G-6VRWJQFKJN');
   </script>
   
-  <!-- Google Tag Manager -->
-<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5SMJQ9N');</script> -->
-<!-- End Google Tag Manager -->
-  
   <title>Tour Explorations</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,20 +45,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Style region -->
   <link rel="stylesheet" type="text/css" href="./style.css" />
 
-<!--   Script for webpage fynctionality -->
+  <!--   Script for webpage fynctionality -->
   <script src="./index.js"></script>
-<!--   Script for logging -->
+  <!--   Script for logging -->
   <script src="./log.js"></script>
-
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
-  <!-- Google Tag Manager (noscript) -->
-<!--   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SMJQ9N"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
-  <!-- End Google Tag Manager (noscript) -->
-  
   <header>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -116,11 +101,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- map -->
         <div id="map" class="col-12 col-md-9 col-xl-8"></div>
 
-
       </div> <!-- End of Row -->
     </div> <!-- End of Container-fluid -->
   </main>
-
 
   <!-- Chat -->
   <div class="chat-popup" id="chat">
@@ -131,7 +114,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <button type="button" class="btn btn-primary" onclick="sendMsg()">Αποστολή</button>
     </form>
   </div>
-
 
   <script>
     // Load the map with Esri Leaflet
@@ -145,7 +127,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     for (var data of archeologicalSitesData) {
       markers[data.gid] = L.marker([data.lat, data.long], { icon: guideIcon }).addTo(map)
         .bindPopup(data.guide);
-        //.openPopup();
     }
  </script>
 </body>
