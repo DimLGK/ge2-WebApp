@@ -56,13 +56,21 @@ function showChat(id) {
     localStorage.setItem('chatid', id);
     if (id === 'christina') {
         document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
-        markers[3].openPopup();
         markers[3].setIcon(redGuideIcon);
+        markers[1].setIcon(blackGuideIcon);
+        markers[2].setIcon(blackGuideIcon);
+        markers[3].openPopup();
     } else if (id === 'tony') {
         document.getElementById("chatHeader").innerHTML = "Tony Chan";
+        markers[1].setIcon(redGuideIcon);
+        markers[3].setIcon(blackGuideIcon);
+        markers[2].setIcon(blackGuideIcon);
         markers[1].openPopup();
     } else if (id === 'hasan') {
         document.getElementById("chatHeader").innerHTML = "Hasan Abdul";
+        markers[2].setIcon(redGuideIcon);
+        markers[1].setIcon(blackGuideIcon);
+        markers[3].setIcon(blackGuideIcon);
         markers[2].openPopup();
     }
 }
