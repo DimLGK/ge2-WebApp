@@ -17,19 +17,21 @@ var archeologicalSitesData = [
     {
         "lat": "40.62731322860056",
         "long": "22.9508688610709",
-        "guide": "Tony Chan"
+        "guide": "Tony Chan",
+        "gid": "tony"
     },
     {
         "lat": "40.58272482165455",
         "long": "22.963157448468245",
-        "guide": "Hasan Adbul"
+        "guide": "Hasan Adbul",
+        "gid": "hasan"
     },
     {
 
         "lat": "40.6421290045795",
         "long": "22.95440936389948",
-        "guide": "Χριστινα Βασιλειάδη"
-
+        "guide": "Χριστινα Βασιλειάδη",
+        "gid": "christina"
     }
 ];
 
