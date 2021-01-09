@@ -163,6 +163,8 @@ function delGuide() {
 
 function closeDelConfirmation() {
   document.getElementById("delConfirm").style.display = "none";
+  errors++;
+  colcole.log("Error No:"+errors+" By mistake clicking on button!!!");
 }
 
 // Reminder for chat Popup - NOT WORKING YET
