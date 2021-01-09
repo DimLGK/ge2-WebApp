@@ -49,6 +49,7 @@ function showChat(id) {
     localStorage.setItem('chatid', id);
     if (id === 'christina') {
         document.getElementById("chatHeader").innerHTML = "Χριστίνα Βασιλειάδη";
+        markers[3].openPopup();
     } else if (id === 'tony') {
         document.getElementById("chatHeader").innerHTML = "Tony Chan";
     } else if (id === 'hasan') {
