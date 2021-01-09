@@ -35,21 +35,21 @@ var archeologicalSitesData = [
 ];
 
 // Change the icon of the marker
-var guideIcon = L.icon({
-    iconUrl: './pic/marker_car.png',
-    iconSize: [40, 40], // size of the icon
-    //popupAnchor:  [0, 0]
-});
+// var guideIcon = L.icon({
+//     iconUrl: './pic/marker_car.png',
+//     iconSize: [40, 40], // size of the icon
+//     //popupAnchor:  [0, 0]
+// });
 
 var blackGuideIcon = L.icon({
     iconUrl: './pic/marker_car_black.png',
     iconSize: [40, 40], // size of the icon
-    popupAnchor:  [0, 0]
+    popupAnchor:  [0, 10]
 });
 var redGuideIcon = L.icon({
     iconUrl: './pic/marker_car_red.png',
     iconSize: [40, 40], // size of the icon
-    popupAnchor:  [0, 0]
+    popupAnchor:  [0, 10]
 });
 
 // Open Chat Popup
