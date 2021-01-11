@@ -165,8 +165,8 @@ $(function saveRequestToDb(userid, cost, name, guide, tourtype, date, duration, 
   state = '0';
   cost = '50 euro';
   duration = '';
-  isavailable = isavailable;
-  ispaid = ispaid;
+  isavailable = true;
+  ispaid = true;
   var requestId = firebase.database().ref().child('requests').push().key;
   updateRequest(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state);
 });
