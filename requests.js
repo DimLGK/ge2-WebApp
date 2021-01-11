@@ -154,7 +154,8 @@ function closeChat() {
 }
 
 // Save a new Request to DB
-function saveRequestToDb(cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
+function saveRequestToDb(userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
+  userid = userid;
   name = 'Ηλίας Γεωργίου';
   guide = '';
   tourtype = 'Αρχαιολογικοί χώροι';
@@ -167,13 +168,14 @@ function saveRequestToDb(cost, name, guide, tourtype, date, duration, isavailabl
   isavailable = isavailable;
   ispaid = ispaid;
   var requestId = firebase.database().ref().child('requests').push().key;
-  updateRequest(requestId, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state);
+  updateRequest(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state);
 }
 
 // Update the Database View
-function updateRequest(requestId, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
+function updateRequest(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
   var request = {
     uid: requestId,
+    userid: userid,
     name: name,
     guide: guide,
     tourtype: tourtype,
@@ -204,11 +206,12 @@ function updateDb(uid, request) {
 }
 
 ///////// Open warning Popup
-function showDelWarning(requestId, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
+function showDelWarning(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
   document.getElementById("delWarning").style.display = "block";
   //console.log("requestId: "+requestId);
   var request = {
     uid: requestId,
+    userid: userid,
     name: name,
     guide: guide,
     tourtype: tourtype,
@@ -227,9 +230,10 @@ function showDelWarning(requestId, cost, name, guide, tourtype, date, duration, 
 }
 
 
-function acceptButtons(requestId, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
+function acceptButtons(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
   var request = {
     uid: requestId,
+    userid: userid,
     name: name,
     guide: guide,
     tourtype: tourtype,
