@@ -49,7 +49,7 @@ $(document).ready(function () {
         tr.append("<td>" + childData.payment + "</td>");
         tr.append("<td>" + childData.paymentmethod + "</td>");
         tr.append('<td></td>');
-        tr.append('<td style="text-align: center; color: green;"><div id="delFeedback' + childData.uid + '">Εγκρίθηκε</div></td>');
+        tr.append('<td style="color: green;"><div id="delFeedback' + childData.uid + '">Εγκρίθηκε</div></td>');
         $('table').append(tr);
       } else if (childData.state === '2') {
         tr = $('<tr id=childData.uid/>');
@@ -60,13 +60,13 @@ $(document).ready(function () {
         tr.append("<td>" + childData.payment + "</td>");
         tr.append("<td>" + childData.paymentmethod + "</td>");
         tr.append('<td></td>');
-        tr.append('<td align="text-align: center; center" style="color: red;"><div id="delFeedback' + childData.uid + '">Απορρίφθηκε</div></td>');
+        tr.append('<td style="color: red;"><div id="delFeedback' + childData.uid + '">Απορρίφθηκε</div></td>');
         $('table').append(tr);
       }
 
-      //for (var i = 0; i < localStorage.length; i++) {
-      //  console.log("localStorage"+localStorage);
-     // }
+      for (var i = 0; i < localStorage.length; i++) {
+        console.log("localStorage"+localStorage);
+      }
       //Retrieve local storage
       // if (localStorage.chatState = '1') {
       //   document.getElementById("chat").style.display = "block";
