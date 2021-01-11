@@ -29,13 +29,13 @@ $(document).ready(function () {
       if (childData.state === '0') {
         tr = $('<tr id=childData.uid/>');
         tr.append("<td>" + childData.name + "</td>");
-        tr.append("<td>" + childData.meetingPlace + "</td>");        
+        tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
         tr.append("<td>" + childData.guide + "</td>");        
         tr.append("<td>" + childData.payment + "</td>");
         tr.append("<td>" + childData.paymentmethod + "</td>");
-        tr.append('<td><button id="acceptButton' + childData.uid + '" type="button" class="btn btn-primary" onclick="acceptButtons(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.payment + '\', \'' + childData.meetingPlace + '\', \'' + childData.state + '\')">Αποδοχή</button></td>');
-        tr.append('<td><button id="deleteButton' + childData.uid + '" type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.payment + '\', \'' + childData.meetingPlace + '\', \'' + childData.state + '\')">Απόρριψη</button></td>');
+        tr.append('<td><button id="acceptButton' + childData.uid + '" type="button" class="btn btn-primary" onclick="acceptButtons(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.payment + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Αποδοχή</button></td>');
+        tr.append('<td><button id="deleteButton' + childData.uid + '" type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.payment + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Απόρριψη</button></td>');
         //tr.append('<td ><div id="delFeedback' + childData.uid + '">This is my DIV element.</div></td>');
         $('table').append(tr);
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
       } else if (childData.state === '1') {
         tr = $('<tr id=childData.uid/>');
         tr.append("<td>" + childData.name + "</td>");
-        tr.append("<td>" + childData.meetingPlace + "</td>");        
+        tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
         tr.append("<td>" + childData.guide + "</td>");        
         tr.append("<td>" + childData.payment + "</td>");
@@ -54,7 +54,7 @@ $(document).ready(function () {
       } else if (childData.state === '2') {
         tr = $('<tr id=childData.uid/>');
         tr.append("<td>" + childData.name + "</td>");
-        tr.append("<td>" + childData.meetingPlace + "</td>");        
+        tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
         tr.append("<td>" + childData.guide + "</td>");        
         tr.append("<td>" + childData.payment + "</td>");
@@ -142,26 +142,26 @@ function closeChat() {
 }
 
 // Save a new Request to DB
-function saveRequestToDb(name, tourType, date, payment, meetingPlace, state) {
+function saveRequestToDb(name, tourType, date, payment, meetingplace, state) {
   name = 'Ηλίας Γεωργίου';
   tourType = 'Αρχαιολογικοί χώροι';
   date = '15/12/2020, 12:00';
   payment = '80,00 ευρώ';
-  meetingPlace = 'Hotel Aigaion';
+  meetingplace = 'Hotel Aigaion';
   state = '0';
   var requestId = firebase.database().ref().child('requests').push().key;
-  updateRequest(requestId, name, tourType, date, payment, meetingPlace, state);
+  updateRequest(requestId, name, tourType, date, payment, meetingplace, state);
 }
 
 // Update the Database View
-function updateRequest(requestId, name, tourType, date, payment, meetingPlace, state) {
+function updateRequest(requestId, name, tourType, date, payment, meetingplace, state) {
   var request = {
     uid: requestId,
     name: name,
     tourType: tourType,
     date: date,
     payment: payment,
-    meetingPlace: meetingPlace,
+    meetingplace: meetingplace,
     state: state
   };
   updateDb(requestId, request);
@@ -182,7 +182,7 @@ function updateDb(uid, request) {
 }
 
 ///////// Open warning Popup
-function showDelWarning(requestId, name, tourType, date, payment, meetingPlace, state) {
+function showDelWarning(requestId, name, tourType, date, payment, meetingplace, state) {
   document.getElementById("delWarning").style.display = "block";
   //console.log("requestId: "+requestId);
   var request = {
@@ -191,7 +191,7 @@ function showDelWarning(requestId, name, tourType, date, payment, meetingPlace, 
     tourType: tourType,
     date: date,
     payment: payment,
-    meetingPlace: meetingPlace,
+    meetingplace: meetingplace,
     state: state
   };
   localStorage.setItem('requestData', JSON.stringify(request));
@@ -200,14 +200,14 @@ function showDelWarning(requestId, name, tourType, date, payment, meetingPlace, 
 }
 
 
-function acceptButtons(requestId, name, tourType, date, payment, meetingPlace, state) {
+function acceptButtons(requestId, name, tourType, date, payment, meetingplace, state) {
   var request = {
     uid: requestId,
     name: name,
     tourType: tourType,
     date: date,
     payment: payment,
-    meetingPlace: meetingPlace,
+    meetingplace: meetingplace,
     state: state
   };
   //console.log("request: "+request);
