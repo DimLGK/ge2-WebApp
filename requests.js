@@ -38,8 +38,8 @@ $(document).ready(function () {
         if (childData.ispaid === true) tr.append("<td style='color: green;'>" + childData.paymentmethod + "</td>");
         else if (childData.ispaid === false) tr.append("<td style='color: red;'>" + childData.paymentmethod + "</td>");
         
-        tr.append('<td><button id="acceptButton' + childData.uid + '" type="button" class="btn btn-primary" onclick="acceptButtons(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.guide + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.paymentmethod + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Αποδοχή</button></td>');
-        tr.append('<td><button id="deleteButton' + childData.uid + '" type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.guide + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.paymentmethod + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Απόρριψη</button></td>');
+        tr.append('<td><button id="acceptButton' + childData.uid + '" type="button" class="btn btn-primary" onclick="acceptButtons(\'' + childData.uid + '\', \'' + childData.userid + '\', \'' + childData.cost + '\', \'' + childData.name + '\', \'' + childData.guide + '\', \'' + childData.tourtype + '\',  \'' + childData.date + '\', \'' + childData.duration + '\', \'' + childData.isavailable + '\', \'' + childData.ispaid + '\', \'' + childData.paymentmethod + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Αποδοχή</button></td>');
+        tr.append('<td><button id="deleteButton' + childData.uid + '" type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\', \'' + childData.userid + '\', \'' + childData.cost + '\', \'' + childData.name + '\', \'' + childData.guide + '\', \'' + childData.tourtype + '\',  \'' + childData.date + '\', \'' + childData.duration + '\', \'' + childData.isavailable + '\', \'' + childData.ispaid + '\', \'' + childData.paymentmethod + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Αποδοχή</button></td>');
         //tr.append('<td ><div id="delFeedback' + childData.uid + '">This is my DIV element.</div></td>');
         $('table').append(tr);
 
@@ -154,29 +154,37 @@ function closeChat() {
 }
 
 // Save a new Request to DB
-function saveRequestToDb(name, guide, tourType, date, payment, meetingplace, state) {
+function saveRequestToDb(cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
   name = 'Ηλίας Γεωργίου';
   guide = '';
-  tourType = 'Αρχαιολογικοί χώροι';
+  tourtype = 'Αρχαιολογικοί χώροι';
   date = '15/12/2020, 12:00';
-  payment = '80,00 ευρώ';
+  paymentmethod = '80,00 ευρώ';
   meetingplace = 'Hotel Aigaion';
   state = '0';
+  cost = '50 euro';
+  duration = '';
+  isavailable = isavailable;
+  ispaid = ispaid;
   var requestId = firebase.database().ref().child('requests').push().key;
-  updateRequest(requestId, name, guide, tourType, date, payment, meetingplace, state);
+  updateRequest(requestId, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state);
 }
 
 // Update the Database View
-function updateRequest(requestId, name, guide, tourType, date, payment, meetingplace, state) {
+function updateRequest(requestId, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
   var request = {
     uid: requestId,
     name: name,
     guide: guide,
-    tourType: tourType,
+    tourtype: tourtype,
     date: date,
-    payment: payment,
+    paymentmethod: paymentmethod,
     meetingplace: meetingplace,
-    state: state
+    state: state,
+    cost: cost,
+    duration: duration,
+    isavailable: isavailable,
+    ispaid: ispaid
   };
   updateDb(requestId, request);
 }
@@ -196,18 +204,22 @@ function updateDb(uid, request) {
 }
 
 ///////// Open warning Popup
-function showDelWarning(requestId, name, guide, tourType, date, payment, meetingplace, state) {
+function showDelWarning(requestId, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
   document.getElementById("delWarning").style.display = "block";
   //console.log("requestId: "+requestId);
   var request = {
     uid: requestId,
     name: name,
     guide: guide,
-    tourType: tourType,
+    tourtype: tourtype,
     date: date,
-    payment: payment,
+    paymentmethod: paymentmethod,
     meetingplace: meetingplace,
-    state: state
+    state: state,
+    cost: cost,
+    duration: duration,
+    isavailable: isavailable,
+    ispaid: ispaid
   };
   localStorage.setItem('requestData', JSON.stringify(request));
   // console.log(request);
@@ -215,16 +227,20 @@ function showDelWarning(requestId, name, guide, tourType, date, payment, meeting
 }
 
 
-function acceptButtons(requestId, name, guide, tourType, date, payment, meetingplace, state) {
+function acceptButtons(requestId, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
   var request = {
     uid: requestId,
     name: name,
     guide: guide,
-    tourType: tourType,
+    tourtype: tourtype,
     date: date,
-    payment: payment,
+    paymentmethod: paymentmethod,
     meetingplace: meetingplace,
-    state: state
+    state: state,
+    cost: cost,
+    duration: duration,
+    isavailable: isavailable,
+    ispaid: ispaid
   };
   //console.log("request: "+request);
   request.state = '1';
