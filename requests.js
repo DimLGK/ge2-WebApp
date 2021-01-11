@@ -31,11 +31,10 @@ $(document).ready(function () {
         tr.append("<td>" + childData.name + "</td>");
         tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
-        tr.append("<td>" + childData.guide + "</td>");        
-        tr.append("<td>" + childData.payment + "</td>");
+        tr.append("<td>" + childData.guide + "</td>");
         tr.append("<td>" + childData.paymentmethod + "</td>");
-        tr.append('<td><button id="acceptButton' + childData.uid + '" type="button" class="btn btn-primary" onclick="acceptButtons(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.payment + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Αποδοχή</button></td>');
-        tr.append('<td><button id="deleteButton' + childData.uid + '" type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.payment + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Απόρριψη</button></td>');
+        tr.append('<td><button id="acceptButton' + childData.uid + '" type="button" class="btn btn-primary" onclick="acceptButtons(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.paymentmethod + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Αποδοχή</button></td>');
+        tr.append('<td><button id="deleteButton' + childData.uid + '" type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.paymentmethod + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Απόρριψη</button></td>');
         //tr.append('<td ><div id="delFeedback' + childData.uid + '">This is my DIV element.</div></td>');
         $('table').append(tr);
 
@@ -45,8 +44,7 @@ $(document).ready(function () {
         tr.append("<td>" + childData.name + "</td>");
         tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
-        tr.append("<td>" + childData.guide + "</td>");        
-        tr.append("<td>" + childData.payment + "</td>");
+        tr.append("<td>" + childData.guide + "</td>");   
         tr.append("<td>" + childData.paymentmethod + "</td>");
         tr.append('<td></td>');
         tr.append('<td style="color: green;"><div id="delFeedback' + childData.uid + '">Εγκρίθηκε</div></td>');
@@ -56,8 +54,7 @@ $(document).ready(function () {
         tr.append("<td>" + childData.name + "</td>");
         tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
-        tr.append("<td>" + childData.guide + "</td>");        
-        tr.append("<td>" + childData.payment + "</td>");
+        tr.append("<td>" + childData.guide + "</td>");    
         tr.append("<td>" + childData.paymentmethod + "</td>");
         tr.append('<td></td>');
         tr.append('<td style="color: red;"><div id="delFeedback' + childData.uid + '">Απορρίφθηκε</div></td>');
