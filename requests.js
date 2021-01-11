@@ -32,8 +32,12 @@ $(document).ready(function () {
         tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
         
-        if (childData.guide === true) {tr.append("<td style='color: green;'>" + childData.guide + "</td>");}
-        else if (childData.guide === false) {tr.append("<td style='color: red;'>" + childData.guide + "</td>");}
+        if (childData.isavailable === true) {
+          tr.append("<td style='color: green;'>" + childData.guide + "</td>");
+        }
+        else if (childData.isavailable === false) {
+          tr.append("<td style='color: red;'>" + childData.guide + "</td>");
+        }
         
         tr.append("<td>" + childData.paymentmethod + "</td>");
         tr.append('<td><button id="acceptButton' + childData.uid + '" type="button" class="btn btn-primary" onclick="acceptButtons(\'' + childData.uid + '\', \'' + childData.name + '\', \'' + childData.tourType + '\',  \'' + childData.date + '\',  \'' + childData.paymentmethod + '\', \'' + childData.meetingplace + '\', \'' + childData.state + '\')">Αποδοχή</button></td>');
@@ -48,8 +52,12 @@ $(document).ready(function () {
         tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
         
-        if (childData.guide === true) {tr.append("<td style='color: green;'>" + childData.guide + "</td>");}
-        else if (childData.guide === false) {tr.append("<td style='color: red;'>" + childData.guide + "</td>");}
+        if (childData.isavailable === true) {
+          tr.append("<td style='color: green;'>" + childData.guide + "</td>");
+        }
+        else if (childData.isavailable === false) {
+          tr.append("<td style='color: red;'>" + childData.guide + "</td>");
+        }
         
         tr.append("<td>" + childData.paymentmethod + "</td>");
         tr.append('<td></td>');
@@ -61,8 +69,12 @@ $(document).ready(function () {
         tr.append("<td>" + childData.meetingplace + "</td>");        
         tr.append("<td>" + childData.date + "</td>");
         
-        if (childData.guide === true) {tr.append("<td style='color: green;'>" + childData.guide + "</td>");}
-        else if (childData.guide === false) {tr.append("<td style='color: red;'>" + childData.guide + "</td>");}
+        if (childData.isavailable === true) {
+          tr.append("<td style='color: green;'>" + childData.guide + "</td>");
+        }
+        else if (childData.isavailable === false) {
+          tr.append("<td style='color: red;'>" + childData.guide + "</td>");
+        }
         
         tr.append("<td>" + childData.paymentmethod + "</td>");
         tr.append('<td></td>');
