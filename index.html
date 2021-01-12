@@ -132,12 +132,8 @@
     $(document).ready(function () {
       var markersRef = firebase.database().ref('guides');
       markersRef.on('value', snapshot => {
-        clearTableContents();
         snapshot.forEach(function (childSnapshot) {
           var childData = childSnapshot.val();
-
-          tr = $('<tr id=childData.uid/>');
-          tr.append("<td>" + childData.name + "</td>");
 
           markers[childData.gid] = L.marker([childData.lat, childData.long], { icon: blackGuideIcon }).addTo(map)
             .bindPopup(childData.name);
