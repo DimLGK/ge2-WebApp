@@ -13,6 +13,9 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Create variable to store last id
+var currentId;
+
 // Populate table body with guides
 $(document).ready(function () {
   var markersRef = firebase.database().ref('guides');
@@ -29,6 +32,7 @@ $(document).ready(function () {
       tr.append("<td>" + childData.payrate + "</td>");
       tr.append('<td><button type="button" class="btn btn-danger" onclick="showDelWarning(\'' + childData.uid + '\')">X</button></td>');
       $('table').append(tr);
+      currentId = childData.gid;
     });
   });
 });
@@ -115,6 +119,7 @@ function saveGuideToDb(name, payrate, rating, occupation, languages, specializat
 
 // Update the Database View
 function updateGuide(guideId, name, payrate, rating, occupation, languages, specialization) {
+  currentId++;
   var guide = {
     uid: guideId,
     name: name,
@@ -124,7 +129,8 @@ function updateGuide(guideId, name, payrate, rating, occupation, languages, spec
     languages: languages,
     specialization: specialization,
     lat: "40.6291606863165", 
-    long: "22.948215252108092"
+    long: "22.948215252108092",
+    gid: currentId
   };
   updateDb(guideId, guide);
 }
