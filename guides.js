@@ -122,7 +122,9 @@ function updateGuide(guideId, name, payrate, rating, occupation, languages, spec
     rating: rating,
     occupation: occupation,
     languages: languages,
-    specialization: specialization
+    specialization: specialization,
+    lat:40.6291606863165, 
+    long:22.948215252108092
   };
   updateDb(guideId, guide);
 }
