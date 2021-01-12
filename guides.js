@@ -123,8 +123,8 @@ function updateGuide(guideId, name, payrate, rating, occupation, languages, spec
     occupation: occupation,
     languages: languages,
     specialization: specialization,
-    lat:40.6291606863165, 
-    long:22.948215252108092
+    lat: "40.6291606863165", 
+    long: "22.948215252108092"
   };
   updateDb(guideId, guide);
 }
@@ -140,7 +140,6 @@ function updateDb(uid, guide) {
   updates['/guides/' + uid] = guide;
   return firebase.database().ref().update(updates);
 }
-
 
 // Open warning Popup
 function showDelWarning(guideId) {
