@@ -156,7 +156,7 @@ function closeChat() {
 }
 
 // Save a new Request to DB
-$(
+//$(
   function saveRequestToDb() {
   var userid = firebase.database().ref().child('requests').push().key;
   var name = 'Ηλίας Γεωργίου';
@@ -173,7 +173,7 @@ $(
   var requestId = firebase.database().ref().child('requests').push().key;
   updateRequest(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state);
 }
-);
+//);
 
 // Update the Database View
 function updateRequest(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, meetingplace, state) {
