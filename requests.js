@@ -187,8 +187,8 @@ function updateRequest(requestId, userid, cost, name, guide, tourtype, date, dur
     paymentmethod: paymentmethod,
     meetingplace: meetingplace,
     state: state,
-    cost: cost,
-    duration: duration,
+    cost: parseInt(cost),
+    duration: parseInt(duration),
     isavailable: isavailable,
     ispaid: ispaid
   };
@@ -226,8 +226,8 @@ function showDelWarning(requestId, userid, cost, name, guide, tourtype, date, du
     paymentmethod: paymentmethod,
     meetingplace: meetingplace,
     state: state,
-    cost: cost,
-    duration: duration,
+    cost: parseInt(cost),
+    duration: parseInt(duration),
     isavailable: isavailable,
     ispaid: ispaid
   };
@@ -250,8 +250,8 @@ function acceptButtons(requestId, userid, cost, name, guide, tourtype, date, dur
     paymentmethod: paymentmethod,
     meetingplace: meetingplace,
     state: state,
-    cost: cost,
-    duration: duration,
+    cost: parseInt(cost),
+    duration: parseInt(duration),
     isavailable: isavailable,
     ispaid: ispaid
   };
@@ -279,8 +279,8 @@ function undoState(requestId, userid, cost, name, guide, tourtype, date, duratio
     paymentmethod: paymentmethod,
     meetingplace: meetingplace,
     state: state,
-    cost: cost,
-    duration: duration,
+    cost: parseInt(cost),
+    duration: parseInt(duration),
     isavailable: isavailable,
     ispaid: ispaid
   };
