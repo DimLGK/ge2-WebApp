@@ -238,7 +238,6 @@ function showDelWarning(requestId, userid, cost, name, guide, tourtype, date, du
   //delButtons();
 }
 
-
 function acceptButtons(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, payment, meetingplace, state) {
   isavailable = true;
   ispaid = true;
@@ -261,12 +260,12 @@ function acceptButtons(requestId, userid, cost, name, guide, tourtype, date, dur
   //uid ,userid,cost ,name, guide ,tourtype ,date ,duration,isavailable ,ispaid,paymentmethod,meetingplace,state
   //console.log("request: "+request);
   request.state = '1';
-  uid = request.uid;
+  //uid = request.uid;
   // console.log("request, uid: "+request, uid);
   // document.getElementById("acceptButton" + uid).style.display = "none";
   // document.getElementById("deleteButton" + uid).style.display = "none";
   // document.getElementById("delFeedback" + uid).style.display = "block";
-  updateDb(uid, request);
+  updateDb(request.uid, request);
 }
 
 function undoState(requestId, userid, cost, name, guide, tourtype, date, duration, isavailable, ispaid, paymentmethod, payment, meetingplace, state) {
@@ -290,12 +289,12 @@ function undoState(requestId, userid, cost, name, guide, tourtype, date, duratio
   };
   //console.log("request: "+request);
   request.state = '0';
-  uid = request.uid;
+  //uid = request.uid;
   // console.log("request, uid: "+request, uid);
   // document.getElementById("acceptButton" + uid).style.display = "none";
   // document.getElementById("deleteButton" + uid).style.display = "none";
   // document.getElementById("delFeedback" + uid).style.display = "block";
-  updateDb(uid, request);
+  updateDb(request.uid, request);
 }
 
 
@@ -309,13 +308,13 @@ function delButtons() {
   request = requestData;
   //console.log("request: "+request);
   request.state = '2';
-  uid = request.uid;
+  //uid = request.uid;
   //console.log(request, uid);
   // document.getElementById("acceptButton" + uid).style.display = "none";
   // document.getElementById("deleteButton" + uid).style.display = "none";
   // document.getElementById("delFeedback" + uid).style.display = "block";
 
-  updateDb(uid, request);
+  updateDb(request.uid, request);
   //localStorage.clear();
   localStorage.removeItem('requestData');
 }
