@@ -255,7 +255,7 @@ function acceptButtons(requestId, userid, cost, name, guide, tourtype, date, dur
     isavailable: isavailable,
     ispaid: ispaid
   };
-  uid ,userid,cost ,name, guide ,tourtype ,date ,duration,isavailable ,ispaid,paymentmethod,meetingplace,state
+  //uid ,userid,cost ,name, guide ,tourtype ,date ,duration,isavailable ,ispaid,paymentmethod,meetingplace,state
   //console.log("request: "+request);
   request.state = '1';
   uid = request.uid;
